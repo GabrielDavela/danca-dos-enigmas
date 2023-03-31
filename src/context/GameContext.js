@@ -39,6 +39,13 @@ const reducer = (state, action) => {
                 ...state,
                 match: action.payload
             }
+        case 'ADD_MESSAGE': 
+            return {
+                ...state, 
+                messages: [...state.messages, action.payload]
+            }
+        default:
+            return state
     }
 
 }
@@ -49,7 +56,8 @@ const initialState = {
     players: {},
     room: {},
     rooms: {},
-    match: {}
+    match: {},
+    messages: []
 }
 
 const GameProvider = (props) => {
@@ -78,10 +86,16 @@ const GameProvider = (props) => {
             dispatch({ type: 'ROOM', payload: socket.id })
         })
 
+        // É tipo o match do tinder ksksks
         socket.on('MatchRefresh', (match) => {
             dispatch({ type: 'MATCH', payload: match })
         })
 
+        // Vai receber a mensagem para colocar no chat desse cliente
+        // Vale ressaltar que todos os clientes vão receber isso, assim criando aquela experiência de chat
+        socket.on('ReceiveMessage', (receivedMessage) => {
+            dispatch({ type: 'ADD_MESSAGE', payload: receivedMessage })
+        })
 
         // Vai fazer com que autoConnect se transforme em true
         socket.open()
@@ -98,6 +112,10 @@ const GameProvider = (props) => {
     )
 }
 
+const sendMessage = (message) => {
+    socket.emit('SendMessage', message)
+}
+
 const createRoom = () => {
     socket.emit('CreateRoom')
 }
@@ -106,13 +124,14 @@ const leaveRoom = () => {
     socket.emit('LeaveRoom')
 }
 
-const joinRoom = () => {
-    socket.emit('JoinRoom')
+const joinRoom = (roomId) => {
+    socket.emit('JoinRoom', roomId)
 }
 
 export {
     GameContext,
     GameProvider,
+    sendMessage,
     createRoom,
     leaveRoom,
     joinRoom

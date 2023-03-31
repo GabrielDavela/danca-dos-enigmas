@@ -1,11 +1,12 @@
 import { useContext } from "react";
-import { GameContext } from "../../context/GameContext";
+import { GameContext, sendMessage } from "../../context/GameContext";
+import Chat from "../chat/Chat";
 import PlayerList from "../playerlist/PlayerList";
 import Rooms from "../rooms/Rooms";
 
 const Home = () => {
 
-    const { isConnected, players } = useContext(GameContext)
+    const { isConnected, players, messages } = useContext(GameContext)
 
     return (
         <>
@@ -15,6 +16,7 @@ const Home = () => {
 
             <PlayerList players={players}/>
             <Rooms />
+            <Chat sendMessage={sendMessage} messages={messages}/>
 
         </>
     )
