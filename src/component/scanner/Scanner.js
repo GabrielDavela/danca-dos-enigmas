@@ -14,6 +14,9 @@ const Scanner = () => {
                 <a-entity mindar-image-target="targetIndex: 0">
                     <a-plane src="#card" position="0 0 0" height="2.5" width="2" rotation="0 0 0"></a-plane>
                 </a-entity>
+                <a-entity mindar-image-target="targetIndex: 1">
+                    <a-plane src="#card" position="0 0 0" height="2.5" width="2" rotation="0 0 0"></a-plane>
+                </a-entity>
             </a-scene>
         </div>
     )
