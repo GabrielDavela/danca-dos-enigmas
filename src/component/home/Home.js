@@ -3,6 +3,7 @@ import { GameContext, sendMessage } from "../../context/GameContext";
 import Chat from "../chat/Chat";
 import PlayerList from "../playerlist/PlayerList";
 import Rooms from "../rooms/Rooms";
+import Scanner from "../scanner/Scanner";
 
 const Home = () => {
 
@@ -14,9 +15,10 @@ const Home = () => {
                 <div>Desconectado, conectando...</div>
             }
 
-            <PlayerList players={players}/>
+            {/* <PlayerList players={players}/>
             <Rooms />
-            <Chat sendMessage={sendMessage} messages={messages}/>
+            <Chat sendMessage={sendMessage} messages={messages}/> */}
+            <Scanner />
 
         </>
     )
