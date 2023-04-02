@@ -1,9 +1,14 @@
 import React from 'react'
-import _ from 'mind-ar/dist/mindar-image-three.prod.js';
+import { Helmet } from "react-helmet";
 
 const Scanner = () => {
     return (
         <div>
+            <Helmet>
+                <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js'></script>
+                <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+            </Helmet>
+            
             <a-scene class="scene" embedded vr-mode-ui="enabled: false" arjs=" sourceType: webcam; debugUIEnabled: false;">
                 <a-assets>
                     <img id="cat" src="./download.jfif" />
