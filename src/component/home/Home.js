@@ -11,9 +11,9 @@ const Home = () => {
 
     return (
         <>
-            {!isConnected &&
+            {/* {!isConnected &&
                 <div>Desconectado, conectando...</div>
-            }
+            } */}
 
             {/* <PlayerList players={players}/>
             <Rooms />
