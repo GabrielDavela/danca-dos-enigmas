@@ -4,10 +4,6 @@ import { Helmet } from "react-helmet";
 const Scanner = () => {
     return (
         <div>
-            <Helmet>
-                <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.1/dist/mindar-image-aframe.prod.js"></script>
-            </Helmet>
             <a-scene mindar-image="imageTargetSrc: https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.1/examples/image-tracking/assets/card-example/card.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
                 <a-assets>
                     <img id="card" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.1/examples/image-tracking/assets/card-example/card.png" />
