@@ -10,16 +10,24 @@ const Scanner = (props) => {
     const [targetIndex, setTargetIndex] = useState(null)
 
     useEffect(() => {
-        document.addEventListener('targetFound', (e) => {
+
+        const handleTargetFound = (e) => {
             alert("achou algo " + e.detail)
             setTargetIndex(e.detail.targetIndex)
-        })
+            alert(targetIndex)
+        }
+
+        document.addEventListener('targetFound', handleTargetFound)
+
+        return () => {
+            document.removeEventListener('targetFound', handleTargetFound);
+        }
     }, [])
 
     return (
         <div style={{ height: '100vh' }}>
             <div style={{ background: "#FFF" }}>teste: {targetIndex}</div>
-            <a-scene 
+            <a-scene
                 mindar-image={`imageTargetSrc: ${target};`}
                 color-space="sRGB"
                 renderer="colorManagement: true, physicallyCorrectLights"
