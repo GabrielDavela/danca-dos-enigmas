@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import target from '../../assets/first-cards/first-cards.mind'
 import carta_grupo01 from '../../assets/first-cards/documents/carta-grupo-01.png'
 import carta_grupo02 from '../../assets/first-cards/documents/carta-grupo-02.png'
@@ -9,14 +9,22 @@ const Scanner = (props) => {
 
     const target_cards = document.querySelector("#target-cards")
 
-    target_cards.addEventListener("targetFound", (e) => {
-        // const targetIndex = e.detail.targetIndex;
-        // if(targetIndex === 0) {
-        //     alert(targetIndex)
+    // target_cards.addEventListener("targetFound", (e) => {
+    //     // const targetIndex = e.detail.targetIndex;
+    //     // if(targetIndex === 0) {
+    //     //     alert(targetIndex)
 
-        // }
-        alert("achou algo")
-    })
+    //     // }
+    //     alert("achou algo")
+    // })
+
+    useEffect(() => {
+
+        document.addEventListener('targetFound', (e) => {
+            alert("achou algo")
+        })
+
+    }, [])
 
     return (
         <div style={{height: '100vh'}}>
