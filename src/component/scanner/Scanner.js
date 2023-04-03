@@ -21,12 +21,13 @@ const Scanner = (props) => {
     useEffect(() => {
 
         document.addEventListener('targetFound', (e) => {
+            alert("achou algo")
             const targetIndex = e.detail.targetIndex
             if (targetIndex === 0) {
                 alert(targetIndex)
             }
+            alert("achou mas não é o que quero")
 
-            alert("achou algo")
         })
 
     }, [])
