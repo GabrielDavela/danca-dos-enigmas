@@ -7,7 +7,7 @@ import Scanner from "../scanner/Scanner";
 
 const Home = () => {
 
-    const { isConnected, players, messages } = useContext(GameContext)
+    const { isConnected, players, player, messages } = useContext(GameContext)
 
     return (
         <>
@@ -18,7 +18,7 @@ const Home = () => {
             {/* <PlayerList players={players}/>
             <Rooms />
             <Chat sendMessage={sendMessage} messages={messages}/> */}
-            <Scanner />
+            <Scanner player={player}/>
 
         </>
     )
