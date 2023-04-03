@@ -13,6 +13,7 @@ const Scanner = (props) => {
         const targetIndex = event.detail.targetIndex;
         if(targetIndex === 0) {
             alert(targetIndex)
+            
         }
     })
 
