@@ -8,15 +8,12 @@ import carta_grupo04 from '../../assets/first-cards/documents/carta-grupo-04.png
 const Scanner = (props) => {
 
     useEffect(() => {
-
         document.addEventListener('targetFound', (e) => {
             alert("achou algo")
-            const targetIndex = e.target.index
+            const targetIndex = e.detail.targetIndex;
             alert(targetIndex)
             alert("achou mas não é o que quero")
-
         })
-
     }, [])
 
     return (
