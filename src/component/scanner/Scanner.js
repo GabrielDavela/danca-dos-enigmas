@@ -9,12 +9,12 @@ const Scanner = (props) => {
 
     const target_cards = document.getElementById("target-cards")
 
-    target_cards.addEventListener("targetFound", () => {
-        // const targetIndex = event.detail.targetIndex;
-        // if(targetIndex === 0) {
-        //     alert(targetIndex)
+    target_cards.addEventListener("targetFound", (e) => {
+        const targetIndex = e.detail.targetIndex;
+        if(targetIndex === 0) {
+            alert(targetIndex)
 
-        // }
+        }
     })
 
 
