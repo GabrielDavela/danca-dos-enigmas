@@ -18,16 +18,16 @@ const Scanner = () => {
 
                 <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
                 <a-entity mindar-image-target="targetIndex: 0">
-                    <a-plane src="#groupCard01" position="0 0 0" height="2.5" width="1.7" rotation="0 0 0"></a-plane>
+                    <a-plane src="#groupCard01" position="0 0 0" height="2.3" width="1.6" rotation="0 0 0"></a-plane>
                 </a-entity>
                 <a-entity mindar-image-target="targetIndex: 1">
-                    <a-plane src="#groupCard02" position="0 0 0" height="2.5" width="1.7" rotation="0 0 0"></a-plane>
+                    <a-plane src="#groupCard02" position="0 0 0" height="2.3" width="1.6" rotation="0 0 0"></a-plane>
                 </a-entity>
                 <a-entity mindar-image-target="targetIndex: 2">
-                    <a-plane src="#groupCard03" position="0 0 0" height="2.5" width="1.7" rotation="0 0 0"></a-plane>
+                    <a-plane src="#groupCard03" position="0 0 0" height="2.3" width="1.6" rotation="0 0 0"></a-plane>
                 </a-entity>
                 <a-entity mindar-image-target="targetIndex: 3">
-                    <a-plane src="#groupCard04" position="0 0 0" height="2.5" width="1.7" rotation="0 0 0"></a-plane>
+                    <a-plane src="#groupCard04" position="0 0 0" height="2.3" width="1.6" rotation="0 0 0"></a-plane>
                 </a-entity>
             </a-scene>
         </div>
