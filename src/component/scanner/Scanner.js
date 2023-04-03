@@ -11,7 +11,7 @@ const Scanner = (props) => {
 
         document.addEventListener('targetFound', (e) => {
             alert("achou algo")
-            const targetIndex = e.target.
+            const targetIndex = e.target.index
             alert(targetIndex)
             alert("achou mas não é o que quero")
 
