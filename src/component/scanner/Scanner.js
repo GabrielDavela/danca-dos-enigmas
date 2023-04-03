@@ -9,14 +9,14 @@ const Scanner = (props) => {
 
     const target_cards = document.querySelector("#target-cards")
 
-    // target_cards.addEventListener("targetFound", (e) => {
-    //     // const targetIndex = e.detail.targetIndex;
-    //     // if(targetIndex === 0) {
-    //     //     alert(targetIndex)
+    target_cards.addEventListener("targetFound", (e) => {
+        // const targetIndex = e.detail.targetIndex;
+        // if(targetIndex === 0) {
+        //     alert(targetIndex)
 
-    //     // }
-    //     alert("achou algo")
-    // })
+        // }
+        alert("achou algo")
+    })
 
     return (
         <div style={{height: '100vh'}}>
