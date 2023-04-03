@@ -11,7 +11,7 @@ const Scanner = (props) => {
 
     useEffect(() => {
         document.addEventListener('targetFound', (e) => {
-            alert("achou algo", e.detail)
+            alert("achou algo " + e.detail)
             setTargetIndex(e.detail.targetIndex)
         })
     }, [])
