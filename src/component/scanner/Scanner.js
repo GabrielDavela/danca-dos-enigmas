@@ -22,21 +22,21 @@ const Scanner = (props) => {
 
         document.addEventListener('targetFound', (e) => {
             const targetIndex = e.detail.targetIndex
-            if(targetIndex === 0) {
+            if (targetIndex === 0) {
                 alert(targetIndex)
-            } else {
-                alert("achou algo")
             }
+
+            alert("achou algo")
         })
 
     }, [])
 
     return (
-        <div style={{height: '100vh'}}>
-            <a-scene mindar-image={`imageTargetSrc: ${target};`} 
-                color-space="sRGB" 
-                renderer="colorManagement: true, physicallyCorrectLights" 
-                vr-mode-ui="enabled: false" 
+        <div style={{ height: '100vh' }}>
+            <a-scene mindar-image={`imageTargetSrc: ${target};`}
+                color-space="sRGB"
+                renderer="colorManagement: true, physicallyCorrectLights"
+                vr-mode-ui="enabled: false"
                 device-orientation-permission-ui="enabled: false"
                 id="target-cards"
             >
