@@ -10,11 +10,11 @@ const Scanner = (props) => {
     const target_cards = document.getElementById("target-cards")
 
     target_cards.addEventListener("targetFound", () => {
-        const targetIndex = event.detail.targetIndex;
-        if(targetIndex === 0) {
-            alert(targetIndex)
-            
-        }
+        // const targetIndex = event.detail.targetIndex;
+        // if(targetIndex === 0) {
+        //     alert(targetIndex)
+
+        // }
     })
 
 
