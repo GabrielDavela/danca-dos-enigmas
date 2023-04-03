@@ -7,15 +7,15 @@ import carta_grupo04 from '../../assets/first-cards/documents/carta-grupo-04.png
 
 const Scanner = (props) => {
 
-    const target_cards = document.getElementById("target-cards")
+    // const target_cards = document.getElementById("target-cards")
 
-    target_cards.addEventListener("targetFound", (e) => {
-        const targetIndex = e.detail.targetIndex;
-        if(targetIndex === 0) {
-            alert(targetIndex)
+    // target_cards.addEventListener("targetFound", (e) => {
+    //     const targetIndex = e.detail.targetIndex;
+    //     if(targetIndex === 0) {
+    //         alert(targetIndex)
 
-        }
-    })
+    //     }
+    // })
 
 
     return (
