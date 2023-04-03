@@ -11,7 +11,7 @@ const Scanner = (props) => {
 
     useEffect(() => {
         document.addEventListener('targetFound', (e) => {
-            alert("achou algo")
+            alert("achou algo", e.detail)
             setTargetIndex(e.detail.targetIndex)
         })
     }, [])
@@ -19,7 +19,8 @@ const Scanner = (props) => {
     return (
         <div style={{ height: '100vh' }}>
             <div style={{ background: "#FFF" }}>teste: {targetIndex}</div>
-            <a-scene mindar-image={`imageTargetSrc: ${target};`}
+            <a-scene 
+                mindar-image={`imageTargetSrc: ${target};`}
                 color-space="sRGB"
                 renderer="colorManagement: true, physicallyCorrectLights"
                 vr-mode-ui="enabled: false"
