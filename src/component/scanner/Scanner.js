@@ -18,8 +18,8 @@ const Scanner = (props) => {
     }, [])
 
     return (
-        <div style={{ height: '100vh', background: '#FFF' }}>
-            <div>teste: {targetIndex}</div>
+        <div style={{ height: '100vh' }}>
+            <div style={{ background: "#FFF" }}>teste: {targetIndex}</div>
             <a-scene mindar-image={`imageTargetSrc: ${target};`}
                 color-space="sRGB"
                 renderer="colorManagement: true, physicallyCorrectLights"
