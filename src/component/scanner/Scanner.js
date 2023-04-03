@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import target from '../../assets/first-cards/first-cards.mind'
 import carta_grupo01 from '../../assets/first-cards/documents/carta-grupo-01.png'
 import carta_grupo02 from '../../assets/first-cards/documents/carta-grupo-02.png'
@@ -7,20 +7,18 @@ import carta_grupo04 from '../../assets/first-cards/documents/carta-grupo-04.png
 
 const Scanner = (props) => {
 
-    let targetIndex
+    const [targetIndex, setTargetIndex] = useState(null)
     useEffect(() => {
 
         document.addEventListener('targetFound', (e) => {
             alert("achou algo")
-            targetIndex = e.detail.targetIndex
-            alert(targetIndex)
-            alert("achou mas não é o que quero")
+            setTargetIndex(e.detail.targetIndex)
         })
 
     }, [])
 
     return (
-        <div style={{ height: '100vh' }}>
+        <div style={{ height: '100vh', background: '#FFF' }}>
             <div>teste: {targetIndex}</div>
             <a-scene mindar-image={`imageTargetSrc: ${target};`}
                 color-space="sRGB"
