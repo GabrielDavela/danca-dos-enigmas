@@ -12,7 +12,7 @@ const Scanner = (props) => {
 
         document.addEventListener('targetFound', (e) => {
             alert("achou algo")
-            setTargetIndex(e.detail.targetIndex)
+            setTargetIndex("Oii")
         })
 
     }, [])
