@@ -7,22 +7,11 @@ import carta_grupo04 from '../../assets/first-cards/documents/carta-grupo-04.png
 
 const Scanner = (props) => {
 
-    const target_cards = document.querySelector("#target-cards")
-
-    // target_cards.addEventListener("targetFound", (e) => {
-    //     // const targetIndex = e.detail.targetIndex;
-    //     // if(targetIndex === 0) {
-    //     //     alert(targetIndex)
-
-    //     // }
-    //     alert("achou algo")
-    // })
-
     useEffect(() => {
 
         document.addEventListener('targetFound', (e) => {
             alert("achou algo")
-            const targetIndex = e.target.value
+            const targetIndex = e.target.
             alert(targetIndex)
             alert("achou mas não é o que quero")
 
