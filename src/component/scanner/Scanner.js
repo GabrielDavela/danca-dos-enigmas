@@ -11,8 +11,8 @@ const Scanner = (props) => {
 
     useEffect(() => {
         document.querySelector("#target-cards").addEventListener('targetFound', (e) => {
-            setTargetIndex(e.target.index)
-            alert(targetIndex)
+            let a = e.target.index
+            alert(a)
         })
     }, [])
 
