@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import "./Scanner.css"
+
 import target from '../../assets/first-cards/first-cards.mind'
 import carta_grupo01 from '../../assets/first-cards/documents/carta-grupo-01.png'
 import carta_grupo02 from '../../assets/first-cards/documents/carta-grupo-02.png'
@@ -18,7 +20,7 @@ const Scanner = ({ player }) => {
 
 
     return (
-        <div style={{ height: '100vh' }}>
+        <div className='container__scanner'>
             <a-scene
                 mindar-image={`imageTargetSrc: ${target};`}
                 color-space="sRGB"
@@ -27,7 +29,7 @@ const Scanner = ({ player }) => {
                 device-orientation-permission-ui="enabled: false"
                 id="target-cards"
             >
-                <a-assets> 
+                <a-assets>
                     <img id='groupCard01' src={carta_grupo01} />
                     <img id='groupCard02' src={carta_grupo02} />
                     <img id='groupCard03' src={carta_grupo03} />
@@ -61,10 +63,10 @@ const Scanner = ({ player }) => {
                     </a-entity>
                 }
 
-                
-                    <button style={{margin: "100px"}}
-                    onClick={() => alert("Um confirmou")}>Confirmar</button>
-                
+                {showButton &&
+                    <button className='button__scanner'
+                        onClick={() => alert("Entrei")}>Pronto<span>0/4</span></button>
+                }
             </a-scene>
         </div>
     )
