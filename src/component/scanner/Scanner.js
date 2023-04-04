@@ -10,6 +10,8 @@ import carta_grupo04 from '../../assets/first-cards/documents/carta-grupo-04.png
 const Scanner = ({ player }) => {
 
     const [showButton, setShowButton] = useState(false)
+    const [disabled, setDisabled] = useState(false)
+
     document.addEventListener("targetFound", () => {
         setShowButton(true)
     })
@@ -17,6 +19,11 @@ const Scanner = ({ player }) => {
     document.addEventListener("targetLost", () => {
         setShowButton(false)
     })
+
+    const ready = () => {
+        alert("Entrei aqui e virei puta")
+        setDisabled(true)
+    }
 
 
     return (
@@ -65,7 +72,7 @@ const Scanner = ({ player }) => {
 
                 {showButton &&
                     <button className='button__scanner'
-                        onClick={() => alert("Entrei")}>Pronto<span>0/4</span></button>
+                        onClick={ready} disabled={disabled}>Pronto<span>0/4</span></button>
                 }
             </a-scene>
         </div>
