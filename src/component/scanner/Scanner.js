@@ -36,7 +36,7 @@ const Scanner = (props) => {
                 </a-assets>
 
                 <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-                <a-entity data-mindar-target-index="0" mindar-image-target>
+                <a-entity mindar-image-target="targetIndex: 0">
                     <a-plane src="#groupCard01" position="0 0 0" height="2.3" width="1.6" rotation="0 0 0"></a-plane>
                 </a-entity>
                 <a-entity mindar-image-target="targetIndex: 1">
