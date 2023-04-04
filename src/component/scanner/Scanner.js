@@ -62,7 +62,8 @@ const Scanner = ({ player }) => {
                 }
 
                 {showButton &&
-                    <button onClick={() => alert("Um confirmou")}>Confirmar</button>
+                    <button style={{margin: "100px"}}
+                    onClick={() => alert("Um confirmou")}>Confirmar</button>
                 }
             </a-scene>
         </div>
