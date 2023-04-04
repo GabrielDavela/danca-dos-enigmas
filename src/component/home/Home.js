@@ -23,10 +23,13 @@ const Home = () => {
 
             {/* <PlayerList players={players}/>
             <Rooms />
-            <Chat sendMessage={sendMessage} messages={messages}/>
-            <Scanner player={player}/> */}
+            <Chat sendMessage={sendMessage} messages={messages}/> */}
+            {!isOpenModal &&
+                <Scanner player={player} />
+            }
+            
             {isOpenModal &&
-                <ChooseTeam player={player} handleCloseModal={handleCloseModal}/>
+                <ChooseTeam player={player} handleCloseModal={handleCloseModal} />
             }
         </div>
     )

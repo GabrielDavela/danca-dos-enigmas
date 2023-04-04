@@ -5,13 +5,13 @@ import carta_grupo02 from '../../assets/first-cards/documents/carta-grupo-02.png
 import carta_grupo03 from '../../assets/first-cards/documents/carta-grupo-03.png'
 import carta_grupo04 from '../../assets/first-cards/documents/carta-grupo-04.png'
 
-const Scanner = (props) => {
+const Scanner = ({ player }) => {
 
 
 
     return (
         <div style={{ height: '100vh' }}>
-            <a-scene 
+            <a-scene
                 mindar-image={`imageTargetSrc: ${target};`}
                 color-space="sRGB"
                 renderer="colorManagement: true, physicallyCorrectLights"
@@ -27,18 +27,29 @@ const Scanner = (props) => {
                 </a-assets>
 
                 <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-                <a-entity mindar-image-target="targetIndex: 0">
-                    <a-plane src="#groupCard01" position="0 0 0" height="2.3" width="1.6" rotation="0 0 0"></a-plane>
-                </a-entity>
-                <a-entity mindar-image-target="targetIndex: 1">
-                    <a-plane src="#groupCard02" position="0 0 0" height="2.3" width="1.6" rotation="0 0 0"></a-plane>
-                </a-entity>
-                <a-entity mindar-image-target="targetIndex: 2">
-                    <a-plane src="#groupCard03" position="0 0 0" height="2.3" width="1.6" rotation="0 0 0"></a-plane>
-                </a-entity>
-                <a-entity mindar-image-target="targetIndex: 3">
-                    <a-plane src="#groupCard04" position="0 0 0" height="2.3" width="1.6" rotation="0 0 0"></a-plane>
-                </a-entity>
+                {player.color.toLowerCase() === "vermelho" &&
+                    <a-entity mindar-image-target="targetIndex: 0">
+                        <a-plane src="#groupCard01" position="0 0 0" height="2.3" width="1.6" rotation="0 0 0"></a-plane>
+                    </a-entity>
+                }
+
+                {player.color.toLowerCase() === "azul" &&
+                    <a-entity mindar-image-target="targetIndex: 1">
+                        <a-plane src="#groupCard02" position="0 0 0" height="2.3" width="1.6" rotation="0 0 0"></a-plane>
+                    </a-entity>
+                }
+
+                {player.color.toLowerCase() === "amarelo" &&
+                    <a-entity mindar-image-target="targetIndex: 2">
+                        <a-plane src="#groupCard03" position="0 0 0" height="2.3" width="1.6" rotation="0 0 0"></a-plane>
+                    </a-entity>
+                }
+                
+                {player.color.toLowerCase() === "verde" &&
+                    <a-entity mindar-image-target="targetIndex: 3">
+                        <a-plane src="#groupCard04" position="0 0 0" height="2.3" width="1.6" rotation="0 0 0"></a-plane>
+                    </a-entity>
+                }
             </a-scene>
         </div>
     )
