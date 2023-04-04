@@ -1,0 +1,88 @@
+
+.container__modal-chooseteam {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.modal-chooseteam {
+    position: fixed;
+    z-index: 1000;
+    width: 20rem;
+    height: 15rem;
+    background-color: #C0854C;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.title__modal-chooseteam{
+    font-size: 15px;
+    color: #662401;
+}
+
+.button__modal-chooseteam {
+    height: 2.8rem;
+    width: 6rem;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    color: #FFF;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.container__buttons-chooseteam{
+    height: 7.4rem;
+    width: 13.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.container__buttons-chooseteam > div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#red {
+    background-color: #F20F38;
+}
+
+#red:hover {
+    background-color: #c9062a;
+}
+
+#yellow {
+    background-color: #F2CB05;
+}
+
+#yellow:hover {
+    background-color: #dcbd22;
+}
+
+#green {
+    background-color: #5DBE49;
+}
+
+#green:hover {
+    background-color: #47a934;
+}
+
+#blue {
+    background-color: #2975DB;
+}
+
+#blue:hover {
+    background-color: #1d59a7;
+}

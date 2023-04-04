@@ -7,18 +7,10 @@ import carta_grupo04 from '../../assets/first-cards/documents/carta-grupo-04.png
 
 const Scanner = (props) => {
 
-    const [targetIndex, setTargetIndex] = useState(null)
 
-    useEffect(() => {
-        document.querySelector("#target-cards").addEventListener('targetFound', (e) => {
-            let a = e.target.getAttribue('targetIndex')
-            alert(a)
-        })
-    }, [])
 
     return (
         <div style={{ height: '100vh' }}>
-            <div style={{ background: "#FFF" }}>teste: {targetIndex}</div>
             <a-scene 
                 mindar-image={`imageTargetSrc: ${target};`}
                 color-space="sRGB"
