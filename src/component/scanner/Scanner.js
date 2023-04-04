@@ -11,14 +11,14 @@ const Scanner = (props) => {
 
     useEffect(() => {
         document.querySelector("#target-cards").addEventListener('targetFound', (e) => {
-            let a = e.target.index
+            let a = Number.parseInt(e.target.index)
             alert(a)
         })
     }, [])
 
     return (
         <div style={{ height: '100vh' }}>
-            <div style={{ background: "#FFF" }}>teste: {targetIndex}</div>
+            <div style={{ background: "#FFF" }}>TESTE: {targetIndex}</div>
             <a-scene 
                 mindar-image={`imageTargetSrc: ${target};`}
                 color-space="sRGB"
