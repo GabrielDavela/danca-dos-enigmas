@@ -10,8 +10,12 @@ const Scanner = (props) => {
     const [targetIndex, setTargetIndex] = useState(null)
 
     useEffect(() => {
-        alert(`Novo valor de targetIndex: ${targetIndex}`);
-      }, [targetIndex]);
+        document.addEventListener('targetFound', (e) => {
+            alert("achou algo " + JSON.stringify(e.detail))
+            setTargetIndex(e.detail.targetIndex)
+            alert(targetIndex)
+        })
+    }, [])
 
     return (
         <div style={{ height: '100vh' }}>
