@@ -7,6 +7,14 @@ import carta_grupo04 from '../../assets/first-cards/documents/carta-grupo-04.png
 
 const Scanner = ({ player }) => {
 
+    const [showButton, setShowButton] = useState(false)
+    document.addEventListener("targetFound", () => {
+        setShowButton(true)
+    })
+
+    document.addEventListener("targetLost", () => {
+        setShowButton(false)
+    })
 
 
     return (
@@ -19,11 +27,13 @@ const Scanner = ({ player }) => {
                 device-orientation-permission-ui="enabled: false"
                 id="target-cards"
             >
-                <a-assets>
+                <a-assets> 
                     <img id='groupCard01' src={carta_grupo01} />
                     <img id='groupCard02' src={carta_grupo02} />
                     <img id='groupCard03' src={carta_grupo03} />
                     <img id='groupCard04' src={carta_grupo04} />
+
+
                 </a-assets>
 
                 <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
@@ -44,11 +54,15 @@ const Scanner = ({ player }) => {
                         <a-plane src="#groupCard03" position="0 0 0" height="2.3" width="1.6" rotation="0 0 0"></a-plane>
                     </a-entity>
                 }
-                
+
                 {player.color.toLowerCase() === "verde" &&
                     <a-entity mindar-image-target="targetIndex: 3">
                         <a-plane src="#groupCard04" position="0 0 0" height="2.3" width="1.6" rotation="0 0 0"></a-plane>
                     </a-entity>
+                }
+
+                {showButton &&
+                    <button onClick={() => alert("Um confirmou")}>Confirmar</button>
                 }
             </a-scene>
         </div>
