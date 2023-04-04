@@ -16,10 +16,6 @@ const Scanner = (props) => {
         })
     }, [])
 
-    useEffect(() => {
-        alert(`achou algo ${targetIndex}`);
-      }, [targetIndex]);
-
     return (
         <div style={{ height: '100vh' }}>
             <div style={{ background: "#FFF" }}>TESTE: {targetIndex}</div>
