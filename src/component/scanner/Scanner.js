@@ -61,10 +61,10 @@ const Scanner = ({ player }) => {
                     </a-entity>
                 }
 
-                {showButton &&
+                
                     <button style={{margin: "100px"}}
                     onClick={() => alert("Um confirmou")}>Confirmar</button>
-                }
+                
             </a-scene>
         </div>
     )
