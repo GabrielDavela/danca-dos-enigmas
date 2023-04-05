@@ -70,7 +70,7 @@ const Scanner = ({ player }) => {
                     </a-entity>
                 }
 
-                {!showButton &&
+                {showButton &&
                     <button className='button__scanner'
                         onClick={ready} disabled={disabled}>Pronto<span>0/4</span></button>
                 }
