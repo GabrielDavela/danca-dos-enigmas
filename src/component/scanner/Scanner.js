@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./Scanner.css"
 
 import target from '../../assets/first-cards/first-cards.mind'
@@ -6,11 +6,13 @@ import carta_grupo01 from '../../assets/first-cards/documents/carta-grupo-01.png
 import carta_grupo02 from '../../assets/first-cards/documents/carta-grupo-02.png'
 import carta_grupo03 from '../../assets/first-cards/documents/carta-grupo-03.png'
 import carta_grupo04 from '../../assets/first-cards/documents/carta-grupo-04.png'
+import { GameContext, readyPlayer } from '../../context/GameContext'
 
 const Scanner = ({ player }) => {
 
     const [showButton, setShowButton] = useState(false)
     const [disabled, setDisabled] = useState(false)
+    const { readyplayers } = useContext(GameContext)
 
     document.addEventListener("targetFound", () => {
         setShowButton(true)
@@ -21,8 +23,9 @@ const Scanner = ({ player }) => {
     })
 
     const ready = () => {
-        console.log("Entrei aqui e virei puta")
+        console.log("Entrei aqui")
         setDisabled(true)
+        readyPlayer()
     }
 
 
@@ -70,9 +73,9 @@ const Scanner = ({ player }) => {
                     </a-entity>
                 }
 
-                {showButton &&
+                {!showButton &&
                     <button className='button__scanner'
-                        onClick={ready} disabled={disabled}>Pronto<span>0/4</span></button>
+                        onClick={ready} disabled={disabled}>Pronto<span>{readyplayers}/4</span></button>
                 }
             </a-scene>
         </div>

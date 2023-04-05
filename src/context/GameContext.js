@@ -39,10 +39,15 @@ const reducer = (state, action) => {
                 ...state,
                 match: action.payload
             }
-        case 'ADD_MESSAGE': 
+        case 'ADD_MESSAGE':
             return {
-                ...state, 
+                ...state,
                 messages: [...state.messages, action.payload]
+            }
+        case 'READY_PLAYERS':
+            return {
+                ...state,
+                readyplayers: action.payload
             }
         default:
             return state
@@ -57,7 +62,8 @@ const initialState = {
     room: {},
     rooms: {},
     match: {},
-    messages: []
+    messages: [],
+    readyplayers: 0
 }
 
 const GameProvider = (props) => {
@@ -97,6 +103,12 @@ const GameProvider = (props) => {
             dispatch({ type: 'ADD_MESSAGE', payload: receivedMessage })
         })
 
+        socket.on('ReadyPlayersRefresh', (contador) => {
+            dispatch({ type: 'READY_PLAYERS', payload: contador })
+        })
+
+        socket.on("")
+
         // Vai fazer com que autoConnect se transforme em true
         socket.open()
 
@@ -128,11 +140,16 @@ const joinRoom = (roomId) => {
     socket.emit('JoinRoom', roomId)
 }
 
+const readyPlayer = () => {
+    socket.emit('ReadyPlayer')
+}
+
 export {
     GameContext,
     GameProvider,
     sendMessage,
     createRoom,
     leaveRoom,
-    joinRoom
+    joinRoom,
+    readyPlayer
 }
