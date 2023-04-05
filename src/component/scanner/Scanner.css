@@ -12,10 +12,15 @@
     z-index: 100;
     bottom: 100px;
     box-sizing: border-box;
+    transition: all .1s ease-in;
 }
 
 .button__scanner > span {
     margin-left: 5px;
+}
+
+.button__scanner:disabled {
+    background-color: #E0E0E0;
 }
 
 .container__scanner > a-scene {
