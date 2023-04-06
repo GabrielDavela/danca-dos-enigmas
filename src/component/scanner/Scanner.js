@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import "./Scanner.css"
 
 import target from '../../assets/first-cards/first-cards.mind'
-import carta_grupo01 from '../../assets/first-cards/documents/targets-gp-01.mind'
+import targetGp01 from '../../assets/group-01/targets-gp-01.mind'
+import carta_grupo01 from '../../assets/first-cards/documents/carta-grupo-01.png'
 import carta_grupo02 from '../../assets/first-cards/documents/carta-grupo-02.png'
 import carta_grupo03 from '../../assets/first-cards/documents/carta-grupo-03.png'
 import carta_grupo04 from '../../assets/first-cards/documents/carta-grupo-04.png'
@@ -14,6 +15,8 @@ const Scanner = ({ player }) => {
     const [showButton, setShowButton] = useState(false)
     const [disabled, setDisabled] = useState(false)
     const { readyplayers } = useContext(GameContext)
+
+    const test = true;
 
     document.addEventListener("targetFound", () => {
         setShowButton(true)
@@ -38,6 +41,14 @@ const Scanner = ({ player }) => {
 
     return (
         <div className='container__scanner'>
+            <a-scene
+                mindar-image={`imageTargetSrc: ${targetGp01};`}
+                color-space="sRGB"
+                renderer="colorManagement: true, physicallyCorrectLights"
+                vr-mode-ui="enabled: false"
+                device-orientation-permission-ui="enabled: false"
+                id="target-cards-gp01"
+            ></a-scene>
             <a-scene
                 mindar-image={`imageTargetSrc: ${target};`}
                 color-space="sRGB"
@@ -85,6 +96,7 @@ const Scanner = ({ player }) => {
                         onClick={ready} disabled={disabled}>Pronto<span>{readyplayers}/4</span></button>
                 }
             </a-scene>
+
         </div>
     )
 }
