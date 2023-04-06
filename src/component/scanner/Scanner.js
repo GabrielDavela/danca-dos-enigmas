@@ -11,7 +11,7 @@ import carta_grupo03 from '../../assets/first-cards/documents/carta-grupo-03.png
 import carta_grupo04 from '../../assets/first-cards/documents/carta-grupo-04.png'
 
 // targets das pistas de cada grupo
-import targetGp01 from '../../assets/group-01/target/targets-gp-01.mind'
+import targetGp01 from "../../assets/group-01/target/targets-gp-01.mind"
 
 // imagens das pistas do grupo 01
 import pista01Gp01 from "../../assets/group-01/pistas/pista-01-criptografiaP.png"
