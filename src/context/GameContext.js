@@ -107,8 +107,6 @@ const GameProvider = (props) => {
             dispatch({ type: 'READY_PLAYERS', payload: contador })
         })
 
-        socket.on("")
-
         // Vai fazer com que autoConnect se transforme em true
         socket.open()
 

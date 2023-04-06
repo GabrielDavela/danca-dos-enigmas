@@ -6,7 +6,6 @@ const ChooseTeam = ({ player, handleCloseModal }) => {
 
     const handleChooseTeam = (color) => {
         player.color = color
-        console.log(player.color)
         handleCloseModal()
     }   
 

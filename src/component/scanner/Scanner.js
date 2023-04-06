@@ -23,11 +23,17 @@ const Scanner = ({ player }) => {
     })
 
     const ready = () => {
-        console.log("Entrei aqui")
         setDisabled(true)
         readyPlayer()
     }
 
+    const funcao = () => {
+        return readyplayers
+    }
+
+    useEffect(() => {
+        funcao()
+    }, [])
 
     return (
         <div className='container__scanner'>
