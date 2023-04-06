@@ -12,6 +12,7 @@ import { GameContext, readyPlayer } from '../../context/GameContext'
 
 const Scanner = ({ player }) => {
 
+    
     const [showButton, setShowButton] = useState(false)
     const [disabled, setDisabled] = useState(false)
     const { readyplayers } = useContext(GameContext)
