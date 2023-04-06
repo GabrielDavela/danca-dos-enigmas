@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { GameContext, readyPlayer } from '../../context/GameContext'
 import "./Scanner.css"
-
-<<<<<<< Updated upstream
 // target principal
 import target from '../../assets/first-cards/first-cards.mind'
 
@@ -19,14 +17,12 @@ import targetGp01 from "../../assets/group-01/target/targets-gp-01.mind"
 import pista01Gp01 from "../../assets/group-01/pistas/pista-01-criptografiaP.png"
 
 import { GameContext, readyPlayer } from '../../context/GameContext'
-=======
 import { targets } from '../../assets/target'
 import { firstcards } from "../../assets/first-cards/firstCards"
 import { group01 } from '../../assets/group-01/group01'
 import { group02 } from '../../assets/group-02/group02'
 import { group03 } from '../../assets/group-03/group03'
 import { group04 } from "../../assets/group-04/group04"
->>>>>>> Stashed changes
 
 
 const Scanner = ({ player }) => {
@@ -65,11 +61,7 @@ const Scanner = ({ player }) => {
     return (
         <div className='container__scanner'>
             <a-scene
-<<<<<<< Updated upstream
-                mindar-image={`imageTargetSrc: ${targetGp01};`}
-=======
                 mindar-image={`imageTargetSrc: ${targets.first_cards};`}
->>>>>>> Stashed changes
                 color-space="sRGB"
                 renderer="colorManagement: true, physicallyCorrectLights"
                 vr-mode-ui="enabled: false"
@@ -77,16 +69,12 @@ const Scanner = ({ player }) => {
                 id="target-cards-gp01"
             >
                 <a-assets>
-<<<<<<< Updated upstream
                     <img id='pista01Gp01' src={pista01Gp01} />
-=======
                     <img id='groupCard01' src={firstcards.carta_grupo01} />
                     <img id='groupCard02' src={firstcards.carta_grupo02} />
                     <img id='groupCard03' src={firstcards.carta_grupo03} />
                     <img id='groupCard04' src={firstcards.carta_grupo04} />
 
-
->>>>>>> Stashed changes
                 </a-assets>
 
                 <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
