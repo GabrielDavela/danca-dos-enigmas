@@ -1,12 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "./Scanner.css"
 
+// target principal
 import target from '../../assets/first-cards/first-cards.mind'
-import targetGp01 from '../../assets/group-01/targets-gp-01.mind'
+
+// cartas de introdução 
 import carta_grupo01 from '../../assets/first-cards/documents/carta-grupo-01.png'
 import carta_grupo02 from '../../assets/first-cards/documents/carta-grupo-02.png'
 import carta_grupo03 from '../../assets/first-cards/documents/carta-grupo-03.png'
 import carta_grupo04 from '../../assets/first-cards/documents/carta-grupo-04.png'
+
+// targets das pistas de cada grupo
+import targetGp01 from '../../assets/group-01/targets-gp-01.mind'
+
+// imagens das pistas do grupo 01
+import pista01Gp01 from "../../assets/group-01/pistas/pista-01-criptografia.svg"
+
 import { GameContext, readyPlayer } from '../../context/GameContext'
 
 
@@ -48,7 +57,19 @@ const Scanner = ({ player }) => {
                 vr-mode-ui="enabled: false"
                 device-orientation-permission-ui="enabled: false"
                 id="target-cards-gp01"
-            ></a-scene>
+            >
+                <a-assets>
+                    <img id='pista01Gp01' src={pista01Gp01} />
+                </a-assets>
+
+                <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+                {player.color.toLowerCase() === "vermelho" &&
+                    <a-entity mindar-image-target="targetIndex: 0">
+                        <a-plane src="#pista01Gp01" position="0 0 0" height="2.3" width="1.6" rotation="0 0 0"></a-plane>
+                    </a-entity>
+                }
+
+            </a-scene>
             <a-scene
                 mindar-image={`imageTargetSrc: ${target};`}
                 color-space="sRGB"
