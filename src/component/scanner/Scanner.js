@@ -1,22 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { GameContext, readyPlayer } from '../../context/GameContext'
 import "./Scanner.css"
-// target principal
-import target from '../../assets/first-cards/first-cards.mind'
 
-// cartas de introdução 
-import carta_grupo01 from '../../assets/first-cards/documents/carta-grupo-01.png'
-import carta_grupo02 from '../../assets/first-cards/documents/carta-grupo-02.png'
-import carta_grupo03 from '../../assets/first-cards/documents/carta-grupo-03.png'
-import carta_grupo04 from '../../assets/first-cards/documents/carta-grupo-04.png'
 
-// targets das pistas de cada grupo
-import targetGp01 from "../../assets/group-01/target/targets-gp-01.mind"
-
-// imagens das pistas do grupo 01
-import pista01Gp01 from "../../assets/group-01/pistas/pista-01-criptografiaP.png"
-
-import { GameContext, readyPlayer } from '../../context/GameContext'
 import { targets } from '../../assets/target'
 import { firstcards } from "../../assets/first-cards/firstCards"
 import { group01 } from '../../assets/group-01/group01'
@@ -30,8 +16,6 @@ const Scanner = ({ player }) => {
     const [showButton, setShowButton] = useState(false)
     const [disabled, setDisabled] = useState(false)
     const { readyplayers } = useContext(GameContext)
-
-    const test = true;
 
     document.addEventListener("targetFound", () => {
         setShowButton(true)
@@ -51,10 +35,6 @@ const Scanner = ({ player }) => {
     }
 
     useEffect(() => {
-        console.log(group01.group_01_document_1)
-        console.log(group02.group_02_document_1)
-        console.log(group03.group_03_document_1)
-        console.log(group04.group_04_document_1)
         readyPlayers()
     }, [])
 
@@ -69,7 +49,6 @@ const Scanner = ({ player }) => {
                 id="target-cards-gp01"
             >
                 <a-assets>
-                    <img id='pista01Gp01' src={pista01Gp01} />
                     <img id='groupCard01' src={firstcards.carta_grupo01} />
                     <img id='groupCard02' src={firstcards.carta_grupo02} />
                     <img id='groupCard03' src={firstcards.carta_grupo03} />
@@ -87,7 +66,7 @@ const Scanner = ({ player }) => {
 
             {false &&
                 <a-scene
-                    mindar-image={`imageTargetSrc: ${target};`}
+                    mindar-image={`imageTargetSrc: ${targets.first_cards};`}
                     color-space="sRGB"
                     renderer="colorManagement: true, physicallyCorrectLights"
                     vr-mode-ui="enabled: false"
@@ -95,10 +74,10 @@ const Scanner = ({ player }) => {
                     id="target-cards"
                 >
                     <a-assets>
-                        <img id='groupCard01' src={carta_grupo01} />
-                        <img id='groupCard02' src={carta_grupo02} />
-                        <img id='groupCard03' src={carta_grupo03} />
-                        <img id='groupCard04' src={carta_grupo04} />
+                        <img id='groupCard01' src={firstcards.carta_grupo01} />
+                        <img id='groupCard02' src={firstcards.carta_grupo02} />
+                        <img id='groupCard03' src={firstcards.carta_grupo03} />
+                        <img id='groupCard04' src={firstcards.carta_grupo04} />
 
 
                     </a-assets>
