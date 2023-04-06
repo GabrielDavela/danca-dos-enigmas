@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "./Scanner.css"
 
-import target from '../../assets/first-cards/targetsGrupo1.mind'
-import carta_grupo01 from '../../assets/first-cards/documents/carta-grupo-01.png'
+import target from '../../assets/first-cards/first-cards.mind'
+import carta_grupo01 from '../../assets/first-cards/documents/targetsGrupo1.mind'
 import carta_grupo02 from '../../assets/first-cards/documents/carta-grupo-02.png'
 import carta_grupo03 from '../../assets/first-cards/documents/carta-grupo-03.png'
 import carta_grupo04 from '../../assets/first-cards/documents/carta-grupo-04.png'
