@@ -14,7 +14,7 @@ import carta_grupo04 from '../../assets/first-cards/documents/carta-grupo-04.png
 import targetGp01 from '../../assets/group-01/targets-gp-01.mind'
 
 // imagens das pistas do grupo 01
-import pista01Gp01 from "../../assets/group-01/pistas/pista-01-criptografia.svg"
+import pista01Gp01 from "../../assets/group-01/pistas/pista-01-criptografiaP.png"
 
 import { GameContext, readyPlayer } from '../../context/GameContext'
 
