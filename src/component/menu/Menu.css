@@ -1,0 +1,11 @@
+.container__principal__menu{
+    position: absolute;
+    bottom: 0;
+    background-color: #FAD683;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 20px;
+}
