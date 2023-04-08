@@ -6,6 +6,7 @@ import PlayerList from "../playerlist/PlayerList";
 import Rooms from "../rooms/Rooms";
 import Scanner from "../scanner/Scanner";
 import Menu from "../menu/Menu";
+import Tip from "../tip/Tip";
 import InsertWord from "../insertWord/InsertWord";
 
 const Home = () => {
@@ -28,8 +29,7 @@ const Home = () => {
             <Chat sendMessage={sendMessage} messages={messages}/> */}
             {!isOpenModal &&
                 <>
-                    <Menu
-                    frame={<InsertWord/>} />
+                    <Menu/>
                 </>
             }
 
