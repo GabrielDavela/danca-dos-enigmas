@@ -49,6 +49,11 @@ const reducer = (state, action) => {
                 ...state,
                 readyplayers: action.payload
             }
+        case 'EVERYONE_IS_READY':
+            return {
+                ...state,
+                everyoneIsReady: action.payload
+            }
         default:
             return state
     }
@@ -63,7 +68,8 @@ const initialState = {
     rooms: {},
     match: {},
     messages: [],
-    readyplayers: 0
+    readyplayers: 0,
+    everyoneIsReady: false
 }
 
 const GameProvider = (props) => {
@@ -105,6 +111,10 @@ const GameProvider = (props) => {
 
         socket.on('ReadyPlayersRefresh', (contador) => {
             dispatch({ type: 'READY_PLAYERS', payload: contador })
+        })
+
+        socket.on('EveryoneIsReady', (bool) => {
+            dispatch({ type: 'EVERYONE_IS_READY', payload: bool })
         })
 
         // Vai fazer com que autoConnect se transforme em true
