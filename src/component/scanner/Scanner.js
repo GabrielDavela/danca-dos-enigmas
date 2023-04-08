@@ -16,10 +16,10 @@ const Scanner = ({ player }) => {
     return (
         <div className='container__scanner'>
 
-            {true &&
+            {false &&
                 <GroupScanners01 target={targets.target_group01} />
             }
-            {false &&
+            {true &&
                 <GroupScanners02 target={targets.target_group02} />
             }
             {false &&
