@@ -16,12 +16,12 @@ function App() {
       <GameProvider>
         <Router>
           <Routes>
-            <Route path='/' element={<Login />} />
-            <Route path='/rooms' element={<Rooms />} />
-            <Route path='/home' element={<Home />} />
-            <Route path='/insertWord' element={<InsertWord />} />
+            {/* <Route path='/' element={<Login />} />
+            <Route path='/rooms' element={<Rooms />} /> */}
+            <Route path='/' element={<Home />} />
+            {/* <Route path='/insertWord' element={<InsertWord />} />
             <Route path='/tip' element={<Tip />} />
-            <Route path='/ranking' element={<Ranking />} />
+            <Route path='/ranking' element={<Ranking />} /> */}
           </Routes>
         </Router>
       </GameProvider>
