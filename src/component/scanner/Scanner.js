@@ -6,10 +6,11 @@ import "./Scanner.css"
 import { targets } from '../../assets/target'
 import { firstcards } from "../../assets/first-cards/firstCards"
 
-import { group02 } from '../../assets/group-02/group02'
-import { group03 } from '../../assets/group-03/group03'
-import { group04 } from "../../assets/group-04/group04"
+
 import GroupScanners01 from './groupScanners/GroupScanners01'
+import GroupScanners02 from './groupScanners/GroupScanners02'
+import GroupScanners03 from './groupScanners/GroupScanners03'
+import GroupScanners04 from './groupScanners/GroupScanners04'
 
 
 const Scanner = ({ player }) => {
@@ -43,7 +44,9 @@ const Scanner = ({ player }) => {
     return (
         <div className='container__scanner'>
 
-            <GroupScanners01 target={targets.first_cards} />
+            <GroupScanners01 target={targets.target_group01} />
+            <GroupScanners02 target={targets.target_group02} />
+            <GroupScanners03 target={targets.target_group03} />
 
             {false &&
                 <a-scene
