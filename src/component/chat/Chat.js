@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Menu from '../menu/Menu'
 
 const Chat = (props) => {
 
@@ -30,6 +31,7 @@ const Chat = (props) => {
                     onClick={sendMessage}
                 >Enviar</button>
             </div>
+            <Menu/>
         </div>
     )
 }

@@ -28,9 +28,7 @@ const Home = () => {
             <Rooms />
             <Chat sendMessage={sendMessage} messages={messages}/> */}
             {!isOpenModal &&
-                <>
-                    <Menu/>
-                </>
+                <Menu />
             }
 
             {isOpenModal &&

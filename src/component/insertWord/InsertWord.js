@@ -1,6 +1,7 @@
 import React from "react";
 import "./InsertWord.css"
 import lineInsWord from "../../assets/screens/lineRoom.svg"
+import insertWordMenuY from "../../assets/screens/insertWordMenuY.svg"
 import Button from "../button/Button";
 import Menu from "../menu/Menu";
 
@@ -16,7 +17,8 @@ const InsertWord = () =>{
                 text={"Enviar"}/>
             </div>
             <Menu
-            index={0}/>
+            img={insertWordMenuY}
+            backgroud={"#662401"}/>
         </div>
     )
 }

@@ -21,7 +21,7 @@ const Menu = () => {
 
     const backgroundClicked = "#662401";
 
-    const [insertWord, setInsertWord] = useState({ "img": insertWordMenu, "background": backgroundClicked })
+    const [insertWord, setInsertWord] = useState({ "img": insertWordMenu, "background": "" })
     const [tip, setTip] = useState({ "img": tipMenu, "background": "" })
     const [scanner, setScanner] = useState({ "img": scannerMenu, "background": "" })
     const [chat, setChat] = useState({ "img": chatMenu, "background": "" })
@@ -36,25 +36,23 @@ const Menu = () => {
     function componentClicked(index) {
         reload();
         if (index === 0) {
-            setInsertWord({ "img": insertWordMenuY, "background": "" })
+            setInsertWord({ "img": insertWordMenuY, "background": backgroundClicked })
             navigate('/insertWord')
         } else if (index === 1) {
             setTip({ "img": tipMenuY, "background": backgroundClicked })
             navigate('/tip')
         } else if (index === 2) {
             setScanner({ "img": scannerMenuY, "background": backgroundClicked })
+            navigate('/scanner')
         } else {
             setChat({ "img": chatMenuY, "background": backgroundClicked })
+            navigate('/chat')
         }
     }
 
 
     return (
         <div className="container__frame__menu">
-            {
-                insertWord.background != "" &&
-                <InsertWord/>
-            }
             <div className="container__principal__menu">
                 <div className="container__clicked__menu"
                     style={{ backgroundColor: insertWord.background }}

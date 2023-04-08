@@ -7,6 +7,7 @@ import carta_grupo02 from '../../assets/first-cards/documents/carta-grupo-02.png
 import carta_grupo03 from '../../assets/first-cards/documents/carta-grupo-03.png'
 import carta_grupo04 from '../../assets/first-cards/documents/carta-grupo-04.png'
 import { GameContext, readyPlayer } from '../../context/GameContext'
+import Menu from '../menu/Menu'
 
 
 
@@ -87,6 +88,7 @@ const Scanner = ({ player }) => {
                         onClick={ready} disabled={disabled}>Pronto<span>{readyplayers}/4</span></button>
                 }
             </a-scene>
+            <Menu/>
         </div>
     )
 }
