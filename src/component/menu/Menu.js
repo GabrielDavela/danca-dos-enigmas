@@ -14,7 +14,7 @@ import chatMenu from "../../assets/screens/chatMenu.svg";
 import chatMenuY from "../../assets/screens/chatMenuY.svg";
 import { Navigate, useNavigate } from "react-router-dom";
 
-const Menu = ({index}) => {
+const Menu = ({ frame }) => {
 
     const navigate = useNavigate();
 
@@ -49,29 +49,32 @@ const Menu = ({index}) => {
 
 
     return (
-        <div className="container__principal__menu">
-            <div className="container__clicked__menu"
-                style={{ backgroundColor: insertWord.background }}
-                onClick={() => componentClicked(0)}>
-                <img src={insertWord.img} />
-            </div>
+        <div className="container__frame__menu">
+            {frame}
+            <div className="container__principal__menu">
+                <div className="container__clicked__menu"
+                    style={{ backgroundColor: insertWord.background }}
+                    onClick={() => componentClicked(0)}>
+                    <img src={insertWord.img} />
+                </div>
 
-            <div className="container__clicked__menu"
-                style={{ backgroundColor: tip.background }}
-                onClick={() => componentClicked(1)}>
-                <img src={tip.img} />
-            </div>
+                <div className="container__clicked__menu"
+                    style={{ backgroundColor: tip.background }}
+                    onClick={() => componentClicked(1)}>
+                    <img src={tip.img} />
+                </div>
 
-            <div className="container__clicked__menu"
-                style={{ backgroundColor: scanner.background }}
-                onClick={() => componentClicked(2)}>
-                <img src={scanner.img} />
-            </div>
+                <div className="container__clicked__menu"
+                    style={{ backgroundColor: scanner.background }}
+                    onClick={() => componentClicked(2)}>
+                    <img src={scanner.img} />
+                </div>
 
-            <div className="container__clicked__menu"
-                style={{ backgroundColor: chat.background }}
-                onClick={() => componentClicked(3)}>
-                <img src={chat.img} />
+                <div className="container__clicked__menu"
+                    style={{ backgroundColor: chat.background }}
+                    onClick={() => componentClicked(3)}>
+                    <img src={chat.img} />
+                </div>
             </div>
         </div>
     )
