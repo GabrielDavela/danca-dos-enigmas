@@ -19,13 +19,13 @@ const Scanner = ({ player }) => {
             {false &&
                 <GroupScanners01 target={targets.target_group01} />
             }
-            {true &&
+            {false &&
                 <GroupScanners02 target={targets.target_group02} />
             }
             {false &&
                 <GroupScanners03 target={targets.target_group03} />
             }
-            {false &&
+            {true &&
                 <GroupScanners04 target={targets.target_group04} />
             }
 
