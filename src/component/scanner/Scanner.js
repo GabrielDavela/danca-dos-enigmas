@@ -22,7 +22,7 @@ const Scanner = ({ player }) => {
                 {player.color}
             </div>
 
-            {player.color.toLowerCase() === "vermelho" && everyoneIsReady  &&
+            {player.color.toLowerCase() === "vermelho" && everyoneIsReady &&
                 <GroupScanners01 target={targets.target_group01} />
             }
 
@@ -38,9 +38,8 @@ const Scanner = ({ player }) => {
                 <GroupScanners04 target={targets.target_group04} />
             }
 
-            {!everyoneIsReady &&
-                <FirstCards target={targets.first_cards} player={player} />
-            }
+            <FirstCards target={targets.first_cards} player={player} />
+
 
         </div>
     )
