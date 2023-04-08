@@ -1,11 +1,11 @@
 // Grupo 02 - Documento
 
 import group_02_document_1 from "../group-02/documents/bilhete.png"
-import group_02_document_2 from "../group-02/documents/bilhete.png"
-import group_02_document_3 from "../group-02/documents/bilhete.png"
-import group_02_document_4 from "../group-02/documents/bilhete.png"
-import group_02_document_5 from "../group-02/documents/bilhete.png"
-import group_02_document_6 from "../group-02/documents/bilhete.png"
+import group_02_document_2 from "../group-02/documents/ficha criminal.png"
+import group_02_document_3 from "../group-02/documents/identidade.png"
+import group_02_document_4 from "../group-02/documents/jornal.png"
+import group_02_document_5 from "../group-02/documents/mapa.png"
+import group_02_document_6 from "../group-02/documents/transacao.png"
 
 export const group02 = {
     group_02_document_1: group_02_document_1,
