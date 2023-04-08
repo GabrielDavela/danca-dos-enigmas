@@ -28,8 +28,8 @@ const Home = () => {
             <Chat sendMessage={sendMessage} messages={messages}/> */}
             {!isOpenModal &&
                 <>
-                    
-                    <Menu />
+                    {/* <Menu /> */}
+                    <Scanner player={player}/>
                 </>
             }
 
