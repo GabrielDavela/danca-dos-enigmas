@@ -1,4 +1,5 @@
 import Button from "../button/Button";
+import { Link } from "react-router-dom";
 import logoSh from "../../assets/screens/logoSh.svg";
 import "./Login.css";
 
@@ -19,8 +20,10 @@ const Login = () => {
                 </div>
             </div>
             <div className="button__login">
-                <Button
-                    text="Começar" />
+                <Link to="/rooms">
+                    <Button
+                        text="Começar" />
+                </Link>
             </div>
         </div>
     )

@@ -1,0 +1,19 @@
+.container__tip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 60px;
+
+    font-weight: 700;
+    font-size: 25px;
+    text-align: center;
+    color: #662401;
+}
+
+.container__quantity__letters {
+    width: 41.4vh;
+    height: 12vh;
+    background: #FFFFFF;
+    border-radius: 15px;
+}

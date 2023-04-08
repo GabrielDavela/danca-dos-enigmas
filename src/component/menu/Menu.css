@@ -7,5 +7,15 @@
     justify-content: center;
     align-items: center;
     gap: 40px;
-    padding: 20px;
+    height: 10vh;
+    position: fixed;
+}
+
+.container__clicked__menu{
+    cursor: pointer;
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

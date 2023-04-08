@@ -12,36 +12,37 @@ import scannerMenuY from "../../assets/screens/scannerMenuY.svg";
 
 import chatMenu from "../../assets/screens/chatMenu.svg";
 import chatMenuY from "../../assets/screens/chatMenuY.svg";
+import { Navigate, useNavigate } from "react-router-dom";
 
-const Menu = () => {
+const Menu = ({index}) => {
 
-    const backgroundPattern = "#FAD683";
+    const navigate = useNavigate();
+
     const backgroundClicked = "#662401";
 
-    const [insertWord, setInsertWord] = useState({ "img": insertWordMenu, "background": backgroundPattern })
-    const [tip, setTip] = useState({ "img": tipMenu, "background": backgroundPattern })
-    const [scanner, setScanner] = useState({ "img": scannerMenu, "background": backgroundPattern })
-    const [chat, setChat] = useState({ "img": chatMenu, "background": backgroundPattern })
+    const [insertWord, setInsertWord] = useState({ "img": insertWordMenu, "background": "" })
+    const [tip, setTip] = useState({ "img": tipMenu, "background": "" })
+    const [scanner, setScanner] = useState({ "img": scannerMenu, "background": "" })
+    const [chat, setChat] = useState({ "img": chatMenu, "background": "" })
 
-    function reload(){
-        setInsertWord({ "img": insertWordMenu, "background": backgroundPattern })
-        setChat({ "img": chatMenu, "background": backgroundPattern })
-        setScanner({ "img": scannerMenu, "background": backgroundPattern })
-        setTip({ "img": tipMenu, "background": backgroundPattern });
+    function reload() {
+        setInsertWord({ "img": insertWordMenu, "background": "" })
+        setChat({ "img": chatMenu, "background": "" })
+        setScanner({ "img": scannerMenu, "background": "" })
+        setTip({ "img": tipMenu, "background": "" });
     }
 
     function componentClicked(index) {
+        reload();
         if (index === 0) {
-            reload();
             setInsertWord({ "img": insertWordMenuY, "background": backgroundClicked })
+            navigate('/insertWord')
         } else if (index === 1) {
-            reload();
             setTip({ "img": tipMenuY, "background": backgroundClicked })
+            navigate('/tip')
         } else if (index === 2) {
-            reload();
             setScanner({ "img": scannerMenuY, "background": backgroundClicked })
         } else {
-            reload();
             setChat({ "img": chatMenuY, "background": backgroundClicked })
         }
     }
@@ -49,26 +50,25 @@ const Menu = () => {
 
     return (
         <div className="container__principal__menu">
-
-            <div className="container__insert__word__menu"
-                style={{ backgroundColor: insertWord.background}}
+            <div className="container__clicked__menu"
+                style={{ backgroundColor: insertWord.background }}
                 onClick={() => componentClicked(0)}>
                 <img src={insertWord.img} />
             </div>
 
-            <div className="container__tip__menu"
+            <div className="container__clicked__menu"
                 style={{ backgroundColor: tip.background }}
                 onClick={() => componentClicked(1)}>
                 <img src={tip.img} />
             </div>
 
-            <div className="container__scanner__menu"
+            <div className="container__clicked__menu"
                 style={{ backgroundColor: scanner.background }}
                 onClick={() => componentClicked(2)}>
                 <img src={scanner.img} />
             </div>
 
-            <div className="container__chat__menu"
+            <div className="container__clicked__menu"
                 style={{ backgroundColor: chat.background }}
                 onClick={() => componentClicked(3)}>
                 <img src={chat.img} />

@@ -1,0 +1,14 @@
+.container__ranking {
+    width: 32.2vh;
+    height: 14vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: #662401;
+    border-radius: 15px;
+    line-height: 0;
+
+    color: #FAD683;
+}
