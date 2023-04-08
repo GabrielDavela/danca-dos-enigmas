@@ -93,13 +93,11 @@ const FirstCards = ({ target, player }) => {
                         ></a-plane>
                     </a-entity>
                 )}
-                {/* <button className='button__scanner'
+                <button className='button__scanner'
                     onClick={onReady} disabled={disabled}>
                     Pronto<span>{readyplayers}/4</span>
-                </button> */}
+                </button>
             </a-scene>
-
-
         </>
     )
 }

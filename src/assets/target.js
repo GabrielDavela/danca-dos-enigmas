@@ -1,5 +1,5 @@
 import first_cards  from "./first-cards/first-cards.mind"
-import target_group01 from "./group-01/targetsGrupo01.mind"
+import target_group01 from "./group-01/targets/targetsGrupo01.mind"
 import target_group02 from "./group-02/targetsGrupo02.mind"
 import target_group03 from "./group-03/targetsGrupo03.mind"
 import target_group04 from "./group-04/targetsGrupo04.mind"
