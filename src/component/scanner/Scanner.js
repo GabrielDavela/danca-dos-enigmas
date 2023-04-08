@@ -29,7 +29,7 @@ const Scanner = ({ player }) => {
                 <GroupScanners04 target={targets.target_group04} />
             }
 
-            {true &&
+            {false &&
                 <FirstCards target={targets.first_cards} player={player} />
             }
 
