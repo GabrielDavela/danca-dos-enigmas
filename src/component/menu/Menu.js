@@ -13,14 +13,15 @@ import scannerMenuY from "../../assets/screens/scannerMenuY.svg";
 import chatMenu from "../../assets/screens/chatMenu.svg";
 import chatMenuY from "../../assets/screens/chatMenuY.svg";
 import { Navigate, useNavigate } from "react-router-dom";
+import InsertWord from "../insertWord/InsertWord";
 
-const Menu = ({index}) => {
+const Menu = () => {
 
     const navigate = useNavigate();
 
     const backgroundClicked = "#662401";
 
-    const [insertWord, setInsertWord] = useState({ "img": insertWordMenu, "background": "" })
+    const [insertWord, setInsertWord] = useState({ "img": insertWordMenu, "background": backgroundClicked })
     const [tip, setTip] = useState({ "img": tipMenu, "background": "" })
     const [scanner, setScanner] = useState({ "img": scannerMenu, "background": "" })
     const [chat, setChat] = useState({ "img": chatMenu, "background": "" })
@@ -35,7 +36,7 @@ const Menu = ({index}) => {
     function componentClicked(index) {
         reload();
         if (index === 0) {
-            setInsertWord({ "img": insertWordMenuY, "background": backgroundClicked })
+            setInsertWord({ "img": insertWordMenuY, "background": "" })
             navigate('/insertWord')
         } else if (index === 1) {
             setTip({ "img": tipMenuY, "background": backgroundClicked })
@@ -49,29 +50,35 @@ const Menu = ({index}) => {
 
 
     return (
-        <div className="container__principal__menu">
-            <div className="container__clicked__menu"
-                style={{ backgroundColor: insertWord.background }}
-                onClick={() => componentClicked(0)}>
-                <img src={insertWord.img} />
-            </div>
+        <div className="container__frame__menu">
+            {
+                insertWord.background != "" &&
+                <InsertWord/>
+            }
+            <div className="container__principal__menu">
+                <div className="container__clicked__menu"
+                    style={{ backgroundColor: insertWord.background }}
+                    onClick={() => componentClicked(0)}>
+                    <img src={insertWord.img} />
+                </div>
 
-            <div className="container__clicked__menu"
-                style={{ backgroundColor: tip.background }}
-                onClick={() => componentClicked(1)}>
-                <img src={tip.img} />
-            </div>
+                <div className="container__clicked__menu"
+                    style={{ backgroundColor: tip.background }}
+                    onClick={() => componentClicked(1)}>
+                    <img src={tip.img} />
+                </div>
 
-            <div className="container__clicked__menu"
-                style={{ backgroundColor: scanner.background }}
-                onClick={() => componentClicked(2)}>
-                <img src={scanner.img} />
-            </div>
+                <div className="container__clicked__menu"
+                    style={{ backgroundColor: scanner.background }}
+                    onClick={() => componentClicked(2)}>
+                    <img src={scanner.img} />
+                </div>
 
-            <div className="container__clicked__menu"
-                style={{ backgroundColor: chat.background }}
-                onClick={() => componentClicked(3)}>
-                <img src={chat.img} />
+                <div className="container__clicked__menu"
+                    style={{ backgroundColor: chat.background }}
+                    onClick={() => componentClicked(3)}>
+                    <img src={chat.img} />
+                </div>
             </div>
         </div>
     )
