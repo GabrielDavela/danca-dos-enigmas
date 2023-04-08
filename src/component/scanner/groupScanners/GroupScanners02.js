@@ -29,7 +29,7 @@ const GroupScanners02 = ({ target }) => {
                 <a-plane src="#group_02_document_2" position="0 0 0" height="2.3" width="1.6" rotation="0 0 0"></a-plane>
             </a-entity>
             <a-entity mindar-image-target="targetIndex: 2">
-                <a-plane src="#group_02_document_3" position="0 0 0" height="2.3" width="1.6" rotation="0 0 0"></a-plane>
+                <a-plane src="#group_02_document_3" position="0 0 0" height="1.2" width="1.6" rotation="0 0 0"></a-plane>
             </a-entity>
             <a-entity mindar-image-target="targetIndex: 3">
                 <a-plane src="#group_02_document_4" position="0 0 0" height="2.3" width="1.6" rotation="0 0 0"></a-plane>
@@ -38,7 +38,7 @@ const GroupScanners02 = ({ target }) => {
                 <a-plane src="#group_02_document_5" position="0 0 0" height="2.3" width="1.6" rotation="0 0 0"></a-plane>
             </a-entity>
             <a-entity mindar-image-target="targetIndex: 5">
-                <a-plane src="#group_02_document_6" position="0 0 0" height="2.3" width="1.6" rotation="0 0 0"></a-plane>
+                <a-plane src="#group_02_document_6" position="0 0 0" height="1.2" width="1.6" rotation="0 0 0"></a-plane>
             </a-entity>
         </a-scene>
     )
