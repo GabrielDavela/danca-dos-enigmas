@@ -17,11 +17,6 @@ const Scanner = ({ player }) => {
     return (
         <div className='container__scanner'>
 
-            <div>
-                true? {everyoneIsReady}
-                {player.color}
-            </div>
-
             {player.color.toLowerCase() === "vermelho" && everyoneIsReady &&
                 <GroupScanners01 target={targets.target_group01} />
             }
