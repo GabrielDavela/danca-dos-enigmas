@@ -1,0 +1,21 @@
+.container__insert__word {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+
+    font-weight: 700;
+    font-size: 25px;
+    text-align: center;
+    color: #662401;
+}
+
+.input__insert__word {
+    width: 50vh;
+    height: 10vh;
+    background: #FFFFFF;
+    border-radius: 15px;
+    border: transparent;
+    outline: none;
+}

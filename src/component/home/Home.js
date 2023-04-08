@@ -5,6 +5,8 @@ import ChooseTeam from "../chooseteam/ChooseTeam";
 import PlayerList from "../playerlist/PlayerList";
 import Rooms from "../rooms/Rooms";
 import Scanner from "../scanner/Scanner";
+import Menu from "../menu/Menu";
+import InsertWord from "../insertWord/InsertWord";
 
 const Home = () => {
 
@@ -25,9 +27,12 @@ const Home = () => {
             <Rooms />
             <Chat sendMessage={sendMessage} messages={messages}/> */}
             {!isOpenModal &&
-                <Scanner player={player} />
+                <>
+                    
+                    <Menu />
+                </>
             }
-            
+
             {isOpenModal &&
                 <ChooseTeam player={player} handleCloseModal={handleCloseModal} />
             }

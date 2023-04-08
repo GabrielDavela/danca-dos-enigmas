@@ -1,0 +1,21 @@
+.container__principal__menu{
+    position: absolute;
+    bottom: 0;
+    background-color: #FAD683;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    height: 10vh;
+    position: fixed;
+}
+
+.container__clicked__menu{
+    cursor: pointer;
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

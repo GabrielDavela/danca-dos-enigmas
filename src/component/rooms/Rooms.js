@@ -1,26 +1,42 @@
 import React, { useContext } from "react";
 import { createRoom, GameContext, joinRoom, leaveRoom } from "../../context/GameContext";
+import Button from "../button/Button";
+import iconEnter from "../../assets/screens/iconEnter.svg";
+import lineRoom from "../../assets/screens/lineRoom.svg"
+import "./Rooms.css";
 
 const Rooms = () => {
 
     const { player, rooms, room } = useContext(GameContext)
 
     return (
-        <div>
-            <span>
+        <div className="container__principal">
+            <span className="span__rooms">
+                <br />
                 Salas
-                {!player.room && <button onClick={createRoom}>Criar sala</button>}
-            </span>
-            {
-                !player.room &&
-
-                Object.keys(rooms).map((key) =>
-                    <div key={`room_${key}`}>
-                        {rooms[key].name}
-                        <button onClick={() => joinRoom(key)}>Entrar</button>
+                {!player.room &&
+                    <div className="container__higher">
+                        <div className="button__home">
+                            <Button
+                                text={"Criar sala"}
+                                functionB={createRoom} />
+                        </div>
                     </div>
-                )
-            }
+                }
+                <img src={lineRoom} />
+            </span>
+            <div className="container__enter__room">
+                {
+                    !player.room &&
+
+                    Object.keys(rooms).map((key) =>
+                        <div key={`room_${key}`}>
+                            {rooms[key].name}
+                            <button className="enter__room" onClick={() => joinRoom(key)}>Entrar na sala <img src={iconEnter} /></button>
+                        </div>
+                    )
+                }
+            </div>
             {
                 player.room && room &&
                 <div>
@@ -30,7 +46,9 @@ const Rooms = () => {
                         // mas ela só vai aparecer quando os 4 jogadores estiverem na sala
                         <div>
                             <span>{room.name}</span>
-                            <button onClick={leaveRoom}>Sair</button>
+                            <Button
+                            text={"Sair"}
+                            functionB={leaveRoom}/>
                         </div>
                     }
                 </div>

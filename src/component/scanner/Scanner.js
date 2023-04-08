@@ -14,6 +14,7 @@ import GroupScanners01 from './groupScanners/GroupScanners01'
 
 const Scanner = ({ player }) => {
 
+    
     const [showButton, setShowButton] = useState(false)
     const [disabled, setDisabled] = useState(false)
     const { readyplayers } = useContext(GameContext)
