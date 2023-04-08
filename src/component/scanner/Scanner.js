@@ -16,7 +16,7 @@ const Scanner = ({ player }) => {
     return (
         <div className='container__scanner'>
 
-            {false &&
+            {true &&
                 <GroupScanners01 target={targets.target_group01} />
             }
             {false &&
@@ -28,7 +28,10 @@ const Scanner = ({ player }) => {
             {false &&
                 <GroupScanners04 target={targets.target_group04} />
             }
-            <FirstCards target={targets.first_cards} player={player} />
+
+            {true &&
+                <FirstCards target={targets.first_cards} player={player} />
+            }
 
         </div>
     )
