@@ -3,7 +3,7 @@ import { useEffect, useContext, useState } from "react";
 import { firstcards } from "../../../assets/first-cards/firstCards";
 import { GameContext, readyPlayer } from "../../../context/GameContext";
 
-const FirstCards = ({ target, player }) => {
+const FirstCard = ({ target, player }) => {
     const { readyplayers } = useContext(GameContext);
 
     const [disabled, setDisabled] = useState(false);
@@ -102,4 +102,4 @@ const FirstCards = ({ target, player }) => {
     )
 }
 
-export default FirstCards;
+export default FirstCard;
