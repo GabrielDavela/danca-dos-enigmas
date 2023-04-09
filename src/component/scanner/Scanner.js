@@ -8,7 +8,7 @@ import GroupScanners01 from './groupScanners/GroupScanners01'
 import GroupScanners02 from './groupScanners/GroupScanners02'
 import GroupScanners03 from './groupScanners/GroupScanners03'
 import GroupScanners04 from './groupScanners/GroupScanners04'
-import FirstCard from './groupScanners/FirstCard'
+import FirstCards from './groupScanners/FirstCards'
 
 const Scanner = ({ player }) => {
 
@@ -33,7 +33,7 @@ const Scanner = ({ player }) => {
                 <GroupScanners04 target={targets.target_group04} />
             }
 
-            <FirstCard target={targets.first_cards} player={player} />
+            <FirstCards target={targets.first_cards} player={player} />
 
         </div>
     )
