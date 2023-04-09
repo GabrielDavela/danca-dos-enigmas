@@ -8,7 +8,7 @@ import GroupScanners01 from './groupScanners/GroupScanners01'
 import GroupScanners02 from './groupScanners/GroupScanners02'
 import GroupScanners03 from './groupScanners/GroupScanners03'
 import GroupScanners04 from './groupScanners/GroupScanners04'
-import FirstCards from './groupScanners/FirstCards'
+import FirstCards from './groupScanners/FIrstCards'
 
 const Scanner = ({ player }) => {
 
