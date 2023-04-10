@@ -34,19 +34,17 @@ const Menu = () => {
 
     function componentClicked(index) {
         reload();
-        // Insert Word
         if (index === 0) {
             setInsertWord({ "img": insertWordMenuY, "background": backgroundClicked })
             navigate('/insertWord')
-            // Tip
+            window.location.reload()
         } else if (index === 1) {
             setTip({ "img": tipMenuY, "background": backgroundClicked })
             navigate('/tip')
-            // Scanner
+            window.location.reload()
         } else if (index === 2) {
             setScanner({ "img": scannerMenuY, "background": backgroundClicked })
             navigate('/scanner')
-            // Chat
         } else {
             setChat({ "img": chatMenuY, "background": backgroundClicked })
         }

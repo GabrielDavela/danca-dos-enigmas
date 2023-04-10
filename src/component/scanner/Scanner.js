@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useContext } from 'react'
+import ReactDOM from 'react-dom';
 import { GameContext } from '../../context/GameContext'
 import "./Scanner.css"
 
@@ -13,19 +14,7 @@ import Menu from '../menu/Menu'
 
 const Scanner = () => {
 
-    const { player } = useContext(GameContext)
-
-    const { everyoneIsReady } = useContext(GameContext)
-
-    useEffect(() => {
-        // Verifica se o objeto MindAR está disponível antes de chamar o método stop
-        return (() => {
-            if (typeof window.MindAR !== 'undefined') {
-                window.MindAR.stop();
-            }
-        })
-    }, []);
-
+    const { player, everyoneIsReady } = useContext(GameContext)
 
     return (
         <div className='container__scanner'>

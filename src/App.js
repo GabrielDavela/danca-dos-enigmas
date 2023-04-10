@@ -8,12 +8,13 @@ import Tip from './component/tip/Tip';
 import { BrowserRouter as Router, Routes, Route, Navigate, BrowserRouter } from 'react-router-dom';
 import { GameProvider } from './context/GameContext';
 import Scanner from './component/scanner/Scanner';
+import React from 'react';
 
 function App() {
   return (
-    <div className="App">
-      <GameProvider>
-        <BrowserRouter>
+      <div className="App">
+        <GameProvider>
+          <Router>
             <Routes>
               <Route path='/' element={<Login />} />
               <Route path='/rooms' element={<Rooms />} />
@@ -23,9 +24,9 @@ function App() {
               <Route path='/ranking' element={<Ranking />} />
               <Route path='/scanner' element={<Scanner />} />
             </Routes>
-        </BrowserRouter>
-      </GameProvider>
-    </div>
+          </Router>
+        </GameProvider>
+      </div>
   );
 }
 
