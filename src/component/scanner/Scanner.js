@@ -33,7 +33,9 @@ const Scanner = ({ player }) => {
                 <GroupScanners04 target={targets.target_group04} />
             }
 
-            <FirstCards target={targets.first_cards} player={player} />
+            {!everyoneIsReady &&
+                <FirstCards target={targets.first_cards} player={player} />
+            }
 
         </div>
     )
