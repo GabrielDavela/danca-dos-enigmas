@@ -18,13 +18,14 @@ const Scanner = () => {
     const { everyoneIsReady } = useContext(GameContext)
 
     useEffect(() => {
-        return () => {
-          // Limpa o estado do componente Scanner ao sair da página
-          // Isso garante que o componente comece com um estado limpo
-          console.log('Scanner unmounted');
-        };
-      }, []);
-    
+        // Verifica se o objeto MindAR está disponível antes de chamar o método stop
+        return (() => {
+            if (typeof window.MindAR !== 'undefined') {
+                window.MindAR.stop();
+            }
+        })
+    }, []);
+
 
     return (
         <div className='container__scanner'>
