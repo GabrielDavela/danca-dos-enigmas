@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useContext } from 'react'
-import ReactDOM from 'react-dom';
 import { GameContext } from '../../context/GameContext'
 import "./Scanner.css"
 
@@ -12,35 +11,37 @@ import GroupScanners04 from './groupScanners/GroupScanners04'
 import FirstCards from './groupScanners/FirstCards'
 import Menu from '../menu/Menu'
 
-const Scanner = () => {
+const Scanner = ({ id }) => {
 
     const { player, everyoneIsReady } = useContext(GameContext)
 
     return (
-        <div className='container__scanner'>
+        <div className='container__scanner' id={id}>
 
-            {player.color.toLowerCase() === "vermelho" && everyoneIsReady &&
-                <GroupScanners01 target={targets.target_group01} />
-            }
+            {everyoneIsReady &&
+                <>
+                    {player.color.toLowerCase() === "vermelho" &&
+                        <GroupScanners01 target={targets.target_group01} />
+                    }
 
-            {player.color.toLowerCase() === "azul" && everyoneIsReady &&
-                <GroupScanners02 target={targets.target_group02} />
-            }
+                    {player.color.toLowerCase() === "azul" &&
+                        <GroupScanners02 target={targets.target_group02} />
+                    }
 
-            {player.color.toLowerCase() === "amarelo" && everyoneIsReady &&
-                <GroupScanners03 target={targets.target_group03} />
-            }
+                    {player.color.toLowerCase() === "amarelo" &&
+                        <GroupScanners03 target={targets.target_group03} />
+                    }
 
-            {player.color.toLowerCase() === "verde" && everyoneIsReady &&
-                <GroupScanners04 target={targets.target_group04} />
+                    {player.color.toLowerCase() === "verde" &&
+                        <GroupScanners04 target={targets.target_group04} />
+                    }
+
+                    <Menu />
+                </>
             }
 
             {!everyoneIsReady &&
                 <FirstCards target={targets.first_cards} player={player} />
-            }
-
-            {!everyoneIsReady &&
-                <Menu />
             }
 
         </div>
