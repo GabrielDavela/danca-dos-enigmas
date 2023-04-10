@@ -14,7 +14,7 @@ import chatMenu from "../../assets/screens/chatMenu.svg";
 import chatMenuY from "../../assets/screens/chatMenuY.svg";
 import { useNavigate } from "react-router-dom";
 
-const Menu = ({ onScannerClick, onTipClick, onInsertWordClick }) => {
+const Menu = () => {
 
     const navigate = useNavigate();
 
@@ -37,17 +37,15 @@ const Menu = ({ onScannerClick, onTipClick, onInsertWordClick }) => {
         // Insert Word
         if (index === 0) {
             setInsertWord({ "img": insertWordMenuY, "background": backgroundClicked })
-            // navigate('/insertWord')
-            onInsertWordClick()
+            navigate('/insertWord')
             // Tip
         } else if (index === 1) {
             setTip({ "img": tipMenuY, "background": backgroundClicked })
-            // navigate('/tip')
-            onTipClick()
+            navigate('/tip')
             // Scanner
         } else if (index === 2) {
             setScanner({ "img": scannerMenuY, "background": backgroundClicked })
-            onScannerClick()
+            navigate('/scanner')
             // Chat
         } else {
             setChat({ "img": chatMenuY, "background": backgroundClicked })

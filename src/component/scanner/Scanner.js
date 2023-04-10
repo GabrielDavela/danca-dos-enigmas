@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useContext } from 'react'
 import { GameContext } from '../../context/GameContext'
 import "./Scanner.css"
@@ -9,10 +9,22 @@ import GroupScanners02 from './groupScanners/GroupScanners02'
 import GroupScanners03 from './groupScanners/GroupScanners03'
 import GroupScanners04 from './groupScanners/GroupScanners04'
 import FirstCards from './groupScanners/FirstCards'
+import Menu from '../menu/Menu'
 
-const Scanner = ({ player }) => {
+const Scanner = () => {
+
+    const { player } = useContext(GameContext)
 
     const { everyoneIsReady } = useContext(GameContext)
+
+    useEffect(() => {
+        return () => {
+          // Limpa o estado do componente Scanner ao sair da página
+          // Isso garante que o componente comece com um estado limpo
+          console.log('Scanner unmounted');
+        };
+      }, []);
+    
 
     return (
         <div className='container__scanner'>
@@ -35,6 +47,10 @@ const Scanner = ({ player }) => {
 
             {!everyoneIsReady &&
                 <FirstCards target={targets.first_cards} player={player} />
+            }
+
+            {!everyoneIsReady &&
+                <Menu />
             }
 
         </div>
