@@ -44,7 +44,7 @@ const Menu = () => {
             window.location.reload()
         } else if (index === 2) {
             setScanner({ "img": scannerMenuY, "background": backgroundClicked })
-            navigate('/scanner')
+            navigate('/menu')
         } else {
             setChat({ "img": chatMenuY, "background": backgroundClicked })
         }
