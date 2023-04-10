@@ -28,7 +28,6 @@ const Rooms = () => {
             <div className="container__enter__room">
                 {
                     !player.room &&
-
                     Object.keys(rooms).map((key) =>
                         <div key={`room_${key}`}>
                             {rooms[key].name}

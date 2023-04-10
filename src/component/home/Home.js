@@ -7,29 +7,64 @@ import Rooms from "../rooms/Rooms";
 import Scanner from "../scanner/Scanner";
 import Menu from "../menu/Menu";
 import InsertWord from "../insertWord/InsertWord";
+import Tip from "../tip/Tip";
 
 const Home = () => {
 
     const { isConnected, players, player, messages } = useContext(GameContext)
     const [isOpenModal, setIsOpenModal] = useState(true)
+    const [scanner, setScanner] = useState(true)
+    const [tip, setTip] = useState(false)
+    const [insertWord, setInsertWord] = useState(false)
+    const [chat, setChat] = useState(false)
+
+    // const optionsMenu = {
+    //     scanner: true,
+    //     tip: false,
+    //     insertWord: false,
+    //     chat: false
+    // }
 
     const handleCloseModal = () => {
         setIsOpenModal(false)
     }
 
+    const handleCloseOpenScanner = () => {
+        setScanner(false)
+        setTip(false)
+    }
+
+    const handleCloseOpenTip = () => {
+        setTip(true)
+    }
+
+    const handleCloseOpenInsertWord = () => {
+        setInsertWord(true)
+        setTip(false)
+    }
+
     return (
         <div>
-            {/* {!isConnected &&
-                <div>Desconectado, conectando...</div>
-            } */}
 
-            {/* <PlayerList players={players}/>
-            <Rooms />
-            <Chat sendMessage={sendMessage} messages={messages}/> */}
             {!isOpenModal &&
                 <>
-                    {/* <Menu /> */}
-                    <Scanner player={player}/>
+                    <Menu
+                        onScannerClick={handleCloseOpenScanner}
+                        onTipClick={handleCloseOpenTip}
+                        onInsertWordClick={handleCloseOpenInsertWord}
+                    />
+                    {insertWord &&
+                        <InsertWord />
+                    }
+                    {tip &&
+                        <Tip />
+                    }
+                    {scanner &&
+                        <Scanner player={player} />
+                    }
+                    {/* {optionsMenu.chat &&
+                        <Chat sendMessage={sendMessage} messages={messages} />
+                    } */}
                 </>
             }
 
