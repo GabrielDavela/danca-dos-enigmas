@@ -8,6 +8,7 @@ import InsertWord from '../insertWord/InsertWord';
 import Tip from '../tip/Tip';
 import Scanner from "../scanner/Scanner";
 import Menu from "../menu/Menu";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
 
@@ -17,24 +18,41 @@ const Home = () => {
     const [tip, setTip] = useState(false)
     const [insertWord, setInsertWord] = useState(false)
 
+    const navigate = useNavigate();
+
     const handleCloseModal = () => {
         setIsOpenModal(false)
     }
 
     const handleOpenScanner = () => {
-        setTip(false)
         setInsertWord(false)
+        setTip(false)
+        setScanner(true)
     }
 
     const handleOpenTip = () => {
         setTip(true)
         setInsertWord(false)
+        setScanner(false)
     }
 
     const handleOpenInsertWord = () => {
         setTip(false)
         setInsertWord(true)
+        setScanner(false)
     }
+
+    const handleClick = () => {
+        navigate("/")
+    }
+
+    useEffect(() => {
+        return () => {
+            setTimeout(() => {
+                setScanner(false);
+            }, 2000); // espera 2 segundos antes de chamar setScanner(false)
+        }
+    }, [])
 
 
     return (
@@ -42,13 +60,16 @@ const Home = () => {
 
             {!isOpenModal &&
                 <>
+                    <button style={{ position: 'absolute', zIndex: '2000' }} onClick={handleClick}>Clica ai</button>
                     {insertWord &&
                         <InsertWord />
                     }
                     {tip &&
                         <Tip />
                     }
-                    <Scanner />
+                    {scanner &&
+                        <Scanner />
+                    }
                     <Menu
                         onScannerClick={() => handleOpenScanner()}
                         onTipClick={() => handleOpenTip()}

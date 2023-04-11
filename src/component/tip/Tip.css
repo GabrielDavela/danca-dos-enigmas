@@ -11,14 +11,6 @@
     color: #662401;
 }
 
-.container__principal__tip {
-    position: absolute;
-    width: 100%;
-    background-color: #C0854C;
-    height: 100vh;
-    z-index: 2000;
-}
-
 .container__quantity__letters {
     width: 41.4vh;
     height: 12vh;

@@ -36,7 +36,8 @@ const Menu = ({onScannerClick, onTipClick, onInsertWordClick}) => {
         reload();
         if (index === 0) {
             setInsertWord({ "img": insertWordMenuY, "background": backgroundClicked })
-            onInsertWordClick()
+            navigate('/insertWord')
+            // onInsertWordClick()
         } else if (index === 1) {
             setTip({ "img": tipMenuY, "background": backgroundClicked })
             onTipClick()
@@ -48,7 +49,7 @@ const Menu = ({onScannerClick, onTipClick, onInsertWordClick}) => {
         }
     }
 
-    // navigate('/insertWord')
+    
     // navigate('/tip')
     // navigate('/home')
 
