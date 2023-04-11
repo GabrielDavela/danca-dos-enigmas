@@ -24,6 +24,7 @@
 }
 
 .container__scanner > a-scene {
+    height: 100vh;
     position: relative;
     display: flex;
     align-items: center;

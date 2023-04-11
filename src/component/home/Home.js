@@ -14,11 +14,11 @@ const Home = () => {
 
     const { isConnected, players, player, messages } = useContext(GameContext)
     const [isOpenModal, setIsOpenModal] = useState(true)
-    const [scanner, setScanner] = useState(false)
     const [tip, setTip] = useState(false)
     const [insertWord, setInsertWord] = useState(false)
 
-    const navigate = useNavigate();
+    const loader = document.querySelector(".loader")
+    const scanning = document.querySelector(".scanning")
 
     const handleCloseModal = () => {
         setIsOpenModal(false)
@@ -27,44 +27,43 @@ const Home = () => {
     const handleOpenScanner = () => {
         setInsertWord(false)
         setTip(false)
-        setScanner(true)
+        scannerPage(true)
     }
 
     const handleOpenTip = () => {
         setTip(true)
         setInsertWord(false)
-        setScanner(false)
+        scannerPage(false)
     }
 
     const handleOpenInsertWord = () => {
         setTip(false)
         setInsertWord(true)
-        setScanner(false)
+        scannerPage(false)
     }
 
-    const handleClick = () => {
-
+    const scannerPage = (bool) => {
+        if (bool) {
+            loader.style.display = "block"
+            scanning.style.display = "block"
+        } else {
+            loader.style.display = "none"
+            scanning.style.display = "none"
+        }
     };
-
 
     return (
         <div>
 
             {!isOpenModal &&
                 <>
-                    <button style={{ position: 'absolute', zIndex: '2000' }} onClick={handleClick}>Clica ai</button>
                     {insertWord &&
                         <InsertWord />
                     }
                     {tip &&
                         <Tip />
                     }
-                    {scanner &&
-                        <div >
-                            <Scanner />
-                        </div>
-
-                    }
+                    <Scanner />
                     <Menu
                         onScannerClick={() => handleOpenScanner()}
                         onTipClick={() => handleOpenTip()}

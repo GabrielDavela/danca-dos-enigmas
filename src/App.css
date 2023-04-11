@@ -3,9 +3,9 @@
 }
 
 .loader {
-  display: none;
+  display: block;
 }
 
 .scanning {
-  display: none;
+  display: block;
 }
