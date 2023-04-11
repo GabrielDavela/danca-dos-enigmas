@@ -58,6 +58,11 @@ const reducer = (state, action) => {
                 ...state,
                 everyoneIsReady: action.payload
             }
+        case 'VERIFY_WORD':
+            return {
+                ...state,
+                hit: action.payload
+            }
         default:
             return state
     }
@@ -73,7 +78,8 @@ const initialState = {
     match: {},
     messages: [],
     readyplayers: 0,
-    everyoneIsReady: false
+    everyoneIsReady: false,
+    hit: false
 }
 
 const GameProvider = (props) => {
@@ -121,6 +127,10 @@ const GameProvider = (props) => {
             dispatch({ type: 'EVERYONE_IS_READY', payload: bool })
         })
 
+        socket.on("FinishGame", (bool) => {
+            dispatch({ type: "VERIFY_WORD", payload: bool })
+        })
+
         // Vai fazer com que autoConnect se transforme em true
         socket.open()
 
@@ -156,6 +166,10 @@ const readyPlayer = () => {
     socket.emit('ReadyPlayer')
 }
 
+const verifyWord = (word,color) => {
+    socket.emit('VerifyWord', {word,color})
+}
+
 export {
     GameContext,
     GameProvider,
@@ -163,5 +177,6 @@ export {
     createRoom,
     leaveRoom,
     joinRoom,
-    readyPlayer
+    readyPlayer,
+    verifyWord
 }

@@ -55,7 +55,7 @@ const Home = () => {
             {!isOpenModal &&
                 <>
                     {insertWord &&
-                        <InsertWord />
+                        <InsertWord player={player}/>
                     }
                     {tip &&
                         <Tip />

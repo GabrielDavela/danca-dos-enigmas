@@ -1,7 +1,6 @@
 import React from "react";
 import "./Tip.css";
 import lineTip from "../../assets/screens/lineRoom.svg";
-import Menu from "../menu/Menu";
 
 const Tip = () => {
 
