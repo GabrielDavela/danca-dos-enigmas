@@ -19,3 +19,10 @@
     border: transparent;
     outline: none;
 }
+
+.container__principal__insword {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: #C0854C;
+}
