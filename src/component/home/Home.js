@@ -58,7 +58,7 @@ const Home = () => {
                         <InsertWord player={player}/>
                     }
                     {tip &&
-                        <Tip />
+                        <Tip player={player} />
                     }
                     <Scanner />
                     {/* {
