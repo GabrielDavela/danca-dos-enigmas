@@ -63,6 +63,11 @@ const reducer = (state, action) => {
                 ...state,
                 hit: action.payload
             }
+        case 'GAME_PROCESS':
+            return {
+                ...state,
+                gameInProcess: action.payload
+            }
         default:
             return state
     }
@@ -79,7 +84,8 @@ const initialState = {
     messages: [],
     readyplayers: 0,
     everyoneIsReady: false,
-    hit: false
+    hit: false,
+    gameInProcess: false
 }
 
 const GameProvider = (props) => {
@@ -128,7 +134,11 @@ const GameProvider = (props) => {
         })
 
         socket.on("FinishGame", (bool) => {
-            dispatch({ type: "VERIFY_WORD", payload: bool })
+            dispatch({ type: 'VERIFY_WORD', payload: bool })
+        })
+
+        socket.on("GameInProcess", (bool, roomId) => {
+            dispatch({ type: 'GAME_PROCESS', bool })
         })
 
         // Vai fazer com que autoConnect se transforme em true
@@ -166,8 +176,8 @@ const readyPlayer = () => {
     socket.emit('ReadyPlayer')
 }
 
-const verifyWord = (word,color) => {
-    socket.emit('VerifyWord', {word,color})
+const verifyWord = (word, color) => {
+    socket.emit('VerifyWord', { word, color })
 }
 
 export {
