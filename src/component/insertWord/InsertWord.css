@@ -12,8 +12,10 @@
 }
 
 .input__insert__word {
-    width: 50vh;
+    width: 40vh;
     height: 10vh;
+    box-sizing: border-box;
+    padding-left: 8px;
     background: #FFFFFF;
     border-radius: 15px;
     border: transparent;
