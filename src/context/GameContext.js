@@ -68,6 +68,11 @@ const reducer = (state, action) => {
                 ...state,
                 gameInProcess: action.payload
             }
+        case 'SIZE_WORD':
+            return {
+                ...state,
+                sizeWord: action.payload
+            }
         default:
             return state
     }
@@ -85,7 +90,8 @@ const initialState = {
     readyplayers: 0,
     everyoneIsReady: false,
     hit: false,
-    gameInProcess: false
+    gameInProcess: false,
+    sizeWord: 0
 }
 
 const GameProvider = (props) => {
@@ -141,6 +147,10 @@ const GameProvider = (props) => {
             dispatch({ type: 'GAME_PROCESS', bool })
         })
 
+        socket.on("VerifySizeLetter", (size) => {
+            dispatch({ type: 'SIZE_WORD', payload: size })
+        })
+
         // Vai fazer com que autoConnect se transforme em true
         socket.open()
 
@@ -180,6 +190,10 @@ const verifyWord = (word, color) => {
     socket.emit('VerifyWord', { word, color })
 }
 
+const sizeWordFront = (color) => {
+    socket.emit('SetLetters', color)
+}
+
 export {
     GameContext,
     GameProvider,
@@ -188,5 +202,6 @@ export {
     leaveRoom,
     joinRoom,
     readyPlayer,
-    verifyWord
+    verifyWord,
+    sizeWordFront
 }
