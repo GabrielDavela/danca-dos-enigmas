@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { GameContext, sendMessage } from "../../context/GameContext";
 import Chat from "../chat/Chat";
 import ChooseTeam from "../chooseteam/ChooseTeam";
@@ -43,16 +43,8 @@ const Home = () => {
     }
 
     const handleClick = () => {
-        navigate("/")
-    }
 
-    useEffect(() => {
-        return () => {
-            setTimeout(() => {
-                setScanner(false);
-            }, 2000); // espera 2 segundos antes de chamar setScanner(false)
-        }
-    }, [])
+    };
 
 
     return (
@@ -68,7 +60,10 @@ const Home = () => {
                         <Tip />
                     }
                     {scanner &&
-                        <Scanner />
+                        <div >
+                            <Scanner />
+                        </div>
+
                     }
                     <Menu
                         onScannerClick={() => handleOpenScanner()}

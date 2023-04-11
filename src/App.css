@@ -1,3 +1,11 @@
 .App {
   text-align: center;
 }
+
+.loader {
+  display: none;
+}
+
+.scanning {
+  display: none;
+}
