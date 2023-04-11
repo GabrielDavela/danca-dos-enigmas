@@ -9,7 +9,7 @@ import Menu from "../menu/Menu";
 
 const Home = () => {
 
-    const { isConnected, players, player, messages } = useContext(GameContext)
+    const { player, messages } = useContext(GameContext)
     const [isOpenModal, setIsOpenModal] = useState(true)
     const [tip, setTip] = useState(false)
     const [insertWord, setInsertWord] = useState(false)

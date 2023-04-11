@@ -143,8 +143,8 @@ const GameProvider = (props) => {
             dispatch({ type: 'VERIFY_WORD', payload: bool })
         })
 
-        socket.on("GameInProcess", (bool, roomId) => {
-            dispatch({ type: 'GAME_PROCESS', bool })
+        socket.on("GameInProcess", (bool) => {
+            dispatch({ type: 'GAME_PROCESS', payload: bool})
         })
 
         socket.on("VerifySizeLetter", (size) => {
