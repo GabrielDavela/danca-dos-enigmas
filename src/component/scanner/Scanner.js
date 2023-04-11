@@ -35,8 +35,6 @@ const Scanner = ({ id }) => {
                     {player.color.toLowerCase() === "verde" &&
                         <GroupScanners04 target={targets.target_group04} />
                     }
-
-                    <Menu />
                 </>
             }
 

@@ -14,7 +14,6 @@ const Tip = () => {
                     <p>7 letras</p>
                 </div>
             </div>
-            <Menu/>
         </div>
     )
 }

@@ -1,14 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { GameContext, sendMessage } from "../../context/GameContext";
 import Chat from "../chat/Chat";
 import ChooseTeam from "../chooseteam/ChooseTeam";
-import PlayerList from "../playerlist/PlayerList";
-import Rooms from "../rooms/Rooms";
 import InsertWord from '../insertWord/InsertWord';
 import Tip from '../tip/Tip';
 import Scanner from "../scanner/Scanner";
 import Menu from "../menu/Menu";
-import { useNavigate } from "react-router-dom";
 
 const Home = () => {
 
@@ -64,6 +61,9 @@ const Home = () => {
                         <Tip />
                     }
                     <Scanner />
+                    {/* {
+                        <Chat />
+                    } */}
                     <Menu
                         onScannerClick={() => handleOpenScanner()}
                         onTipClick={() => handleOpenTip()}

@@ -15,8 +15,6 @@ const InsertWord = () =>{
                 <Button
                 text={"Enviar"}/>
             </div>
-            <Menu
-            index={0}/>
         </div>
     )
 }

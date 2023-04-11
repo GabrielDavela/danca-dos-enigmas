@@ -48,10 +48,6 @@ const Menu = ({ onScannerClick, onTipClick, onInsertWordClick }) => {
         }
     }
 
-    // navigate('/insertWord')
-    // navigate('/tip')
-    // navigate('/home')
-
     return (
         <div className="container__principal__menu">
             <div className="container__clicked__menu"
