@@ -9,16 +9,15 @@ import GroupScanners02 from './groupScanners/GroupScanners02'
 import GroupScanners03 from './groupScanners/GroupScanners03'
 import GroupScanners04 from './groupScanners/GroupScanners04'
 import FirstCards from './groupScanners/FirstCards'
-import Menu from '../menu/Menu'
 
-const Scanner = ({ id }) => {
+const Scanner = () => {
 
     const { player, everyoneIsReady } = useContext(GameContext)
 
     return (
-        <div className='container__scanner' id={id}>
+        <div className='container__scanner' >
 
-            {everyoneIsReady &&
+            {!everyoneIsReady &&
                 <>
                     {player.color.toLowerCase() === "vermelho" &&
                         <GroupScanners01 target={targets.target_group01} />
@@ -38,7 +37,7 @@ const Scanner = ({ id }) => {
                 </>
             }
 
-            {!everyoneIsReady &&
+            {everyoneIsReady &&
                 <FirstCards target={targets.first_cards} player={player} />
             }
 
