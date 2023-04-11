@@ -32,7 +32,7 @@ const FirstCard = ({ target, player }) => {
             <a-scene
                 mindar-image={`imageTargetSrc: ${target};`}
                 color-space="sRGB"
-                renderer="colorManagement: true, physicallyCorrectLights"
+                renderer="colorManagement: false, physicallyCorrectLights"
                 vr-mode-ui="enabled: false"
                 device-orientation-permission-ui="enabled: false"
                 id="target-first-cards"

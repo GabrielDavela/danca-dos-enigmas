@@ -11,6 +11,14 @@
     color: #662401;
 }
 
+.container__principal__insword {
+    position: absolute;
+    width: 100%;
+    background-color: #C0854C;
+    height: 100vh;
+    z-index: 2000;
+}
+
 .input__insert__word {
     width: 50vh;
     height: 10vh;
