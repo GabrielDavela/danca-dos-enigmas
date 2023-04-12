@@ -5,15 +5,13 @@ import { useContext } from "react";
 import { useEffect } from "react";
 import { GameContext, sizeWordFront } from "../../context/GameContext";
 
-const Tip = ({player}) => {
+const Tip = ({ player }) => {
 
     const { sizeWord } = useContext(GameContext)
 
-    useEffect(() => {
-        sizeWordFront(player.color)
-    }, [])
+    sizeWordFront(player.color)
 
-    return(
+    return (
         <div className="container__principal__tip">
             <div className="container__tip">
                 <p>Sua palavra possui</p>

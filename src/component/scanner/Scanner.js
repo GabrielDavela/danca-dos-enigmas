@@ -14,6 +14,8 @@ const Scanner = () => {
 
     const { player, everyoneIsReady } = useContext(GameContext)
 
+    
+
     return (
         <div className='container__scanner' >
 
@@ -36,7 +38,6 @@ const Scanner = () => {
                     }
                 </>
             }
-
 
             {!everyoneIsReady &&
                 <FirstCards target={targets.first_cards} player={player} />
