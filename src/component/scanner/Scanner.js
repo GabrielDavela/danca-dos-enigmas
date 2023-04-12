@@ -16,7 +16,7 @@ const Scanner = () => {
     const { player, everyoneIsReady } = useContext(GameContext)
 
     useEffect(() => {
-        window.location.reload()
+        if(everyoneIsReady) window.location.reload()
     }, [everyoneIsReady])
 
     return (
