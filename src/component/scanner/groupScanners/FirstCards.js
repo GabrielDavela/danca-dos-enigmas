@@ -93,7 +93,7 @@ const FirstCard = ({ target, player }) => {
                         ></a-plane>
                     </a-entity>
                 )}
-                {!showButton &&
+                {showButton &&
                     <button className='button__scanner'
                         onClick={onReady} 
                         disabled={disabled}

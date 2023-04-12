@@ -9,7 +9,7 @@ import Menu from "../menu/Menu";
 
 const Home = () => {
 
-    const { player, messages } = useContext(GameContext)
+    const { player, messages, everyoneIsReady } = useContext(GameContext)
     const [isOpenModal, setIsOpenModal] = useState(true)
     const [tip, setTip] = useState(false)
     const [insertWord, setInsertWord] = useState(false)
@@ -64,11 +64,13 @@ const Home = () => {
                     {/* {
                         <Chat />
                     } */}
-                    <Menu
-                        onScannerClick={() => handleOpenScanner()}
-                        onTipClick={() => handleOpenTip()}
-                        onInsertWordClick={() => handleOpenInsertWord()}
-                    />
+                    {everyoneIsReady &&
+                        <Menu
+                            onScannerClick={() => handleOpenScanner()}
+                            onTipClick={() => handleOpenTip()}
+                            onInsertWordClick={() => handleOpenInsertWord()}
+                        />
+                    }
                 </>
             }
 

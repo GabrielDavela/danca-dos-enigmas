@@ -4,7 +4,6 @@ import Button from "../button/Button";
 import iconEnter from "../../assets/screens/iconEnter.svg";
 import lineRoom from "../../assets/screens/lineRoom.svg"
 import "./Rooms.css";
-import Home from "../home/Home";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
