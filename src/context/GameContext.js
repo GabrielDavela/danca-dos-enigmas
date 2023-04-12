@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer } from "react";
 import { io } from "socket.io-client";
 
-const socket = io("https://server-enigma-production.up.railway.app/", {
+const socket = io("https://subsequent-powder-production.up.railway.app/", {
     autoConnect: false
 })
 
