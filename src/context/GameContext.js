@@ -137,7 +137,6 @@ const GameProvider = (props) => {
 
         socket.on('EveryoneIsReady', (bool) => {
             dispatch({ type: 'EVERYONE_IS_READY', payload: bool })
-            window.location.reload()
         })
 
         socket.on("FinishGame", (bool) => {

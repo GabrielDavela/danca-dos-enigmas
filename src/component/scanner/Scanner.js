@@ -9,12 +9,15 @@ import GroupScanners02 from './groupScanners/GroupScanners02'
 import GroupScanners03 from './groupScanners/GroupScanners03'
 import GroupScanners04 from './groupScanners/GroupScanners04'
 import FirstCards from './groupScanners/FirstCards'
+import { useEffect } from 'react'
 
 const Scanner = () => {
 
     const { player, everyoneIsReady } = useContext(GameContext)
 
-    
+    useEffect(() => {
+        window.location.reload()
+    }, [everyoneIsReady])
 
     return (
         <div className='container__scanner' >
