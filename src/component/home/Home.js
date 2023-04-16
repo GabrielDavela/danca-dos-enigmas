@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import { GameContext, sendMessage, sizeWordFront } from "../../context/GameContext";
+import React, { useContext, useState } from "react";
+import { GameContext, sendMessage } from "../../context/GameContext";
 import Chat from "../chat/Chat";
 import ChooseTeam from "../chooseteam/ChooseTeam";
 import InsertWord from '../insertWord/InsertWord';
@@ -9,10 +9,11 @@ import Menu from "../menu/Menu";
 
 const Home = () => {
 
-    const { player, messages, everyoneIsReady, url, sizeWord } = useContext(GameContext)
-    const [isOpenModal, setIsOpenModal] = useState(true)
+    const { player, messages, everyoneIsReady, } = useContext(GameContext)
+    const [isOpenModal, setIsOpenModal] = useState(player.color === "")
     const [tip, setTip] = useState(false)
     const [insertWord, setInsertWord] = useState(false)
+    let playerAux = JSON.parse(localStorage.getItem("user"))
 
     const loader = document.querySelector(".loader")
     const scanning = document.querySelector(".scanning")
@@ -49,22 +50,18 @@ const Home = () => {
         }
     };
 
-    useEffect(() => {
-        sizeWordFront(player.color)
-    })
-
     return (
         <div>
 
             {!isOpenModal &&
                 <>
                     {insertWord &&
-                        <InsertWord player={player}/>
+                        <InsertWord player={playerAux} />
                     }
                     {tip &&
-                        <Tip player={player} sizeWord={sizeWord} />
+                        <Tip player={playerAux} />
                     }
-                    <Scanner />
+                    <Scanner player={playerAux} />
                     {/* {
                         <Chat />
                     } */}

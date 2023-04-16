@@ -6,6 +6,7 @@ const ChooseTeam = ({ player, handleCloseModal }) => {
 
     const handleChooseTeam = (color) => {
         player.color = color
+        localStorage.setItem("user", JSON.stringify(player))
         handleCloseModal()
     }   
 

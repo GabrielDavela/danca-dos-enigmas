@@ -11,9 +11,9 @@ import GroupScanners04 from './groupScanners/GroupScanners04'
 import FirstCards from './groupScanners/FirstCards'
 import { useEffect } from 'react'
 
-const Scanner = () => {
+const Scanner = ({ player }) => {
 
-    const { player, everyoneIsReady } = useContext(GameContext)
+    const { everyoneIsReady } = useContext(GameContext)
 
     useEffect(() => {
         if(everyoneIsReady) window.location.reload()
