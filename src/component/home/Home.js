@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { GameContext, sendMessage } from "../../context/GameContext";
 import Chat from "../chat/Chat";
 import ChooseTeam from "../chooseteam/ChooseTeam";
@@ -9,11 +9,12 @@ import Menu from "../menu/Menu";
 
 const Home = () => {
 
-    const { player, messages, everyoneIsReady, } = useContext(GameContext)
-    const [isOpenModal, setIsOpenModal] = useState(player.color === "")
+    const { messages, everyoneIsReady } = useContext(GameContext)
     const [tip, setTip] = useState(false)
     const [insertWord, setInsertWord] = useState(false)
+
     let playerAux = JSON.parse(localStorage.getItem("user"))
+    const [isOpenModal, setIsOpenModal] = useState(playerAux.color === "")
 
     const loader = document.querySelector(".loader")
     const scanning = document.querySelector(".scanning")
@@ -76,7 +77,7 @@ const Home = () => {
             }
 
             {isOpenModal &&
-                <ChooseTeam player={player} handleCloseModal={handleCloseModal} />
+                <ChooseTeam player={playerAux} handleCloseModal={handleCloseModal} /> 
             }
         </div>
     )
