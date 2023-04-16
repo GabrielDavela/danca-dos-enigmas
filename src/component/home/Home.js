@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { GameContext, sendMessage } from "../../context/GameContext";
+import React, { useContext, useEffect, useState } from "react";
+import { GameContext, sendMessage, sizeWordFront } from "../../context/GameContext";
 import Chat from "../chat/Chat";
 import ChooseTeam from "../chooseteam/ChooseTeam";
 import InsertWord from '../insertWord/InsertWord';
@@ -9,7 +9,7 @@ import Menu from "../menu/Menu";
 
 const Home = () => {
 
-    const { player, messages, everyoneIsReady } = useContext(GameContext)
+    const { player, messages, everyoneIsReady, url, sizeWord } = useContext(GameContext)
     const [isOpenModal, setIsOpenModal] = useState(true)
     const [tip, setTip] = useState(false)
     const [insertWord, setInsertWord] = useState(false)
@@ -49,6 +49,10 @@ const Home = () => {
         }
     };
 
+    useEffect(() => {
+        sizeWordFront(player.color)
+    })
+
     return (
         <div>
 
@@ -58,13 +62,13 @@ const Home = () => {
                         <InsertWord player={player}/>
                     }
                     {tip &&
-                        <Tip player={player} />
+                        <Tip player={player} sizeWord={sizeWord} />
                     }
                     <Scanner />
                     {/* {
                         <Chat />
                     } */}
-                    {everyoneIsReady &&
+                    {!everyoneIsReady &&
                         <Menu
                             onScannerClick={() => handleOpenScanner()}
                             onTipClick={() => handleOpenTip()}

@@ -1,13 +1,13 @@
 import React, { useEffect, useReducer } from "react";
 import { io } from "socket.io-client";
 
-const socket = io("https://subsequent-powder-production.up.railway.app/", {
-    autoConnect: false
-})
-
-// const socket = io("http://localhost:4000", {
+// const socket = io("https://server-enigma-production.up.railway.app/", {
 //     autoConnect: false
 // })
+
+const socket = io("http://localhost:4000", {
+    autoConnect: false
+})
 
 const GameContext = React.createContext()
 
@@ -76,7 +76,6 @@ const reducer = (state, action) => {
         default:
             return state
     }
-
 }
 
 const initialState = {
@@ -98,6 +97,7 @@ const GameProvider = (props) => {
     const [state, dispatch] = useReducer(reducer, initialState)
 
     useEffect(() => {
+
         // O usuário vai se conectar por aqui
         socket.on('connect', () => {
             dispatch({ type: 'CONNECTED', payload: true })
@@ -144,7 +144,7 @@ const GameProvider = (props) => {
         })
 
         socket.on("GameInProcess", (bool) => {
-            dispatch({ type: 'GAME_PROCESS', payload: bool})
+            dispatch({ type: 'GAME_PROCESS', payload: bool })
         })
 
         socket.on("VerifySizeLetter", (size) => {

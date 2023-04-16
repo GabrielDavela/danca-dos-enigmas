@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./InsertWord.css"
 import lineInsWord from "../../assets/screens/lineRoom.svg"
 import Button from "../button/Button";
