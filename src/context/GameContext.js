@@ -1,13 +1,13 @@
 import React, { useEffect, useReducer } from "react";
 import { io } from "socket.io-client";
 
-const socket = io("https://server-enigma-production.up.railway.app/", {
-    autoConnect: false
-})
-
-// const socket = io("http://localhost:4000", {
+// const socket = io("https://server-enigma-production.up.railway.app/", {
 //     autoConnect: false
 // })
+
+const socket = io("http://localhost:4000", {
+    autoConnect: false
+})
 
 const GameContext = React.createContext()
 
@@ -122,6 +122,7 @@ const GameProvider = (props) => {
 
         // É tipo o match do tinder ksksks
         socket.on('MatchRefresh', (match) => {
+            console.log(match)
             dispatch({ type: 'MATCH', payload: match })
         })
 

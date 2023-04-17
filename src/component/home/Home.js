@@ -9,7 +9,7 @@ import Menu from "../menu/Menu";
 
 const Home = () => {
 
-    const { messages, everyoneIsReady } = useContext(GameContext)
+    const { match, messages, everyoneIsReady } = useContext(GameContext)
     const [tip, setTip] = useState(false)
     const [insertWord, setInsertWord] = useState(false)
 
@@ -18,6 +18,10 @@ const Home = () => {
 
     const loader = document.querySelector(".loader")
     const scanning = document.querySelector(".scanning")
+
+    useEffect(() => {
+        if(!everyoneIsReady) console.log(match.time)
+    }, [match])
 
     const handleCloseModal = () => {
         setIsOpenModal(false)
