@@ -73,6 +73,11 @@ const reducer = (state, action) => {
                 ...state,
                 sizeWord: action.payload
             }
+        case 'TIMER_PROGRESS':
+            return {
+                ...state,
+                timer: action.payload
+            }
         default:
             return state
     }
@@ -91,7 +96,7 @@ const initialState = {
     hit: false,
     gameInProcess: false,
     sizeWord: 0,
-    timer: 0
+    timer: ""
 }
 
 const GameProvider = (props) => {
@@ -154,6 +159,10 @@ const GameProvider = (props) => {
             dispatch({ type: 'SIZE_WORD', payload: size })
         })
 
+        socket.on("TimerInProgress", (strTimer) => {
+            dispatch({ type: 'TIMER_PROGRESS', payload: strTimer })
+        })
+
         // Vai fazer com que autoConnect se transforme em true
         socket.open()
 
@@ -210,5 +219,6 @@ export {
     joinRoom,
     readyPlayer,
     verifyWord,
-    sizeWordFront
+    sizeWordFront,
+    timerGame
 }

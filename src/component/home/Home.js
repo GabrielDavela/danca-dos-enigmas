@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { GameContext, sendMessage } from "../../context/GameContext";
+import { GameContext, sendMessage, timerGame } from "../../context/GameContext";
 import Chat from "../chat/Chat";
 import ChooseTeam from "../chooseteam/ChooseTeam";
 import InsertWord from '../insertWord/InsertWord';
@@ -19,29 +19,13 @@ const Home = () => {
     const loader = document.querySelector(".loader")
     const scanning = document.querySelector(".scanning")
 
-    let minutes = 0
-    let seconds = 0
-    let fullTime = 1200
+    const [timer, setTimer] = useState("")
 
     useEffect(() => {
 
-        const gameTimer = setInterval(() => {
+        setTimer(timerGame(match))
 
-            // minutes = Math.floor(match.time / 60)
-            // seconds = match.time % 60
-
-            minutes = Math.floor(fullTime / 60)
-            seconds = fullTime % 60
-
-            // match.time--;
-            fullTime--
-
-            console.log(minutes + ":" + (seconds < 10 ? "0" : "") + seconds)
-
-        }, 1000)
-
-        return () => clearInterval(gameTimer)
-    }, [fullTime])
+    }, [])
 
 
     const handleCloseModal = () => {
@@ -81,7 +65,7 @@ const Home = () => {
             {!isOpenModal &&
                 <>
                     <p>
-                        {Math.floor(fullTime / 60)}:{(fullTime % 60 < 10 ? "0" : "") + fullTime % 60}
+                        {timer}
                     </p>
                     {insertWord &&
                         <InsertWord player={playerAux} />
