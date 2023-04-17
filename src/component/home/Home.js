@@ -13,27 +13,35 @@ const Home = () => {
     const [tip, setTip] = useState(false)
     const [insertWord, setInsertWord] = useState(false)
 
-    console.log("Componente pai sendo chamado")
-
     let playerAux = JSON.parse(localStorage.getItem("user"))
     const [isOpenModal, setIsOpenModal] = useState(playerAux.color === "")
 
     const loader = document.querySelector(".loader")
     const scanning = document.querySelector(".scanning")
 
+    let minutes = 0
+    let seconds = 0
+    let fullTime = 1200
+
     useEffect(() => {
+
         const gameTimer = setInterval(() => {
 
-            let minutes = Math.floor(match.time / 60)
-            let seconds = match.time % 60
+            // minutes = Math.floor(match.time / 60)
+            // seconds = match.time % 60
 
-            match.time--;
+            minutes = Math.floor(fullTime / 60)
+            seconds = fullTime % 60
+
+            // match.time--;
+            fullTime--
 
             console.log(minutes + ":" + (seconds < 10 ? "0" : "") + seconds)
 
-            return () => clearInterval(gameTimer)
         }, 1000)
-    }, [])
+
+        return () => clearInterval(gameTimer)
+    }, [fullTime])
 
 
     const handleCloseModal = () => {
@@ -70,9 +78,11 @@ const Home = () => {
 
     return (
         <div>
-
             {!isOpenModal &&
                 <>
+                    <p>
+                        {Math.floor(fullTime / 60)}:{(fullTime % 60 < 10 ? "0" : "") + fullTime % 60}
+                    </p>
                     {insertWord &&
                         <InsertWord player={playerAux} />
                     }

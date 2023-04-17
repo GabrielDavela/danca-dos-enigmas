@@ -90,7 +90,8 @@ const initialState = {
     everyoneIsReady: false,
     hit: false,
     gameInProcess: false,
-    sizeWord: 0
+    sizeWord: 0,
+    timer: 0
 }
 
 const GameProvider = (props) => {
@@ -194,6 +195,10 @@ const verifyWord = (word, color) => {
 
 const sizeWordFront = (color) => {
     socket.emit('SetLetters', color)
+}
+
+const timerGame = (match) => {
+    socket.emit("TimerGame", match)
 }
 
 export {

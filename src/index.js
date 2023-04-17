@@ -8,6 +8,10 @@ console.log("Entrei no index.js")
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  // Esse React.StrictMode renderiza os componentes duas vezes
+  // Uma para renderizar o componente
+  // Outra para verificar se ocorreu alguma problema
+
   // <React.StrictMode>
     <App />
   // </React.StrictMode>
