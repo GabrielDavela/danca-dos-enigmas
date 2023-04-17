@@ -9,7 +9,7 @@ import Menu from "../menu/Menu";
 
 const Home = () => {
 
-    const { match, messages, everyoneIsReady } = useContext(GameContext)
+    const { match, messages, everyoneIsReady, timer } = useContext(GameContext)
     const [tip, setTip] = useState(false)
     const [insertWord, setInsertWord] = useState(false)
 
@@ -19,12 +19,9 @@ const Home = () => {
     const loader = document.querySelector(".loader")
     const scanning = document.querySelector(".scanning")
 
-    const [timer, setTimer] = useState("")
-
     useEffect(() => {
-
-        setTimer(timerGame(match))
-
+        timerGame(match)
+        console.log(timer)
     }, [])
 
 
@@ -62,11 +59,12 @@ const Home = () => {
 
     return (
         <div>
+            <p>
+                {timer}
+            </p>
             {!isOpenModal &&
                 <>
-                    <p>
-                        {timer}
-                    </p>
+
                     {insertWord &&
                         <InsertWord player={playerAux} />
                     }
