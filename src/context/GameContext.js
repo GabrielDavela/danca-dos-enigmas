@@ -124,6 +124,7 @@ const GameProvider = (props) => {
         socket.on('MatchRefresh', (match) => {
             console.log(match)
             dispatch({ type: 'MATCH', payload: match })
+            console.log(match)
         })
 
         // Vai receber a mensagem para colocar no chat desse cliente

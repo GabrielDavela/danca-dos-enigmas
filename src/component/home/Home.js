@@ -13,6 +13,8 @@ const Home = () => {
     const [tip, setTip] = useState(false)
     const [insertWord, setInsertWord] = useState(false)
 
+    console.log("Componente pai sendo chamado")
+
     let playerAux = JSON.parse(localStorage.getItem("user"))
     const [isOpenModal, setIsOpenModal] = useState(playerAux.color === "")
 
@@ -20,8 +22,19 @@ const Home = () => {
     const scanning = document.querySelector(".scanning")
 
     useEffect(() => {
-        if(!everyoneIsReady) console.log(match.time)
-    }, [match])
+        const gameTimer = setInterval(() => {
+
+            let minutes = Math.floor(match.time / 60)
+            let seconds = match.time % 60
+
+            match.time--;
+
+            console.log(minutes + ":" + (seconds < 10 ? "0" : "") + seconds)
+
+            return () => clearInterval(gameTimer)
+        }, 1000)
+    }, [])
+
 
     const handleCloseModal = () => {
         setIsOpenModal(false)
@@ -71,17 +84,19 @@ const Home = () => {
                         <Chat />
                     } */}
                     {!everyoneIsReady &&
-                        <Menu
-                            onScannerClick={() => handleOpenScanner()}
-                            onTipClick={() => handleOpenTip()}
-                            onInsertWordClick={() => handleOpenInsertWord()}
-                        />
+                        <>
+                            <Menu
+                                onScannerClick={() => handleOpenScanner()}
+                                onTipClick={() => handleOpenTip()}
+                                onInsertWordClick={() => handleOpenInsertWord()}
+                            />
+                        </>
                     }
                 </>
             }
 
             {isOpenModal &&
-                <ChooseTeam player={playerAux} handleCloseModal={handleCloseModal} /> 
+                <ChooseTeam player={playerAux} handleCloseModal={handleCloseModal} />
             }
         </div>
     )

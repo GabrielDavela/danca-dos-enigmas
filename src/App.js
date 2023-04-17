@@ -8,6 +8,9 @@ import { GameProvider } from './context/GameContext';
 import React from 'react';
 
 function App() {
+
+  console.log("Entrei no app")
+
   return (
       <div className="App">
         <GameProvider>
