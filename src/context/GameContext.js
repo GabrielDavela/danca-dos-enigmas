@@ -78,6 +78,11 @@ const reducer = (state, action) => {
                 ...state,
                 timer: action.payload
             }
+        case 'UPDATE_PUNCTUATION':
+            return {
+                ...state,
+                punctuation: action.payload
+            }
         default:
             return state
     }
@@ -96,7 +101,8 @@ const initialState = {
     hit: false,
     gameInProcess: false,
     sizeWord: 0,
-    timer: ""
+    timer: "",
+    punctuation: 2000
 }
 
 const GameProvider = (props) => {
@@ -163,6 +169,14 @@ const GameProvider = (props) => {
             dispatch({ type: 'TIMER_PROGRESS', payload: strTimer })
         })
 
+        socket.on("UpdatePunctuation", (punctuation) => {
+            dispatch({ type: 'UPDATE_PUNCTUATION', payload: punctuation })
+            let objUser = getUser()
+            console.log(objUser)
+            objUser.punctuation = punctuation
+            setUser(objUser)
+        })
+
         // Vai fazer com que autoConnect se transforme em true
         socket.open()
 
@@ -210,6 +224,14 @@ const timerGame = (match) => {
     socket.emit("TimerGame", match)
 }
 
+const getUser = () => {
+    return JSON.parse(localStorage.getItem("user"))
+}
+
+const setUser = (objUser) => {
+    localStorage.setItem("user", JSON.stringify(objUser))
+}
+
 export {
     GameContext,
     GameProvider,
@@ -220,5 +242,7 @@ export {
     readyPlayer,
     verifyWord,
     sizeWordFront,
-    timerGame
+    timerGame,
+    getUser,
+    setUser
 }

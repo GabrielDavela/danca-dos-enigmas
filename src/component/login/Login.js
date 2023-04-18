@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import logoSh from "../../assets/screens/logoSh.svg";
 import "./Login.css";
 import { useState } from "react";
+import { getUser, setUser } from "../../context/GameContext";
 
 const Login = () => {
 
@@ -13,19 +14,16 @@ const Login = () => {
     const player = {
         name: nome,
         password: password,
-        color: ""
+        color: "",
+        punctuation: 2000
     }
 
-
     const handleSubmit = () => {
-        let auxPlayer = JSON.parse(localStorage.getItem("user"))
-        if (auxPlayer === null) localStorage.setItem("user", JSON.stringify({name: "", password: "", color: "", point: 2000}))
+        let auxPlayer = getUser()
+        if (auxPlayer === null) setUser({name: "", password: "", color: "", punctuation: 2000})
         else auxPlayer = JSON.parse(localStorage.getItem("user"))
-
-        
-        if (player.name != "" && player.password != "") {
-            localStorage.setItem("user", JSON.stringify(player))
-            console.log(player)
+        if (player.name !== "" && player.password !== "") {
+            setUser(player)
             nav("/rooms")
         }
     }
@@ -33,7 +31,7 @@ const Login = () => {
     return (
         <div className="container__principal__login">
             <div className="logoSh">
-                <img src={logoSh} />
+                <img src={logoSh} alt="Sherlock Holmes"/>
             </div>
             <div className="inputs__login">
                 <div className="user__login">

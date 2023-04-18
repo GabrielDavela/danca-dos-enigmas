@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { GameContext, sendMessage, timerGame } from "../../context/GameContext";
+import { GameContext, getUser, sendMessage, timerGame } from "../../context/GameContext";
 import Chat from "../chat/Chat";
 import ChooseTeam from "../chooseteam/ChooseTeam";
 import InsertWord from '../insertWord/InsertWord';
@@ -9,11 +9,11 @@ import Menu from "../menu/Menu";
 
 const Home = () => {
 
-    const { match, messages, everyoneIsReady, timer } = useContext(GameContext)
+    const { match, messages, everyoneIsReady, timer, punctuation, hit } = useContext(GameContext)
     const [tip, setTip] = useState(false)
     const [insertWord, setInsertWord] = useState(false)
 
-    let playerAux = JSON.parse(localStorage.getItem("user"))
+    let playerAux = getUser()
     const [isOpenModal, setIsOpenModal] = useState(playerAux.color === "")
 
     const loader = document.querySelector(".loader")
@@ -21,9 +21,7 @@ const Home = () => {
 
     useEffect(() => {
         timerGame(match)
-        console.log(timer)
-    }, [])
-
+    })
 
     const handleCloseModal = () => {
         setIsOpenModal(false)
@@ -62,7 +60,8 @@ const Home = () => {
             <div>
                 {timer}
                 {playerAux.color}
-                {playerAux.point}
+                {punctuation}
+                {hit}
             </div>
             {!isOpenModal &&
                 <>
