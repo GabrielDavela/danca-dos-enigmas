@@ -59,9 +59,11 @@ const Home = () => {
 
     return (
         <div>
-            <p>
+            <div>
                 {timer}
-            </p>
+                {playerAux.color}
+                {playerAux.point}
+            </div>
             {!isOpenModal &&
                 <>
 

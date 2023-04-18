@@ -19,7 +19,7 @@ const Login = () => {
 
     const handleSubmit = () => {
         let auxPlayer = JSON.parse(localStorage.getItem("user"))
-        if (auxPlayer === null) localStorage.setItem("user", JSON.stringify({name: "", password: "", color: ""}))
+        if (auxPlayer === null) localStorage.setItem("user", JSON.stringify({name: "", password: "", color: "", point: 2000}))
         else auxPlayer = JSON.parse(localStorage.getItem("user"))
 
         
