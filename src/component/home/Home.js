@@ -6,6 +6,7 @@ import InsertWord from '../insertWord/InsertWord';
 import Tip from '../tip/Tip';
 import Scanner from "../scanner/Scanner";
 import Menu from "../menu/Menu";
+import Navbar from "../navbar/Navbar"
 
 const Home = () => {
 
@@ -70,9 +71,7 @@ const Home = () => {
     return (
         <div>
             <div>
-                {timer}
-                {playerAux.color}
-                {punctuation}
+                <Navbar timer={timer} group={playerAux.color} points={punctuation}/>
                 <p>
                     {console.log(hit.bool + hit.color)}
                 </p>
