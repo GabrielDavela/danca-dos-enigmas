@@ -98,7 +98,7 @@ const initialState = {
     messages: [],
     readyplayers: 0,
     everyoneIsReady: false,
-    hit: false,
+    hit: {},
     gameInProcess: false,
     sizeWord: 0,
     timer: "",
@@ -134,9 +134,7 @@ const GameProvider = (props) => {
 
         // É tipo o match do tinder ksksks
         socket.on('MatchRefresh', (match) => {
-            console.log(match)
             dispatch({ type: 'MATCH', payload: match })
-            console.log(match)
         })
 
         // Vai receber a mensagem para colocar no chat desse cliente
@@ -153,8 +151,8 @@ const GameProvider = (props) => {
             dispatch({ type: 'EVERYONE_IS_READY', payload: bool })
         })
 
-        socket.on("FinishGame", (bool) => {
-            dispatch({ type: 'VERIFY_WORD', payload: bool })
+        socket.on("FinishGame", (finish) => {
+            dispatch({ type: 'VERIFY_WORD', payload: finish })
         })
 
         socket.on("GameInProcess", (bool) => {
@@ -172,7 +170,6 @@ const GameProvider = (props) => {
         socket.on("UpdatePunctuation", (punctuation) => {
             dispatch({ type: 'UPDATE_PUNCTUATION', payload: punctuation })
             let objUser = getUser()
-            console.log(objUser)
             objUser.punctuation = punctuation
             setUser(objUser)
         })

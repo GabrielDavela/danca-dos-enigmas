@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { GameContext, getUser, sendMessage, timerGame } from "../../context/GameContext";
+import { GameContext, getUser, sendMessage, setUser, timerGame } from "../../context/GameContext";
 import Chat from "../chat/Chat";
 import ChooseTeam from "../chooseteam/ChooseTeam";
 import InsertWord from '../insertWord/InsertWord';
@@ -21,6 +21,18 @@ const Home = () => {
 
     useEffect(() => {
         timerGame(match)
+    }, [timerGame])
+
+    useEffect(() => {
+        if(hit.bool && hit.color === playerAux.color) {
+            hit.bool = false
+
+            let objUser = getUser()
+            objUser.time = timer
+            objUser.punctuation = punctuation
+
+            setUser(objUser)
+        }
     })
 
     const handleCloseModal = () => {
@@ -61,7 +73,9 @@ const Home = () => {
                 {timer}
                 {playerAux.color}
                 {punctuation}
-                {hit}
+                <p>
+                    {console.log(hit.bool + hit.color)}
+                </p>
             </div>
             {!isOpenModal &&
                 <>
