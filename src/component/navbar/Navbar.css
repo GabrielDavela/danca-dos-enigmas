@@ -10,7 +10,6 @@
 .container__group,
 .container__timer,
 .container__points {
-    width: 100%;
     position: relative;
     display: flex;
     justify-content: center;
@@ -28,11 +27,24 @@
 }
 
 .container__timer > p {
-    margin-right: .5rem;
+    margin-right: .4rem;
 }
 
-.container__points > img{
+.lifeLost__navbar {
+    width: 2.2rem;
     position: absolute;
-    top: 9px;
-    right: 10px;
+    right: 40%;
+    bottom: -17px;
+    animation: slide-in .8s ease-in-out;
+}
+
+@keyframes slide-in {
+    0% {
+        bottom: -17px;
+        opacity: 1;
+    }
+    100% {
+        bottom: -30px;
+        opacity: 0;
+    }
 }

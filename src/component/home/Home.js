@@ -71,10 +71,7 @@ const Home = () => {
     return (
         <div>
             <div>
-                <Navbar timer={timer} group={playerAux.color} points={punctuation}/>
-                <p>
-                    {console.log(hit.bool + hit.color)}
-                </p>
+                <Navbar timer={timer} group={playerAux.color} points={punctuation} playerColor={playerAux.color}/>
             </div>
             {!isOpenModal &&
                 <>
