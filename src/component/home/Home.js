@@ -21,11 +21,11 @@ const Home = () => {
     const scanning = document.querySelector(".scanning")
 
     useEffect(() => {
-        timerGame(match)
-    }, [timerGame])
+        if (!isOpenModal) timerGame(match)
+    }, [timerGame, isOpenModal])
 
     useEffect(() => {
-        if(hit.bool && hit.color === playerAux.color) {
+        if (hit.bool && hit.color === playerAux.color) {
             hit.bool = false
 
             let objUser = getUser()
@@ -70,11 +70,19 @@ const Home = () => {
 
     return (
         <div>
-            <div>
-                <Navbar timer={timer} group={playerAux.color} points={punctuation} playerColor={playerAux.color}/>
-            </div>
+
             {!isOpenModal &&
                 <>
+                    {!everyoneIsReady &&
+                        <div>
+                            <Navbar
+                                timer={timer}
+                                group={playerAux.color}
+                                points={punctuation}
+                                playerColor={playerAux.color}
+                            />
+                        </div>
+                    }
 
                     {insertWord &&
                         <InsertWord player={playerAux} />

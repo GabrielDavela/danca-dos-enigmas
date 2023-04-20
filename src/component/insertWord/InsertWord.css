@@ -23,6 +23,7 @@
 }
 
 .container__principal__insword {
+    margin-top: 2rem;
     position: absolute;
     width: 100%;
     height: 100vh;
