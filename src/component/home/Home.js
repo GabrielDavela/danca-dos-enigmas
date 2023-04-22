@@ -7,12 +7,15 @@ import Tip from '../tip/Tip';
 import Scanner from "../scanner/Scanner";
 import Menu from "../menu/Menu";
 import Navbar from "../navbar/Navbar"
+import Ranking from "../ranking/Ranking";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
 
     const { match, messages, everyoneIsReady, timer, punctuation, hit } = useContext(GameContext)
     const [tip, setTip] = useState(false)
     const [insertWord, setInsertWord] = useState(false)
+    const nav = useNavigate()
 
     let playerAux = getUser()
     const [isOpenModal, setIsOpenModal] = useState(playerAux.color === "")
@@ -27,12 +30,13 @@ const Home = () => {
     useEffect(() => {
         if (hit.bool && hit.color === playerAux.color) {
             hit.bool = false
-
+            
             let objUser = getUser()
             objUser.time = timer
             objUser.punctuation = punctuation
-
-            setUser(objUser)
+            
+            setUser(playerAux.color, objUser)
+            nav("/ranking")
         }
     })
 
@@ -70,8 +74,7 @@ const Home = () => {
 
     return (
         <div>
-
-            {!isOpenModal &&
+            {!isOpenModal && !hit.bool &&
                 <>
                     {!everyoneIsReady &&
                         <div>
@@ -105,6 +108,8 @@ const Home = () => {
                     }
                 </>
             }
+
+
 
             {isOpenModal &&
                 <ChooseTeam player={playerAux} handleCloseModal={handleCloseModal} />

@@ -3,12 +3,10 @@ import "./Navbar.css";
 import lifeImg from "../../assets/screens/life.png";
 import lifeLostImg from "../../assets/screens/life_lost.png";
 import timerImg from "../../assets/screens/timer.png";
-import { useEffect } from "react";
-import { useState } from "react";
-import { useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import { GameContext } from "../../context/GameContext";
 
-const Navbar = ({ timer, points, group, playerColor }) => {
+const Navbar = ({ timer, points, group, playerColor, theGamesContinues }) => {
 
     const { punctuation } = useContext(GameContext)
     const [lifeLost, setLifeLost] = useState(false)

@@ -21,10 +21,10 @@ const Login = () => {
 
     const handleSubmit = () => {
         let auxPlayer = getUser()
-        if (auxPlayer === null) setUser({name: "", password: "", color: "", punctuation: 2000, time: ""})
+        if (auxPlayer === null) setUser("user", {name: "", password: "", color: "", punctuation: 2000, time: ""})
         else auxPlayer = JSON.parse(localStorage.getItem("user"))
         if (player.name !== "" && player.password !== "") {
-            setUser(player)
+            setUser("user",player)
             nav("/rooms")
         }
     }

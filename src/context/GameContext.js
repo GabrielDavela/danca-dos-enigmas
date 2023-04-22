@@ -48,6 +48,11 @@ const reducer = (state, action) => {
                 ...state,
                 messages: [...state.messages, action.payload]
             }
+        case 'UPDATE_RANKING':
+            return {
+                ...state,
+                ranking: [...state.ranking, action.payload]
+            }
         case 'READY_PLAYERS':
             return {
                 ...state,
@@ -102,7 +107,8 @@ const initialState = {
     gameInProcess: false,
     sizeWord: 0,
     timer: "",
-    punctuation: 2000
+    punctuation: 2000,
+    ranking: []
 }
 
 const GameProvider = (props) => {
@@ -171,7 +177,12 @@ const GameProvider = (props) => {
             dispatch({ type: 'UPDATE_PUNCTUATION', payload: punctuation })
             let objUser = getUser()
             objUser.punctuation = punctuation
-            setUser(objUser)
+            setUser("user", objUser)
+        })
+
+        socket.on("UpdateRanking", (ranking) => {
+            console.log("Entrei aqui")
+            dispatch({ type: "UPDATE_RANKING", payload: ranking })
         })
 
         // Vai fazer com que autoConnect se transforme em true
@@ -221,12 +232,16 @@ const timerGame = (match) => {
     socket.emit("TimerGame", match)
 }
 
+const sendResultRanking = (player) => {
+    socket.emit("SendResultRanking", player)
+}
+
 const getUser = () => {
     return JSON.parse(localStorage.getItem("user"))
 }
 
-const setUser = (objUser) => {
-    localStorage.setItem("user", JSON.stringify(objUser))
+const setUser = (type, objUser) => {
+    localStorage.setItem(`${type}`, JSON.stringify(objUser))
 }
 
 export {
@@ -240,6 +255,7 @@ export {
     verifyWord,
     sizeWordFront,
     timerGame,
+    sendResultRanking,
     getUser,
     setUser
 }
