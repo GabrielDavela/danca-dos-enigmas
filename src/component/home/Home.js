@@ -7,7 +7,6 @@ import Tip from '../tip/Tip';
 import Scanner from "../scanner/Scanner";
 import Menu from "../menu/Menu";
 import Navbar from "../navbar/Navbar"
-import Ranking from "../ranking/Ranking";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
