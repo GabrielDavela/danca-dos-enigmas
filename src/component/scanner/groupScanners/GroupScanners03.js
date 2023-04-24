@@ -11,15 +11,16 @@ const GroupScanners03 = ({ target }) => {
             device-orientation-permission-ui="enabled: false"
             id="target-cards-gp03"
         >
-            <a-assets>
-                <img id='group_03_document_1' src={group03.group_03_document_1} />
-                <img id='group_03_document_2' src={group03.group_03_document_2} />
-                <img id='group_03_document_3' src={group03.group_03_document_3} />
-                <img id='group_03_document_4' src={group03.group_03_document_4} />
-                <img id='group_03_document_5' src={group03.group_03_document_5} />
-                <img id='group_03_document_6' src={group03.group_03_document_6} />
-                <img id='group_03_document_7' src={group03.group_03_document_7} />
-            </a-assets>
+            {/* <a-assets> */}
+            <a-sound src={group03.group_03_document_1} autoplay="true" loop="true" position="0 2 5"></a-sound>
+            <img id='group_03_document_1' src={group03.group_03_document_1} />
+            <img id='group_03_document_2' src={group03.group_03_document_2} />
+            <img id='group_03_document_3' src={group03.group_03_document_3} />
+            <img id='group_03_document_4' src={group03.group_03_document_4} />
+            <img id='group_03_document_5' src={group03.group_03_document_5} />
+            <img id='group_03_document_6' src={group03.group_03_document_6} />
+            <img id='group_03_document_7' src={group03.group_03_document_7} />
+            {/* </a-assets> */}
 
             <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
