@@ -181,7 +181,6 @@ const GameProvider = (props) => {
         })
 
         socket.on("UpdateRanking", (ranking) => {
-            console.log("Entrei aqui")
             dispatch({ type: "UPDATE_RANKING", payload: ranking })
         })
 
