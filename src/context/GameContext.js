@@ -51,7 +51,7 @@ const reducer = (state, action) => {
         case 'UPDATE_RANKING':
             return {
                 ...state,
-                ranking: [...state.ranking, action.payload]
+                ranking: action.payload
             }
         case 'READY_PLAYERS':
             return {

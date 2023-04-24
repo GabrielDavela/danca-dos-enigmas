@@ -11,30 +11,24 @@ const Ranking = () => {
 
     useEffect(() => {
         const player = getUser();
-        console.log(ranking)
         const playerData = JSON.parse(localStorage.getItem(`${player.color}`));
         setPlayerToRanking(playerData);
+        sendResultRanking(playerToRanking)
     }, []);
-
-    useEffect(() => {
-        sendResultRanking(playerToRanking);
-    }, [playerToRanking]);
 
     return (
         <div className="container__principal__ranking">
             <h1 className="title__ranking">RANKING</h1>
             {ranking.map((player, index) => (
                 <div className="container__results__ranking" key={index}>
-                    {console.log(player)}
                     <ContainerRanking
-                        placing={index + 1}
-                        name={player[index].name}
-                        points={player[index].punctuation}
-                        time={player[index].time}
+                        placing={index}
+                        name={player.name}
+                        points={player.punctuation}
+                        time={player.time}
                     />
                 </div>
             ))}
-
         </div>
     )
 }
