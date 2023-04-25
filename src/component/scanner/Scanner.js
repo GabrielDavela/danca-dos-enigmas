@@ -17,17 +17,10 @@ const Scanner = ({ player }) => {
 
     return (
         <div className='container__scanner'>
-            {
-                console.log(everyoneIsReady)
-            }
             {everyoneIsReady &&
                 <>
                     {player.color.toLowerCase() === "vermelho" &&
-                        <>
-
-                            <GroupScanners01 target={targets.target_group01} />
-
-                        </>
+                        <GroupScanners01 target={targets.target_group01} />
                     }
 
                     {player.color.toLowerCase() === "azul" &&
@@ -45,7 +38,8 @@ const Scanner = ({ player }) => {
             }
 
             {!everyoneIsReady &&
-                <FirstCards target={targets.first_cards} player={player} />
+                // <FirstCards target={targets.first_cards} player={player} />
+                <GroupScanners03 target={targets.target_group03} />
             }
 
         </div>
