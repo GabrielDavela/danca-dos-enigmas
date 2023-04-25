@@ -13,8 +13,12 @@ const Ranking = () => {
         const player = getUser();
         const playerData = JSON.parse(localStorage.getItem(`${player.color}`));
         setPlayerToRanking(playerData);
-        sendResultRanking(playerToRanking)
+        if (playerData) {
+            const updatedPlayerToRanking = playerData;
+            sendResultRanking(updatedPlayerToRanking);
+        }
     }, []);
+    
 
     return (
         <div className="container__principal__ranking">
@@ -22,7 +26,7 @@ const Ranking = () => {
             {ranking.map((player, index) => (
                 <div className="container__results__ranking" key={index}>
                     <ContainerRanking
-                        placing={index}
+                        placing={index + 1}
                         name={player.name}
                         points={player.punctuation}
                         time={player.time}
