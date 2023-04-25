@@ -15,17 +15,19 @@ const Scanner = ({ player }) => {
 
     const { everyoneIsReady } = useContext(GameContext)
 
-    useEffect(() => {
-        if(everyoneIsReady) window.location.reload()
-    }, [everyoneIsReady])
-
     return (
-        <div className='container__scanner' >
-
+        <div className='container__scanner'>
+            {
+                console.log(everyoneIsReady)
+            }
             {everyoneIsReady &&
                 <>
                     {player.color.toLowerCase() === "vermelho" &&
-                        <GroupScanners01 target={targets.target_group01} />
+                        <>
+
+                            <GroupScanners01 target={targets.target_group01} />
+
+                        </>
                     }
 
                     {player.color.toLowerCase() === "azul" &&
