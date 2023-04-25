@@ -58,7 +58,7 @@ const GroupScanners03 = ({ target }) => {
           ></a-plane>
 
           {/* Renderiza um botão para cada card que, ao ser clicado, reproduz o áudio correspondente */}
-          <button onClick={() => handleClick(index - 2)}>Reproduzir áudio</button>
+          <button onClick={() => handleClick(index - 2)} style={{position: "absolute", zIndex: 1800}}>Reproduzir áudio</button>
         </div>
       ))}
     </a-scene>
