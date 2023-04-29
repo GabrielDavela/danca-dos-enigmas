@@ -56,7 +56,7 @@ const GroupScanners03 = ({ target }) => {
       {/* ... e assim por diante para cada alvo de imagem */}
 
       {selectedAudioIndex >= 0 && (
-        <div style={{ position: 'fixed', bottom: 0 }}>
+        <div style={{ position: 'fixed', bottom: 0, zIndex: 1900 }}>
           Tocando áudio {selectedAudioIndex + 1}
         </div>
       )}
