@@ -54,7 +54,7 @@ const GroupScanners03 = ({ target }) => {
 
   return (
     <a-scene
-      mindar-image={`imageTargetSrc: ${target}; onImageFound: ${onImageFound}`}
+      mindar-image={`imageTargetSrc: ${target};`}
       color-space="sRGB"
       renderer="colorManagement: true, physicallyCorrectLights"
       vr-mode-ui="enabled: false"
@@ -78,7 +78,6 @@ const GroupScanners03 = ({ target }) => {
           geometry="primitive: box; height: 1; width: 1; depth: 1"
           material="color: blue"
         >
-          <button>Button</button>
           {selectedAudioIndex === index && (
             <a-sound
               src={`#${audio.id}`}
