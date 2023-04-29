@@ -41,12 +41,6 @@ const GroupScanners03 = ({ target }) => {
     },
   ]
 
-  const [activeAudio, setActiveAudio] = useState(null);
-
-  const handleAudioClick = (id) => {
-    setActiveAudio(id);
-  }
-
   return (
     <a-scene
       mindar-image={`imageTargetSrc: ${target};`}
@@ -62,22 +56,18 @@ const GroupScanners03 = ({ target }) => {
         ))}
       </a-assets>
 
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      <a-camera position="0 0 0" look-controls="enabled: false">
+        <a-cursor raycaster="objects: [mindar-image-target];" fuse="false" />
+      </a-camera>
 
-      {audios.map((audio) => (
-        <a-entity
-          key={audio.id}
-          mindar-image-target={`targetIndex: ${audio.targetIndex}`}
-          geometry="primitive: box; height: 1; width: 1; depth: 1"
-          material="color: blue"
-          sound={`src: #${audio.id}; autoplay: ${activeAudio === audio.id}`}
-          onClick={() => handleAudioClick(audio.id)}
-        >
-        </a-entity>
-      ))}
-      
-      <button onClick={() => setActiveAudio(null)}>Parar áudio</button>
-
+      <a-entity
+        mindar-image-target={`targetIndex: 0`}
+        geometry="primitive: box; height: 1; width: 1; depth: 1"
+        material="color: blue"
+        sound={`src: ${audios[0].src}; autoplay: false`}
+        onClick={() => document.querySelector(`#${audios[0].id}`).components.sound.playSound()}
+      >
+      </a-entity>
     </a-scene>
   )
 }
