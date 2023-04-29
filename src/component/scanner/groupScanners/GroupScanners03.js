@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { group03 } from '../../../assets/group-03/group03'
 
 const GroupScanners03 = ({ target }) => {
-  const [selectedAudioIndex, setSelectedAudioIndex] = useState(-1)
 
   const audios = [
     {
@@ -42,10 +41,10 @@ const GroupScanners03 = ({ target }) => {
     },
   ]
 
-  const playAudio = (index) => {
-    alert()
-    console.log("Entrei no play audio ", index)
-    setSelectedAudioIndex(index)
+  const [activeAudio, setActiveAudio] = useState(null);
+
+  const handleAudioClick = (id) => {
+    setActiveAudio(id);
   }
 
   return (
@@ -63,35 +62,22 @@ const GroupScanners03 = ({ target }) => {
         ))}
       </a-assets>
 
-      <a-camera position="0 0 0" look-controls="enabled: false">
-        <a-cursor></a-cursor>
-      </a-camera>
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-      {audios.map((audio, index) => (
+      {audios.map((audio) => (
         <a-entity
-          key={index}
+          key={audio.id}
           mindar-image-target={`targetIndex: ${audio.targetIndex}`}
           geometry="primitive: box; height: 1; width: 1; depth: 1"
           material="color: blue"
-          event-set__touchstart="_event: touchstart; _target: #audio-player; _setAttribute: visible true"
+          sound={`src: #${audio.id}; autoplay: ${activeAudio === audio.id}`}
+          onClick={() => handleAudioClick(audio.id)}
         >
-          {selectedAudioIndex === index && (
-            <a-sound
-              src={`#${audio.id}`}
-              autoplay="true"
-              position="0 0 0"
-              id="audio-player"
-              visible="false"
-            />
-          )}
         </a-entity>
       ))}
+      
+      <button onClick={() => setActiveAudio(null)}>Parar áudio</button>
 
-      {selectedAudioIndex >= 0 && (
-        <div style={{ position: 'fixed', bottom: 0, zIndex: 1900 }}>
-          Tocando áudio {selectedAudioIndex + 1}
-        </div>
-      )}
     </a-scene>
   )
 }
