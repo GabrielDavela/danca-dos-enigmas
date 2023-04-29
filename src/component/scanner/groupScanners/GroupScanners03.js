@@ -15,10 +15,9 @@ const GroupScanners03 = ({ target }) => {
   ]
 
   const playAudio = (index) => {
-    if (index >= 0 && index < audios.length) {
-      setSelectedAudioIndex(index)
-      audios[index].play()
-    }
+    alert("Entrei aqui")
+    setSelectedAudioIndex(index)
+    audios[index].play()
   }
 
   return (
