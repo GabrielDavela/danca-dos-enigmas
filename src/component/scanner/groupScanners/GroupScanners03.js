@@ -77,6 +77,7 @@ const GroupScanners03 = ({ target }) => {
         onClick={() => handleCubeClick(document.getElementById(audios[0].id))}
       >
       </a-entity>
+      <button onClick={() => handleCubeClick(document.getElementById(audios[0].id))}>Clica aqui bro</button>
     </a-scene>
   )
 }
