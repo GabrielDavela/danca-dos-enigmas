@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { group03 } from '../../../assets/group-03/group03'
 
 const GroupScanners03 = ({ target }) => {
-  const [selectedAudioIndex, setSelectedAudioIndex] = useState(-1) // -1 = nenhum áudio selecionado
+  const [selectedAudioIndex, setSelectedAudioIndex] = useState(-1) 
 
   const audios = [
     {
@@ -47,9 +47,14 @@ const GroupScanners03 = ({ target }) => {
     setSelectedAudioIndex(index)
   }
 
+  const onImageFound = (e) => {
+    const targetIndex = e.detail.targetIndex
+    console.log(`Card ${targetIndex} foi encontrado.`)
+  }
+
   return (
     <a-scene
-      mindar-image={`imageTargetSrc: ${target};`}
+      mindar-image={`imageTargetSrc: ${target}; onImageFound: ${onImageFound}`}
       color-space="sRGB"
       renderer="colorManagement: true, physicallyCorrectLights"
       vr-mode-ui="enabled: false"
@@ -73,6 +78,7 @@ const GroupScanners03 = ({ target }) => {
           geometry="primitive: box; height: 1; width: 1; depth: 1"
           material="color: blue"
         >
+          <button>Button</button>
           {selectedAudioIndex === index && (
             <a-sound
               src={`#${audio.id}`}
