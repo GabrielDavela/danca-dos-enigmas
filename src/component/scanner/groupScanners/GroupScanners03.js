@@ -55,7 +55,7 @@ const GroupScanners03 = ({ target }) => {
   return (
     <>
       <a-scene>
-        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+        <a-camera position="0 0 0" look-controls="enabled: true"></a-camera>
 
         <a-assets>
           {audios.map((audio, index) => (
