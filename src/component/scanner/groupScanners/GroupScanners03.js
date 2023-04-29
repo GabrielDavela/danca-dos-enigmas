@@ -71,15 +71,17 @@ const GroupScanners03 = ({ target }) => {
         <a-entity
           key={index}
           mindar-image-target={`targetIndex: ${audio.targetIndex}`}
-          onClick={() => playAudio(index)}
-          style={{ zIndex: 10000, position: "absolute" }}
           geometry="primitive: box; height: 1; width: 1; depth: 1"
           material="color: blue"
+          event-set__touchstart="_event: touchstart; _target: #audio-player; _setAttribute: visible true"
         >
           {selectedAudioIndex === index && (
             <a-sound
               src={`#${audio.id}`}
               autoplay="true"
+              position="0 0 0"
+              id="audio-player"
+              visible="false"
             />
           )}
         </a-entity>
