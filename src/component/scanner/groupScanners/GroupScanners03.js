@@ -43,13 +43,9 @@ const GroupScanners03 = ({ target }) => {
   ]
 
   const playAudio = (index) => {
+    alert()
     console.log("Entrei no play audio ", index)
     setSelectedAudioIndex(index)
-  }
-
-  const onImageFound = (e) => {
-    const targetIndex = e.detail.targetIndex
-    console.log(`Card ${targetIndex} foi encontrado.`)
   }
 
   return (
@@ -73,7 +69,7 @@ const GroupScanners03 = ({ target }) => {
         <a-entity
           key={index}
           mindar-image-target={`targetIndex: ${audio.targetIndex}`}
-          onTouchStart={() => playAudio(index)}
+          onClick={() => playAudio(index)}
           style={{zIndex: 1800}}
           geometry="primitive: box; height: 1; width: 1; depth: 1"
           material="color: blue"
