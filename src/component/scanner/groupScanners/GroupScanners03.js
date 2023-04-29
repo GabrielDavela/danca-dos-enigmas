@@ -18,6 +18,7 @@ const GroupScanners03 = ({ target }) => {
   ]
 
   const playAudio = (index) => {
+    alert(index)
     setSelectedAudioIndex({ index, cardDetected: true })
     audios[index].play()
   }
