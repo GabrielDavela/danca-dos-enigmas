@@ -43,7 +43,7 @@ const GroupScanners03 = ({ target }) => {
   ]
 
   const playAudio = (index) => {
-    alert(index)
+    console.log("Entrei no play audio ", index)
     setSelectedAudioIndex(index)
   }
 
@@ -68,7 +68,7 @@ const GroupScanners03 = ({ target }) => {
         <a-entity
           key={index}
           mindar-image-target={`targetIndex: ${audio.targetIndex}`}
-          onClick={() => playAudio(index)}
+          onTouchStart={() => playAudio(index)}
           style={{zIndex: 1800}}
           geometry="primitive: box; height: 1; width: 1; depth: 1"
           material="color: blue"
