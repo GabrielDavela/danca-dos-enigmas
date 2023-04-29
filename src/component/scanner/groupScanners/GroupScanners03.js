@@ -44,54 +44,55 @@ const GroupScanners03 = ({ target }) => {
   const [audioPlaying, setAudioPlaying] = useState(null);
 
   const handleAudioButtonClick = (targetIndex) => {
-  const audio = document.getElementById(audios.find((item) => item.targetIndex === targetIndex).id);
-  if (audioPlaying) {
-    audio.pause();
-  }
-  audio.play();
-  setAudioPlaying(audio);
-};
+    const audio = document.getElementById(audios.find((item) => item.targetIndex === targetIndex).id);
+    if (audioPlaying) {
+      audio.pause();
+    }
+    audio.play();
+    setAudioPlaying(audio);
+  };
 
-return (
-  <>
-    <a-scene 
-      mindar-image={`imageTargetSrc: ${target};`}
-      color-space="sRGB"
-      renderer="colorManagement: true, physicallyCorrectLights"
-      vr-mode-ui="enabled: false"
-      device-orientation-permission-ui="enabled: false"
-      id="target-cards-gp03"
-    >
-      <a-assets>
+  return (
+    <>
+      <a-scene
+        mindar-image={`imageTargetSrc: ${target};`}
+        color-space="sRGB"
+        renderer="colorManagement: true, physicallyCorrectLights"
+        vr-mode-ui="enabled: false"
+        device-orientation-permission-ui="enabled: false"
+        id="target-cards-gp03"
+      >
+        <a-assets>
+          {audios.map((audio, index) => (
+            <audio key={index} id={audio.id} src={audio.src} autoPlay={false} />
+          ))}
+        </a-assets>
+
+        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
         {audios.map((audio, index) => (
-          <audio key={index} id={audio.id} src={audio.src} autoPlay={false} />
-        ))}
-      </a-assets>
-
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
-      {audios.map((audio, index) => (
-        <a-entity
-          key={index}
-          class="clickable"
-          mindar-image-target={`targetIndex: ${audio.targetIndex}`}
-        >
-          <a-plane
-            onClick={() => handleAudioButtonClick(audio.targetIndex)}
-            onTouchStart={() => handleAudioButtonClick(audio.targetIndex)}
-            position="0 0 0"
-            height="2.3"
-            width="1.6"
-            rotation="0 0 0"
-            material="color: blue"
-            text={`value: ${audio.id}; color: white; align: center`}
+          <a-entity
+            key={index}
+            class="clickable"
+            mindar-image-target={`targetIndex: ${audio.targetIndex}`}
           >
-          </a-plane>
-        </a-entity>
-      ))}
-    </a-scene>
-  </>
-);
+            <a-plane
+              cursor-listener
+              onClick={() => handleAudioButtonClick(audio.targetIndex)}
+              onTouchStart={() => handleAudioButtonClick(audio.targetIndex)}
+              position="0 0 0"
+              height="2.3"
+              width="1.6"
+              rotation="0 0 0"
+              material="color: blue"
+              text={`value: ${audio.id}; color: white; align: center`}
+            >
+            </a-plane>
+          </a-entity>
+        ))}
+      </a-scene>
+    </>
+  );
 
 }
 
