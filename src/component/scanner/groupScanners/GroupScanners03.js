@@ -41,14 +41,13 @@ const GroupScanners03 = ({ target }) => {
     },
   ]
 
-  // Adicionando estado para controlar a reprodução de áudio
   const [audioPlaying, setAudioPlaying] = useState(null);
 
   const handleCubeClick = (targetIndex) => {
     alert("Entrei no cube")
     const audio = document.getElementById(audios.find((item) => item.targetIndex === targetIndex).id);
     if (audioPlaying) {
-      audioPlaying.pause();
+      audio.pause();
     }
     audio.play();
     setAudioPlaying(audio);
@@ -66,7 +65,7 @@ const GroupScanners03 = ({ target }) => {
       >
         <a-assets>
           {audios.map((audio, index) => (
-            <audio key={index} id={audio.id} src={audio.src} />
+            <audio key={index} id={audio.id} src={audio.src} autoPlay={false}/>
           ))}
         </a-assets>
 
