@@ -41,6 +41,18 @@ const GroupScanners03 = ({ target }) => {
     },
   ]
 
+  // Adicionando estado para controlar a reprodução de áudio
+  const [audioPlaying, setAudioPlaying] = useState(null);
+
+  const handleCubeClick = (audio) => {
+    console.log("Entre no cube")
+    if (audioPlaying) {
+      audioPlaying.pause();
+    }
+    audio.play();
+    setAudioPlaying(audio);
+  };
+
   return (
     <a-scene
       mindar-image={`imageTargetSrc: ${target};`}
@@ -56,16 +68,13 @@ const GroupScanners03 = ({ target }) => {
         ))}
       </a-assets>
 
-      <a-camera position="0 0 0" look-controls="enabled: false">
-        <a-cursor raycaster="objects: [mindar-image-target];" fuse="false" />
-      </a-camera>
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
       <a-entity
         mindar-image-target={`targetIndex: 0`}
         geometry="primitive: box; height: 1; width: 1; depth: 1"
         material="color: blue"
-        sound={`src: ${audios[0].src}; autoplay: false`}
-        onClick={() => document.querySelector(`#${audios[0].id}`).components.sound.playSound()}
+        onClick={() => handleCubeClick(document.getElementById(audios[0].id))}
       >
       </a-entity>
     </a-scene>
