@@ -74,6 +74,8 @@ const GroupScanners03 = ({ target }) => {
         mindar-image-target={`targetIndex: 0`}
         geometry="primitive: box; height: 1; width: 1; depth: 1"
         material="color: blue"
+        mobile-vr-ui="enabled: false"
+        cursor="rayOrigin: cursor; fuse: true"
         onTouchStart={() => handleCubeClick(document.getElementById(audios[0].id))}
       >
       </a-entity>
