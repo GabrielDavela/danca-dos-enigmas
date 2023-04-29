@@ -75,8 +75,8 @@ const GroupScanners03 = ({ target }) => {
         geometry="primitive: box; height: 1; width: 1; depth: 1"
         material="color: blue"
         mobile-vr-ui="enabled: false"
-        cursor="rayOrigin: cursor; fuse: true"
         onTouchStart={() => handleCubeClick(document.getElementById(audios[0].id))}
+        onClick={() => handleCubeClick(document.getElementById(audios[0].id))}
         style={{zIndex: 1900}}
       >
       </a-entity>
