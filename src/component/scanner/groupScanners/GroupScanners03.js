@@ -44,8 +44,9 @@ const GroupScanners03 = ({ target }) => {
   // Adicionando estado para controlar a reprodução de áudio
   const [audioPlaying, setAudioPlaying] = useState(null);
 
-  const handleCubeClick = (audio) => {
+  const handleCubeClick = (targetIndex) => {
     alert("Entrei no cube")
+    const audio = document.getElementById(audios.find((item) => item.targetIndex === targetIndex).id);
     if (audioPlaying) {
       audioPlaying.pause();
     }
@@ -78,12 +79,12 @@ const GroupScanners03 = ({ target }) => {
           geometry="primitive: box; height: 1; width: 1; depth: 1"
           material="color: blue"
           mobile-vr-ui="enabled: false"
-          onTouchStart={() => handleCubeClick(document.getElementById(audios[0].id))}
-          onClick={() => handleCubeClick(document.getElementById(audios[0].id))}
+          onTouchStart={() => handleCubeClick(0)}
+          onClick={() => handleCubeClick(0)}
           style={{ zIndex: 1900 }}
         >
         </a-entity>
-        <button onClick={() => handleCubeClick(document.getElementById(audios[1].id))} style={{ zIndex: 1800 }}>Clica aqui bro</button>
+        {/* <button onClick={() => handleCubeClick(document.getElementById(audios[1].id))} style={{ zIndex: 1800 }}>Clica aqui bro</button> */}
       </a-scene>
     </>
   )
