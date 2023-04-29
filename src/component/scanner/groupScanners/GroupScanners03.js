@@ -40,9 +40,10 @@ const GroupScanners03 = ({ target }) => {
       <a-entity
         mindar-image-target="targetIndex: 0"
         onClick={() => playAudio(0)}
-        
+        style={{zIndex: 1800}}
+        geometry="primitive: box; height: 1; width: 1; depth: 1"
+        material="color: blue"
       >
-        <button onClick={() => playAudio(0)} style={{zIndex: 1800}}>Audio 1</button>
       </a-entity>
 
       <a-entity
