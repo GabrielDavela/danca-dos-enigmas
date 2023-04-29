@@ -77,9 +77,10 @@ const GroupScanners03 = ({ target }) => {
         mobile-vr-ui="enabled: false"
         cursor="rayOrigin: cursor; fuse: true"
         onTouchStart={() => handleCubeClick(document.getElementById(audios[0].id))}
+        style={{zIndex: 1900}}
       >
       </a-entity>
-      <button onClick={() => handleCubeClick(document.getElementById(audios[0].id))}  style={{zIndex: 1800}}>Clica aqui bro</button>
+      <button onClick={() => handleCubeClick(document.getElementById(audios[1].id))}  style={{zIndex: 1800}}>Clica aqui bro</button>
     </a-scene>
   )
 }
