@@ -65,8 +65,9 @@ const GroupScanners03 = ({ target }) => {
       >
         <a-assets>
           {audios.map((audio, index) => (
-            <audio key={index} id={audio.id} src={audio.src} autoPlay={false}/>
+            <audio key={index} id={audio.id} src={audio.src} autoPlay={false} />
           ))}
+          <button id='buttonGroupScanners03'>Clica aqui</button>
         </a-assets>
 
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
@@ -75,13 +76,22 @@ const GroupScanners03 = ({ target }) => {
           class="clickable"
           mindar-image-target={`targetIndex: 0`}
         >
-          <a-plane src="#audio-1"
+          {/* <a-plane src="#audio-1"
             position="0 0 0"
             onClick={() => handleCubeClick(0)}
             onTouchStart={() => handleCubeClick(0)}
             height="2.3"
             width="1.6"
-            rotation="0 0 0"></a-plane>
+            rotation="0 0 0"></a-plane> */}
+          <a-plane src="#buttonGroupScanners03"
+            onClick={() => handleCubeClick(0)}
+            onTouchStart={() => handleCubeClick(0)}
+            position="0 0 0"
+            height="2.3"
+            width="1.6"
+            rotation="0 0 0">
+
+          </a-plane>
         </a-entity>
       </a-scene>
     </>
