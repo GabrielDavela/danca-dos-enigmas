@@ -2,10 +2,8 @@ import { useState } from 'react'
 import { group03 } from '../../../assets/group-03/group03'
 
 const GroupScanners03 = ({ target }) => {
-  const [selectedAudioIndex, setSelectedAudioIndex] = useState({
-    index: -1, // -1 = nenhum áudio selecionado
-    cardDetected: false // flag para indicar se um card foi detectado
-  })
+  const [selectedAudioIndex, setSelectedAudioIndex] = useState(-1) // -1 = nenhum áudio selecionado
+  const [cardIsRead, setCardIsRead] = useState(false) // variável de controle
 
   const audios = [
     new Audio(group03.group_03_document_1),
@@ -18,9 +16,13 @@ const GroupScanners03 = ({ target }) => {
   ]
 
   const playAudio = (index) => {
-    alert(index)
-    setSelectedAudioIndex({ index, cardDetected: true })
+    setSelectedAudioIndex(index)
     audios[index].play()
+  }
+
+  // função para atualizar a variável de controle quando o card for lido corretamente
+  const handleCardRead = () => {
+    setCardIsRead(true)
   }
 
   return (
@@ -31,6 +33,7 @@ const GroupScanners03 = ({ target }) => {
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: false"
       id="target-cards-gp03"
+      onMindarImageFound={handleCardRead} // chamada da função de controle quando o card for lido
     >
       <a-assets>
         {audios.map((audio, index) => (
@@ -40,30 +43,21 @@ const GroupScanners03 = ({ target }) => {
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-      <a-entity
-        mindar-image-target="targetIndex: 0"
-        onClick={() => playAudio(0)}
-        style={{zIndex: 1800}}
-        geometry="primitive: box; height: 1; width: 1; depth: 1"
-        material="color: blue"
-      >
-      </a-entity>
+      {cardIsRead ? ( // exibição condicional do botão
+        <a-entity
+          onClick={() => playAudio(0)}
+          style={{zIndex: 1800}}
+          geometry="primitive: box; height: 1; width: 1; depth: 1"
+          material="color: blue"
+        >
+        </a-entity>
+      ) : null}
 
-      <a-entity
-        mindar-image-target="targetIndex: 1"
-        onClick={() => playAudio(1)}
-        geometry="primitive: box; height: 1; width: 1; depth: 1"
-        material="color: blue"
-      ></a-entity>
-
-      {/* Adicione um botão que só deve ser exibido quando um card for detectado */}
-      <a-entity
-        visible={selectedAudioIndex.cardDetected}
-        onClick={() => audios[selectedAudioIndex.index].play()}
-        style={{ position: 'fixed', bottom: 0, zIndex: 1900 }}
-      >
-        <button>Tocar áudio {selectedAudioIndex.index + 1}</button>
-      </a-entity>
+      {selectedAudioIndex >= 0 && (
+        <div style={{ position: 'fixed', bottom: 0, zIndex: 1900 }}>
+          Tocando áudio {selectedAudioIndex + 1}
+        </div>
+      )}
     </a-scene>
   )
 }
