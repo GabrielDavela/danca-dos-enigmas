@@ -2,7 +2,10 @@ import { useState } from 'react'
 import { group03 } from '../../../assets/group-03/group03'
 
 const GroupScanners03 = ({ target }) => {
-  const [selectedAudioIndex, setSelectedAudioIndex] = useState(-1) // -1 = nenhum áudio selecionado
+  const [selectedAudioIndex, setSelectedAudioIndex] = useState({
+    index: -1, // -1 = nenhum áudio selecionado
+    cardDetected: false // flag para indicar se um card foi detectado
+  })
 
   const audios = [
     new Audio(group03.group_03_document_1),
@@ -15,8 +18,7 @@ const GroupScanners03 = ({ target }) => {
   ]
 
   const playAudio = (index) => {
-    alert("Entrei aqui")
-    setSelectedAudioIndex(index)
+    setSelectedAudioIndex({ index, cardDetected: true })
     audios[index].play()
   }
 
@@ -53,13 +55,14 @@ const GroupScanners03 = ({ target }) => {
         material="color: blue"
       ></a-entity>
 
-      {/* ... e assim por diante para cada alvo de imagem */}
-
-      {selectedAudioIndex >= 0 && (
-        <div style={{ position: 'fixed', bottom: 0, zIndex: 1900 }}>
-          Tocando áudio {selectedAudioIndex + 1}
-        </div>
-      )}
+      {/* Adicione um botão que só deve ser exibido quando um card for detectado */}
+      <a-entity
+        visible={selectedAudioIndex.cardDetected}
+        onClick={() => audios[selectedAudioIndex.index].play()}
+        style={{ position: 'fixed', bottom: 0, zIndex: 1900 }}
+      >
+        <button>Tocar áudio {selectedAudioIndex.index + 1}</button>
+      </a-entity>
     </a-scene>
   )
 }
