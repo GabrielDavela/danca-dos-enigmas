@@ -70,7 +70,7 @@ const GroupScanners03 = ({ target }) => {
           key={index}
           mindar-image-target={`targetIndex: ${audio.targetIndex}`}
           onClick={() => playAudio(index)}
-          style={{zIndex: 1800}}
+          style={{zIndex: 10000}}
           geometry="primitive: box; height: 1; width: 1; depth: 1"
           material="color: blue"
         >
