@@ -70,6 +70,7 @@ const GroupScanners03 = ({ target }) => {
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
+      <a-cursor fuse="true"></a-cursor>
       <a-entity
         mindar-image-target={`targetIndex: 0`}
         geometry="primitive: box; height: 1; width: 1; depth: 1"
