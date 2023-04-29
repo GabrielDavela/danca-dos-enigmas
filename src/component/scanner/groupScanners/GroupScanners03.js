@@ -68,6 +68,8 @@ return (
         ))}
       </a-assets>
 
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
       {audios.map((audio, index) => (
         <a-entity
           key={index}
