@@ -75,16 +75,9 @@ const GroupScanners03 = ({ target }) => {
         <a-entity
           class="clickable"
           mindar-image-target={`targetIndex: 0`}
-          geometry="primitive: box; height: 1; width: 1; depth: 1"
-          material="color: blue"
-          mobile-vr-ui="enabled: false"
-          onTouchStart={() => handleCubeClick(0)}
-          onClick={() => handleCubeClick(0)}
-          style={{ zIndex: 1900 }}
         >
           <a-plane src="#audio-1" position="0 0 0" onClick={() => handleCubeClick(0)} height="2.3" width="1.6" rotation="0 0 0"></a-plane>
         </a-entity>
-        {/* <button onClick={() => handleCubeClick(document.getElementById(audios[1].id))} style={{ zIndex: 1800 }}>Clica aqui bro</button> */}
       </a-scene>
     </>
   )
