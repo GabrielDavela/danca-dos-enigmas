@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { group03 } from '../../../assets/group-03/group03'
 
 const GroupScanners03 = ({ target }) => {
+  const [selectedAudioIndex, setSelectedAudioIndex] = useState(-1) // -1 = nenhum áudio selecionado
 
   const audios = [
     new Audio(group03.group_03_document_1),
@@ -13,19 +14,11 @@ const GroupScanners03 = ({ target }) => {
     new Audio(group03.group_03_document_7),
   ]
 
-  const [audioIndex, setAudioIndex] = useState(null)
-
-  const handleClick = (index) => {
-    // Pausa a reprodução do áudio atual, se houver
-    if (audioIndex !== null) {
-      audios[audioIndex].pause()
+  const playAudio = (index) => {
+    if (index >= 0 && index < audios.length) {
+      setSelectedAudioIndex(index)
+      audios[index].play()
     }
-
-    // Reproduz o áudio correspondente
-    audios[index].play()
-
-    // Atualiza o estado para armazenar o índice do áudio que está sendo reproduzido
-    setAudioIndex(index)
   }
 
   return (
@@ -45,22 +38,21 @@ const GroupScanners03 = ({ target }) => {
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-      <a-entity mindar-image-target="targetIndex: 0"></a-entity>
+      <a-entity
+        mindar-image-target="targetIndex: 0"
+        onClick={() => playAudio(0)}
+      ></a-entity>
+      <a-entity
+        mindar-image-target="targetIndex: 1"
+        onClick={() => playAudio(1)}
+      ></a-entity>
+      {/* ... e assim por diante para cada alvo de imagem */}
 
-      {[2, 3, 4, 5, 6, 7].map((index) => (
-        <div key={index}>
-          <a-plane
-            src={`#group_03_document_${index}`}
-            position="0 0 0"
-            height="2.3"
-            width="1.6"
-            rotation="0 0 0"
-          ></a-plane>
-
-          {/* Renderiza um botão para cada card que, ao ser clicado, reproduz o áudio correspondente */}
-          <button onClick={() => handleClick(index - 2)} style={{position: "absolute", zIndex: 1800}}>Reproduzir áudio</button>
+      {selectedAudioIndex >= 0 && (
+        <div style={{ position: 'fixed', bottom: 0 }}>
+          Tocando áudio {selectedAudioIndex + 1}
         </div>
-      ))}
+      )}
     </a-scene>
   )
 }
