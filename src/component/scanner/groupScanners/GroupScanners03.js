@@ -76,7 +76,13 @@ const GroupScanners03 = ({ target }) => {
           class="clickable"
           mindar-image-target={`targetIndex: 0`}
         >
-          <a-plane src="#audio-1" position="0 0 0" onClick={() => handleCubeClick(0)} height="2.3" width="1.6" rotation="0 0 0"></a-plane>
+          <a-plane src="#audio-1"
+            position="0 0 0"
+            onClick={() => handleCubeClick(0)}
+            onTouchStart={() => handleCubeClick(0)}
+            height="2.3"
+            width="1.6"
+            rotation="0 0 0"></a-plane>
         </a-entity>
       </a-scene>
     </>
