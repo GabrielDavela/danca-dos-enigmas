@@ -3,26 +3,47 @@ import { group03 } from '../../../assets/group-03/group03'
 
 const GroupScanners03 = ({ target }) => {
   const [selectedAudioIndex, setSelectedAudioIndex] = useState(-1) // -1 = nenhum áudio selecionado
-  const [cardIsRead, setCardIsRead] = useState(false) // variável de controle
 
   const audios = [
-    new Audio(group03.group_03_document_1),
-    new Audio(group03.group_03_document_2),
-    new Audio(group03.group_03_document_3),
-    new Audio(group03.group_03_document_4),
-    new Audio(group03.group_03_document_5),
-    new Audio(group03.group_03_document_6),
-    new Audio(group03.group_03_document_7),
+    {
+      id: 'audio-1',
+      src: group03.group_03_document_1,
+      targetIndex: 0
+    },
+    {
+      id: 'audio-2',
+      src: group03.group_03_document_2,
+      targetIndex: 1
+    },
+    {
+      id: 'audio-3',
+      src: group03.group_03_document_3,
+      targetIndex: 2
+    },
+    {
+      id: 'audio-4',
+      src: group03.group_03_document_4,
+      targetIndex: 3
+    },
+    {
+      id: 'audio-5',
+      src: group03.group_03_document_5,
+      targetIndex: 4
+    },
+    {
+      id: 'audio-6',
+      src: group03.group_03_document_6,
+      targetIndex: 5
+    },
+    {
+      id: 'audio-7',
+      src: group03.group_03_document_7,
+      targetIndex: 6
+    },
   ]
 
   const playAudio = (index) => {
     setSelectedAudioIndex(index)
-    audios[index].play()
-  }
-
-  // função para atualizar a variável de controle quando o card for lido corretamente
-  const handleCardRead = () => {
-    setCardIsRead(true)
   }
 
   return (
@@ -33,25 +54,31 @@ const GroupScanners03 = ({ target }) => {
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: false"
       id="target-cards-gp03"
-      onMindarImageFound={handleCardRead} // chamada da função de controle quando o card for lido
     >
       <a-assets>
         {audios.map((audio, index) => (
-          <audio key={index} id={`audio-${index}`} src={audio.src} />
+          <audio key={index} id={audio.id} src={audio.src} />
         ))}
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-      {cardIsRead ? ( // exibição condicional do botão
+      {audios.map((audio, index) => (
         <a-entity
-          onClick={() => playAudio(0)}
-          style={{zIndex: 1800}}
+          key={index}
+          mindar-image-target={`targetIndex: ${audio.targetIndex}`}
+          onClick={() => playAudio(index)}
           geometry="primitive: box; height: 1; width: 1; depth: 1"
           material="color: blue"
         >
+          {selectedAudioIndex === index && (
+            <a-sound
+              src={`#${audio.id}`}
+              autoplay="true"
+            />
+          )}
         </a-entity>
-      ) : null}
+      ))}
 
       {selectedAudioIndex >= 0 && (
         <div style={{ position: 'fixed', bottom: 0, zIndex: 1900 }}>
