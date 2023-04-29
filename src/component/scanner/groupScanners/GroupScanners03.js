@@ -43,6 +43,7 @@ const GroupScanners03 = ({ target }) => {
   ]
 
   const playAudio = (index) => {
+    alert(index)
     setSelectedAudioIndex(index)
   }
 
