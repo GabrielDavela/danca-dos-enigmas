@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { group03 } from '../../../assets/group-03/group03'
 
 const GroupScanners03 = ({ target }) => {
-  const [selectedAudioIndex, setSelectedAudioIndex] = useState(-1) 
+  const [selectedAudioIndex, setSelectedAudioIndex] = useState(-1)
 
   const audios = [
     {
@@ -63,14 +63,16 @@ const GroupScanners03 = ({ target }) => {
         ))}
       </a-assets>
 
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      <a-camera position="0 0 0" look-controls="enabled: false">
+        <a-cursor></a-cursor>
+      </a-camera>
 
       {audios.map((audio, index) => (
         <a-entity
           key={index}
           mindar-image-target={`targetIndex: ${audio.targetIndex}`}
           onClick={() => playAudio(index)}
-          style={{zIndex: 10000, position: "absolute"}}
+          style={{ zIndex: 10000, position: "absolute" }}
           geometry="primitive: box; height: 1; width: 1; depth: 1"
           material="color: blue"
         >
