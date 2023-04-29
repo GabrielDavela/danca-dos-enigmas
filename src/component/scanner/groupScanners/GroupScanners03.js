@@ -41,11 +41,17 @@ const GroupScanners03 = ({ target }) => {
       <a-entity
         mindar-image-target="targetIndex: 0"
         onClick={() => playAudio(0)}
+        geometry="primitive: box; height: 1; width: 1; depth: 1"
+        material="color: blue"
       ></a-entity>
+
       <a-entity
         mindar-image-target="targetIndex: 1"
         onClick={() => playAudio(1)}
+        geometry="primitive: box; height: 1; width: 1; depth: 1"
+        material="color: blue"
       ></a-entity>
+
       {/* ... e assim por diante para cada alvo de imagem */}
 
       {selectedAudioIndex >= 0 && (
