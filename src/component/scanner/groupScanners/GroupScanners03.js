@@ -45,7 +45,7 @@ const GroupScanners03 = ({ target }) => {
   const [audioPlaying, setAudioPlaying] = useState(null);
 
   const handleCubeClick = (audio) => {
-    console.log("Entre no cube")
+    alert("Entrei no cube")
     if (audioPlaying) {
       audioPlaying.pause();
     }
@@ -54,35 +54,38 @@ const GroupScanners03 = ({ target }) => {
   };
 
   return (
-    <a-scene
-      mindar-image={`imageTargetSrc: ${target};`}
-      color-space="sRGB"
-      renderer="colorManagement: true, physicallyCorrectLights"
-      vr-mode-ui="enabled: false"
-      device-orientation-permission-ui="enabled: false"
-      id="target-cards-gp03"
-    >
-      <a-assets>
-        {audios.map((audio, index) => (
-          <audio key={index} id={audio.id} src={audio.src} />
-        ))}
-      </a-assets>
-
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
-      <a-cursor fuse="true"></a-cursor>
-      <a-entity
-        mindar-image-target={`targetIndex: 0`}
-        geometry="primitive: box; height: 1; width: 1; depth: 1"
-        material="color: blue"
-        mobile-vr-ui="enabled: false"
-        onTouchStart={() => handleCubeClick(document.getElementById(audios[0].id))}
-        onClick={() => handleCubeClick(document.getElementById(audios[0].id))}
-        style={{zIndex: 1900}}
+    <>
+      <a-cursor raycaster="objects: .clickable;"></a-cursor>
+      <a-scene
+        mindar-image={`imageTargetSrc: ${target};`}
+        color-space="sRGB"
+        renderer="colorManagement: true, physicallyCorrectLights"
+        vr-mode-ui="enabled: false"
+        device-orientation-permission-ui="enabled: false"
+        id="target-cards-gp03"
       >
-      </a-entity>
-      <button onClick={() => handleCubeClick(document.getElementById(audios[1].id))}  style={{zIndex: 1800}}>Clica aqui bro</button>
-    </a-scene>
+        <a-assets>
+          {audios.map((audio, index) => (
+            <audio key={index} id={audio.id} src={audio.src} />
+          ))}
+        </a-assets>
+
+        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+        <a-entity
+          class="clickable"
+          mindar-image-target={`targetIndex: 0`}
+          geometry="primitive: box; height: 1; width: 1; depth: 1"
+          material="color: blue"
+          mobile-vr-ui="enabled: false"
+          onTouchStart={() => handleCubeClick(document.getElementById(audios[0].id))}
+          onClick={() => handleCubeClick(document.getElementById(audios[0].id))}
+          style={{ zIndex: 1900 }}
+        >
+        </a-entity>
+        <button onClick={() => handleCubeClick(document.getElementById(audios[1].id))} style={{ zIndex: 1800 }}>Clica aqui bro</button>
+      </a-scene>
+    </>
   )
 }
 
