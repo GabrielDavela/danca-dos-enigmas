@@ -51,18 +51,18 @@ const GroupScanners03 = ({ target }) => {
     audio.play();
     setAudioPlaying(audio);
   };
-  
+
   return (
     <>
       <a-scene>
+        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
         <a-assets>
           {audios.map((audio, index) => (
             <audio key={index} id={audio.id} src={audio.src} autoPlay={false} />
           ))}
         </a-assets>
 
-        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-  
         {audios.map((audio, index) => (
           <a-entity
             key={index}
@@ -85,7 +85,7 @@ const GroupScanners03 = ({ target }) => {
       </a-scene>
     </>
   );
-  
+
 }
 
 export default GroupScanners03
