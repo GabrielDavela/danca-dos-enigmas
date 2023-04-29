@@ -56,7 +56,7 @@ const GroupScanners03 = ({ target }) => {
 
   return (
     <>
-      <a-cursor raycaster="objects: .clickable;"></a-cursor>
+      <a-cursor fuse="true"></a-cursor>
       <a-scene
         mindar-image={`imageTargetSrc: ${target};`}
         color-space="sRGB"
