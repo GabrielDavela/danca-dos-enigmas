@@ -43,8 +43,7 @@ const GroupScanners03 = ({ target }) => {
 
   const [audioPlaying, setAudioPlaying] = useState(null);
 
-  const handleCubeClick = (targetIndex) => {
-    alert("Entrei no cube")
+  const handleAudioButtonClick = (targetIndex) => {
     const audio = document.getElementById(audios.find((item) => item.targetIndex === targetIndex).id);
     if (audioPlaying) {
       audio.pause();
@@ -52,50 +51,39 @@ const GroupScanners03 = ({ target }) => {
     audio.play();
     setAudioPlaying(audio);
   };
-
+  
   return (
     <>
-      <a-scene
-        mindar-image={`imageTargetSrc: ${target};`}
-        color-space="sRGB"
-        renderer="colorManagement: true, physicallyCorrectLights"
-        vr-mode-ui="enabled: false"
-        device-orientation-permission-ui="enabled: false"
-        id="target-cards-gp03"
-      >
+      <a-scene>
         <a-assets>
           {audios.map((audio, index) => (
             <audio key={index} id={audio.id} src={audio.src} autoPlay={false} />
           ))}
-          <button id='buttonGroupScanners03'>Clica aqui</button>
         </a-assets>
-
-        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
-        <a-entity
-          class="clickable"
-          mindar-image-target={`targetIndex: 0`}
-        >
-          {/* <a-plane src="#audio-1"
-            position="0 0 0"
-            onClick={() => handleCubeClick(0)}
-            onTouchStart={() => handleCubeClick(0)}
-            height="2.3"
-            width="1.6"
-            rotation="0 0 0"></a-plane> */}
-          <a-plane src="#buttonGroupScanners03"
-            onClick={() => handleCubeClick(0)}
-            onTouchStart={() => handleCubeClick(0)}
-            position="0 0 0"
-            height="2.3"
-            width="1.6"
-            rotation="0 0 0">
-
-          </a-plane>
-        </a-entity>
+  
+        {audios.map((audio, index) => (
+          <a-entity
+            key={index}
+            class="clickable"
+            mindar-image-target={`targetIndex: ${audio.targetIndex}`}
+          >
+            <a-plane
+              onClick={() => handleAudioButtonClick(audio.targetIndex)}
+              onTouchStart={() => handleAudioButtonClick(audio.targetIndex)}
+              position="0 0 0"
+              height="2.3"
+              width="1.6"
+              rotation="0 0 0"
+              material="color: blue"
+              text={`value: ${audio.id}; color: white; align: center`}
+            >
+            </a-plane>
+          </a-entity>
+        ))}
       </a-scene>
     </>
-  )
+  );
+  
 }
 
 export default GroupScanners03
