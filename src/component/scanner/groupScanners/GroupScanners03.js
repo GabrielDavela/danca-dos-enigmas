@@ -59,6 +59,7 @@ const GroupScanners03 = ({ target }) => {
         color-space="sRGB"
         renderer="colorManagement: true, physicallyCorrectLights"
         vr-mode-ui="enabled: false"
+        interaction="enabled"
         device-orientation-permission-ui="enabled: false"
         id="target-cards-gp03"
       >
@@ -74,7 +75,7 @@ const GroupScanners03 = ({ target }) => {
 
         {audios.map((audio, index) => (
           <a-entity
-           class="clickable"
+            class="clickable"
             raycaster="objects: .clickable"
             cursor-listener
             key={index}
