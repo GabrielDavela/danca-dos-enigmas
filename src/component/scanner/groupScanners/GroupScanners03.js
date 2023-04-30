@@ -75,7 +75,7 @@ const GroupScanners03 = ({ target }) => {
 
         {audios.map((audio, index) => (
           <a-entity
-            raycaster="objects: .clickable"
+            raycaster="objects: .clickable, .clickable *"
             key={index}
             mindar-image-target={`targetIndex: ${audio.targetIndex}`}
           >
