@@ -86,7 +86,7 @@ const GroupScanners03 = ({ target }) => {
           >
             <a-plane
               className="clickable"
-              click-listener
+              raycaster="objects: .clickable"
               onClick={() => handleAudioButtonClick(audio.targetIndex)}
               onTouchStart={() => handleAudioButtonClick(audio.targetIndex)}
               position="0 0 0"
