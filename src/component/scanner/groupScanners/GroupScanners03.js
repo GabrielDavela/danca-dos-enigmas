@@ -55,7 +55,6 @@ const GroupScanners03 = ({ target }) => {
 
   return (
     <>
-
       <a-scene
         mindar-image={`imageTargetSrc: ${target};`}
         color-space="sRGB"
@@ -77,10 +76,6 @@ const GroupScanners03 = ({ target }) => {
 
         {audios.map((audio, index) => (
           <a-entity
-            className="clickable"
-            click-listener
-            onClick={() => handleAudioButtonClick(audio.targetIndex)}
-            onTouchStart={() => handleAudioButtonClick(audio.targetIndex)}
             key={index}
             mindar-image-target={`targetIndex: ${audio.targetIndex}`}
           >
