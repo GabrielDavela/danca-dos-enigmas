@@ -6,6 +6,7 @@ import Rooms from './component/rooms/Rooms';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { GameProvider } from './context/GameContext';
 import React from 'react';
+import Feedback from './component/feedback/Feedback';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
               <Route path='/rooms' element={<Rooms />} />
               <Route path='/home' element={<Home />} />
               <Route path='/ranking' element={<Ranking />} />
+              <Route path='/feedback' element={<Feedback />} />
             </Routes>
           </Router>
         </GameProvider>
