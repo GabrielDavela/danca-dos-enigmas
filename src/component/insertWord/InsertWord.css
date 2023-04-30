@@ -1,4 +1,5 @@
 .container__insert__word {
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,8 +24,6 @@
 }
 
 .container__principal__insword {
-    box-sizing: border-box;
-    margin-top: 2rem;
     position: absolute;
     width: 100%;
     height: 100vh;
