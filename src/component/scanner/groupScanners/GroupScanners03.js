@@ -77,7 +77,7 @@ const GroupScanners03 = ({ target }) => {
 
         {audios.map((audio, index) => (
           <a-entity
-            class="clickable"
+            className="clickable"
             click-listener
             onClick={() => handleAudioButtonClick(audio.targetIndex)}
             onTouchStart={() => handleAudioButtonClick(audio.targetIndex)}
@@ -85,7 +85,7 @@ const GroupScanners03 = ({ target }) => {
             mindar-image-target={`targetIndex: ${audio.targetIndex}`}
           >
             <a-plane
-              class="clickable"
+              className="clickable"
               click-listener
               onClick={() => handleAudioButtonClick(audio.targetIndex)}
               onTouchStart={() => handleAudioButtonClick(audio.targetIndex)}
