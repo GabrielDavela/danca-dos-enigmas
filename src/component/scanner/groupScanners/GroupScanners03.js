@@ -70,11 +70,11 @@ const GroupScanners03 = ({ target }) => {
           ))}
         </a-assets>
 
-        <a-camera cursor="rayOrigin: mouse" position="0 0 0"  raycaster="objects: .clickable" look-controls="enabled: false">
+        <a-camera cursor position="0 0 0" raycaster="objects: .clickable" look-controls="enabled: false">
           <a-cursor raycaster="objects: .clickable"></a-cursor>
         </a-camera>
 
-        {/* {audios.map((audio, index) => (
+        {audios.map((audio, index) => (
           <a-entity
             class="clickable"
             key={index}
@@ -86,31 +86,15 @@ const GroupScanners03 = ({ target }) => {
               onClick={() => handleAudioButtonClick(audio.targetIndex)}
               onTouchStart={() => handleAudioButtonClick(audio.targetIndex)}
               position="0 0 0"
-              height="2.3"
-              width="1.6"
+              height="1"
+              width="0.8"
               rotation="0 0 0"
               material="color: blue"
               text={`value: ${audio.id}; color: white; align: center`}
             > 
             </a-plane>
           </a-entity>
-        ))} */}
-
-        <a-entity
-          class="clickable"
-          mindar-image-target={`targetIndex: 1`}
-          a-hoverable hover-start-time="1000"
-          onClick={() => handleAudioButtonClick(1)}>
-            <a-plane
-              position="0 0 0"
-              height="2.3"
-              width="1.6"
-              rotation="0 0 0"
-              material="color: blue"
-              text={`value: ${1}; color: white; align: center`}
-            > 
-            </a-plane>
-        </a-entity>
+        ))}
       </a-scene>
     </>
   );
