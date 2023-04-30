@@ -98,9 +98,18 @@ const GroupScanners03 = ({ target }) => {
 
         <a-entity
           class="clickable"
-          mindar-image-target={`targetIndex: 0`}
+          mindar-image-target={`targetIndex: 1`}
           a-hoverable hover-start-time="1000"
-          onClick={() => handleAudioButtonClick(0)}>
+          onClick={() => handleAudioButtonClick(1)}>
+            <a-plane
+              position="0 0 0"
+              height="2.3"
+              width="1.6"
+              rotation="0 0 0"
+              material="color: blue"
+              text={`value: ${1}; color: white; align: center`}
+            > 
+            </a-plane>
         </a-entity>
       </a-scene>
     </>
