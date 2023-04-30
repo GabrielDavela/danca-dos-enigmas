@@ -70,15 +70,9 @@ const GroupScanners03 = ({ target }) => {
           ))}
         </a-assets>
 
-        {/* <a-camera cursor position="0 0 0" raycaster="objects: .clickable" look-controls="enabled: false">
-          <a-cursor raycaster="objects: .clickable"></a-cursor>
-        </a-camera> */}
-
-        <a-entity cursor id="camera" camera look-controls
-          raycaster="far: 200; objects: .clickable">
-          <a-cursor id="cursor" color="purple" fuse="true" fuse-timeout="2000"></a-cursor>
-        </a-entity>
-
+        <a-camera cursor raycaster="far: 200; objects: .clickable" id="camera" camera look-controls>
+          <a-cursor id="cursor" color="purple" raycaster fuse="true" fuse-timeout="2000"></a-cursor>
+        </a-camera>
 
         {audios.map((audio, index) => (
           <a-entity
