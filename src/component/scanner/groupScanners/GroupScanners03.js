@@ -55,7 +55,7 @@ const GroupScanners03 = ({ target }) => {
 
   return (
     <>
-      <a-cursor id="cursor" color="purple" fuse="true" fuse-timeout="2000"></a-cursor>
+
       <a-scene
         mindar-image={`imageTargetSrc: ${target};`}
         color-space="sRGB"
@@ -71,7 +71,9 @@ const GroupScanners03 = ({ target }) => {
           ))}
         </a-assets>
 
-
+        <a-entity cursor raycaster="far: 200; objects: .clickable" id="camera" camera look-controls>
+          <a-cursor id="cursor" color="purple" fuse="true" fuse-timeout="2000"></a-cursor>
+        </a-entity>
 
         {audios.map((audio, index) => (
           <a-entity
