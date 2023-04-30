@@ -74,7 +74,7 @@ const GroupScanners03 = ({ target }) => {
           <a-cursor raycaster="objects: .clickable"></a-cursor>
         </a-camera>
 
-        {audios.map((audio, index) => (
+        {/* {audios.map((audio, index) => (
           <a-entity
             class="clickable"
             key={index}
@@ -94,7 +94,14 @@ const GroupScanners03 = ({ target }) => {
             > 
             </a-plane>
           </a-entity>
-        ))}
+        ))} */}
+
+        <a-entity
+          class="clickable"
+          mindar-image-target={`targetIndex: 0`}
+          a-hoverable hover-start-time="1000" 
+          onClick={() => handleAudioButtonClick(0)}>
+        </a-entity>
       </a-scene>
     </>
   );
