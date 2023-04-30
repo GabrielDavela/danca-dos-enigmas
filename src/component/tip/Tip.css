@@ -28,3 +28,8 @@
     background-color: #C0854C;
     z-index: 1000;
 }
+
+.blur__tip {
+    filter: blur(0.8rem);
+    user-select: none;
+}

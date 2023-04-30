@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 const Home = () => {
 
-    const { match, messages, everyoneIsReady, timer, punctuation, hit } = useContext(GameContext)
+    const { match, messages, everyoneIsReady, timer, punctuation, hit, showTip } = useContext(GameContext)
     const [tip, setTip] = useState(false)
     const [insertWord, setInsertWord] = useState(false)
     const nav = useNavigate()
@@ -90,7 +90,7 @@ const Home = () => {
                         <InsertWord player={playerAux} />
                     }
                     {tip &&
-                        <Tip player={playerAux} />
+                        <Tip player={playerAux} showTip={showTip} timer={timer} />
                     }
                     <Scanner player={playerAux} />
                     {/* {
@@ -107,8 +107,6 @@ const Home = () => {
                     }
                 </>
             }
-
-
 
             {isOpenModal &&
                 <ChooseTeam player={playerAux} handleCloseModal={handleCloseModal} />

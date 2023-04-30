@@ -88,6 +88,11 @@ const reducer = (state, action) => {
                 ...state,
                 punctuation: action.payload
             }
+        case 'SHOW_TIP':
+            return {
+                ...state,
+                showTip: action.payload
+            }
         default:
             return state
     }
@@ -108,7 +113,8 @@ const initialState = {
     sizeWord: 0,
     timer: "",
     punctuation: 2000,
-    ranking: []
+    ranking: [],
+    showTip: false
 }
 
 const GameProvider = (props) => {
@@ -182,6 +188,10 @@ const GameProvider = (props) => {
 
         socket.on("UpdateRanking", (ranking) => {
             dispatch({ type: "UPDATE_RANKING", payload: ranking })
+        })
+
+        socket.on("ShowTip", (bool) => {
+            dispatch({ type: "SHOW_TIP", payload: bool })
         })
 
         // Vai fazer com que autoConnect se transforme em true
