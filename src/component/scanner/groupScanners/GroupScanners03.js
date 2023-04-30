@@ -86,8 +86,8 @@ const GroupScanners03 = ({ target }) => {
               onClick={() => handleAudioButtonClick(audio.targetIndex)}
               onTouchStart={() => handleAudioButtonClick(audio.targetIndex)}
               position="0 0 0"
-              height="1"
-              width="0.8"
+              height="2.3"
+              width="1.6"
               rotation="0 0 0"
               material="color: blue"
               text={`value: ${audio.id}; color: white; align: center`}
