@@ -1,6 +1,6 @@
 // Group 03 - Audio
 import group_03_document_1 from "../group-03/documents/1.mp3"
-import group_03_document_2 from "../group-03/documents/3.mp3"
+import group_03_document_2 from "../group-03/documents/2.mp3"
 import group_03_document_3 from "../group-03/documents/3.mp3"
 import group_03_document_4 from "../group-03/documents/4.mp3"
 import group_03_document_5 from "../group-03/documents/5.mp3"

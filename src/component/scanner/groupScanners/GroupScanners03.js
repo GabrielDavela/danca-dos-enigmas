@@ -38,7 +38,7 @@ const GroupScanners03 = ({ target }) => {
       id: 'audio-7',
       src: group03.group_03_document_7,
       targetIndex: 6
-    },
+    }
   ]
 
   const [audioPlaying, setAudioPlaying] = useState(null);
