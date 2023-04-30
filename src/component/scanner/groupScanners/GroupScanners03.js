@@ -70,7 +70,7 @@ const GroupScanners03 = ({ target }) => {
           ))}
         </a-assets>
 
-        <a-entity camera>
+        <a-entity camera position="0 0 0">
           <a-cursor color="yellow" fuse="true" fuse-timeout="500"></a-cursor>
         </a-entity>
 
