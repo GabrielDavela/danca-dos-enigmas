@@ -86,11 +86,11 @@ const GroupScanners03 = ({ target }) => {
           >
             <a-plane
               position="0 0 0"
-              height="0.5"
+              height="0.4"
               width="1.2"
               rotation="0 0 0"
               material="color: yellow"
-              text={`value: ${audio.id}; color: white; align: center`}
+              text={`value: ${audio.id}; color: black; align: center`}
             >
             </a-plane>
           </a-entity>
