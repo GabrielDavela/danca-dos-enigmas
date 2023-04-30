@@ -82,7 +82,7 @@ const GroupScanners03 = ({ target }) => {
             key={index}
             mindar-image-target={`targetIndex: ${audio.targetIndex}`}
           >
-            <a-plane
+            {/* <a-plane
               class="clickable"
               raycaster-listen
               cursor-listener
@@ -95,7 +95,8 @@ const GroupScanners03 = ({ target }) => {
               material="color: blue"
               text={`value: ${audio.id}; color: white; align: center`}
             >
-            </a-plane>
+            </a-plane> */}
+            <button onClick={() => handleAudioButtonClick(audio.targetIndex)}>{audio.targetIndex}</button>
           </a-entity>
         ))}
       </a-scene>

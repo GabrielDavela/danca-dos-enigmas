@@ -6,7 +6,7 @@ import timerImg from "../../assets/screens/timer.png";
 import { useEffect, useContext, useState } from "react";
 import { GameContext } from "../../context/GameContext";
 
-const Navbar = ({ timer, points, group, playerColor, theGamesContinues }) => {
+const Navbar = ({ timer, points, group, playerColor }) => {
 
     const { punctuation } = useContext(GameContext)
     const [lifeLost, setLifeLost] = useState(false)
