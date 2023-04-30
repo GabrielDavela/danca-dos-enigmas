@@ -21,6 +21,7 @@
 }
 
 .container__principal__tip {
+    box-sizing: border-box;
     margin-top: 2rem;
     position: absolute;
     width: 100%;
