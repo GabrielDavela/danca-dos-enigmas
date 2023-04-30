@@ -71,9 +71,8 @@ const GroupScanners03 = ({ target }) => {
         </a-assets>
 
         <a-camera cursor raycaster="objects: .clickable; showLine: true" id="camera" camera look-controls>
-          <a-cursor id="cursor" color="purple" fuse="true" fuse-timeout="2000" position="0 0 -1"></a-cursor>
+          <a-cursor id="cursor" color="purple" fuse="false" position="0 0 0"></a-cursor>
         </a-camera>
-
 
         {/* <a-entity cursor raycaster="far: 200; objects: .clickable" id="camera" camera look-controls>
           <a-cursor id="cursor" color="purple" fuse="true" fuse-timeout="2000"></a-cursor>
