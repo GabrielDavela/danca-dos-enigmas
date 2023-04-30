@@ -70,7 +70,7 @@ const GroupScanners03 = ({ target }) => {
           ))}
         </a-assets>
 
-        <a-camera cursor position="0 0 0" raycaster="objects: .clickable" look-controls="enabled: false">
+        <a-camera cursor="rayOrigin: mouse" position="0 0 0"  raycaster="objects: .clickable" look-controls="enabled: false">
           <a-cursor raycaster="objects: .clickable"></a-cursor>
         </a-camera>
 
@@ -99,7 +99,7 @@ const GroupScanners03 = ({ target }) => {
         <a-entity
           class="clickable"
           mindar-image-target={`targetIndex: 0`}
-          a-hoverable hover-start-time="1000" 
+          a-hoverable hover-start-time="1000"
           onClick={() => handleAudioButtonClick(0)}>
         </a-entity>
       </a-scene>
