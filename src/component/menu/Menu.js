@@ -1,4 +1,4 @@
-import React, { startTransition, useState } from "react";
+import React, { useState } from "react";
 import "./Menu.css"
 
 import insertWordMenu from "../../assets/screens/insertWordMenu.svg";
@@ -12,11 +12,8 @@ import scannerMenuY from "../../assets/screens/scannerMenuY.svg";
 
 import chatMenu from "../../assets/screens/chatMenu.svg";
 import chatMenuY from "../../assets/screens/chatMenuY.svg";
-import { useNavigate } from "react-router-dom";
 
 const Menu = ({ onScannerClick, onTipClick, onInsertWordClick }) => {
-
-    const navigate = useNavigate();
 
     const backgroundClicked = "#662401";
 

@@ -27,13 +27,16 @@ const Home = () => {
     }, [timerGame, isOpenModal])
 
     useEffect(() => {
-        if (hit.bool && hit.color === playerAux.color) {
+        if ((hit.bool && hit.color === playerAux.color) || timer === "00:00") {
             hit.bool = false
             
             let objUser = getUser()
             objUser.time = timer
+            if(timer === "00:00") {
+                objUser.punctuation = 0
+            }
             objUser.punctuation = punctuation
-            
+
             setUser(playerAux.color, objUser)
             nav("/ranking")
         }

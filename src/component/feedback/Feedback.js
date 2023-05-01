@@ -3,38 +3,33 @@ import "./Feedback.css"
 import cancel from "../../assets/screens/cancel.svg"
 import winner from "../../assets/screens/check_circle.svg"
 
-const Feedback = ({ isWinner }) => {
+const Feedback = ({ playerData }) => {
     return (
         <div className="container__modal__feedback">
             <div className="modal__feedback">
                 <div className="feedback">
                     {/* Ganhou */}
-                    {isWinner &&
+                    {playerData.time !== "00:00" &&
                         <>
                             <p>Você acertou!!
-                                <br/>Espere para ver sua colocação!</p>
-                            {/* Imagem */}
+                                <br />Espere para ver sua colocação!</p>
                             <div className="container__image__feedback">
                                 <img src={winner} />
                             </div>
                         </>
                     }
 
-                    {!isWinner &&
+                    {playerData.time === "00:00" &&
                         <>
-
                             {/* Perdeu por tempo */}
-                            {false &&
-                                <p>Seu tempo acabou!
-                                    Infelizmente você perdeu.</p>
-                            }
+                            <p>Seu tempo acabou!
+                                Infelizmente você perdeu.</p>
 
-                            {/* Perdeu por tentativa */}
+                            {/* Perdeu por tentativa
                             {false &&
                                 <p>Sua quantidade de tentativas foi excedida!</p>
-                            }
+                            } */}
 
-                            {/* Imagem */}
                             <div className="container__image__feedback">
                                 <img src={cancel} />
                             </div>

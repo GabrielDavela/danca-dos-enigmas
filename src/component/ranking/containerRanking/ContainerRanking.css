@@ -1,6 +1,6 @@
 .container__ranking {
-    width: 32.2vh;
-    height: 14vh;
+    width: 20rem;
+    height: 8rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

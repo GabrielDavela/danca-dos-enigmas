@@ -93,6 +93,11 @@ const reducer = (state, action) => {
                 ...state,
                 showTip: action.payload
             }
+        case 'SHOW_RANKING':
+            return {
+                ...state,
+                showRanking: action.payload
+            }
         default:
             return state
     }
@@ -114,7 +119,8 @@ const initialState = {
     timer: "",
     punctuation: 2000,
     ranking: [],
-    showTip: false
+    showTip: false,
+    showRanking: false
 }
 
 const GameProvider = (props) => {
@@ -194,6 +200,10 @@ const GameProvider = (props) => {
             dispatch({ type: "SHOW_TIP", payload: bool })
         })
 
+        socket.on("ShowRanking", (bool) => {
+            dispatch({ type: 'SHOW_RANKING', payload: bool })
+        })
+
         // Vai fazer com que autoConnect se transforme em true
         socket.open()
 
@@ -245,6 +255,10 @@ const sendResultRanking = (player) => {
     socket.emit("SendResultRanking", player)
 }
 
+const waitingPlayer = () => {
+    socket.emit("WaitingPlayers")
+}
+
 const getUser = () => {
     return JSON.parse(localStorage.getItem("user"))
 }
@@ -265,6 +279,7 @@ export {
     sizeWordFront,
     timerGame,
     sendResultRanking,
+    waitingPlayer,
     getUser,
     setUser
 }

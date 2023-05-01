@@ -4,8 +4,6 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-console.log("Entrei no index.js")
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // Esse React.StrictMode renderiza os componentes duas vezes

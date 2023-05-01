@@ -44,7 +44,6 @@ const GroupScanners03 = ({ target }) => {
   const [audioPlaying, setAudioPlaying] = useState(null);
 
   const handleAudioButtonClick = (targetIndex) => {
-    console.log("Clicando aqui - ", targetIndex)
     const audio = document.getElementById(audios.find((item) => item.targetIndex === targetIndex).id);
     if (audioPlaying) {
       audio.pause();

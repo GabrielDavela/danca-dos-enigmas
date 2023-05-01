@@ -9,3 +9,24 @@
     flex-direction: column;
     gap: 12px;
 }
+
+.button__ranking {
+    background-color: #662401;
+    color: #F5F5F5;
+    width: 16rem;
+    height: 4rem;
+    border-radius: 15px;
+    position: absolute;
+    font-size: 1.3rem;
+    bottom: 2rem;
+    text-align: center;
+    border: 0;
+    z-index: 100;
+    transition: .3s ease-in;
+}
+
+.button__ranking:hover {
+    cursor: pointer;
+    background-color: #3a1500;
+    color: #FFFFFF;
+}
