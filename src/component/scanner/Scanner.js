@@ -15,10 +15,6 @@ const Scanner = ({ player }) => {
 
     const { everyoneIsReady } = useContext(GameContext)
 
-    useEffect(() => {
-        readyPlayer(false)
-    })
-
     return (
         <div className='container__scanner'>
             {everyoneIsReady &&
