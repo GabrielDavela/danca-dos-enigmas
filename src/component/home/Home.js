@@ -23,7 +23,7 @@ const Home = () => {
     const scanning = document.querySelector(".scanning")
 
     useEffect(() => {
-        if (!isOpenModal) timerGame(match)
+        if (everyoneIsReady) timerGame(match)
     }, [timerGame, isOpenModal])
 
     useEffect(() => {
