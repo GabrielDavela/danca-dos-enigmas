@@ -1,6 +1,6 @@
 import React from 'react'
 import { useContext } from 'react'
-import { GameContext } from '../../context/GameContext'
+import { GameContext, readyPlayer } from '../../context/GameContext'
 import "./Scanner.css"
 
 import { targets } from '../../assets/target'
@@ -9,10 +9,15 @@ import GroupScanners02 from './groupScanners/GroupScanners02'
 import GroupScanners03 from './groupScanners/GroupScanners03'
 import GroupScanners04 from './groupScanners/GroupScanners04'
 import FirstCards from './groupScanners/FirstCards'
+import { useEffect } from 'react'
 
 const Scanner = ({ player }) => {
 
     const { everyoneIsReady } = useContext(GameContext)
+
+    useEffect(() => {
+        readyPlayer()
+    }, [])
 
     return (
         <div className='container__scanner'>
@@ -36,7 +41,7 @@ const Scanner = ({ player }) => {
                 </>
             }
 
-            {player.color === "" &&
+            {!everyoneIsReady &&
                 <FirstCards target={targets.first_cards} player={player} />
             }
 

@@ -236,8 +236,8 @@ const joinRoom = (roomId) => {
     socket.emit('JoinRoom', roomId)
 }
 
-const readyPlayer = () => {
-    socket.emit('ReadyPlayer')
+const readyPlayer = (bool) => {
+    socket.emit('ReadyPlayer', bool)
 }
 
 const verifyWord = (word, color) => {

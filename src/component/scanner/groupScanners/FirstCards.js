@@ -24,7 +24,7 @@ const FirstCard = ({ target, player }) => {
 
     const onReady = () => {
         setDisabled(true);
-        readyPlayer();
+        readyPlayer(true);
     };
 
     return (
