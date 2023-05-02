@@ -17,13 +17,13 @@ const Home = () => {
     const nav = useNavigate()
 
     let playerAux = getUser()
-    const [isOpenModal, setIsOpenModal] = useState(playerAux.color === "")
+    const [isOpenModal, setIsOpenModal] = useState(playerAux.color !== "")
 
     const loader = document.querySelector(".loader")
     const scanning = document.querySelector(".scanning")
 
     useEffect(() => {
-        if (!isOpenModal) timerGame(match)
+        if (everyoneIsReady) timerGame(match)
     }, [timerGame, isOpenModal])
 
     useEffect(() => {

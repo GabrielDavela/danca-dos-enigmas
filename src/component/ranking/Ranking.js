@@ -21,9 +21,6 @@ const Ranking = () => {
             sendResultRanking(updatedPlayerToRanking);
             setPlayerData(updatedPlayerToRanking);
         }
-        // if (!showRanking) {
-        //     waitingPlayer();
-        // }
     }, []);
 
     useEffect(() => {
@@ -35,10 +32,6 @@ const Ranking = () => {
 
     return (
         <>
-            {/* {!showRanking && playerData !== null &&
-                <Feedback playerData={playerData} />
-            } */}
-
             <div className="container__principal__ranking">
                 <h1 className="title__ranking">RANKING</h1>
                 {ranking.map((player, index) => (
@@ -55,7 +48,7 @@ const Ranking = () => {
                         }
                     </>
                 ))}
-                <button className="button__ranking" onClick={() => nav("/")}>Tela principal</button>
+                {/* <button className="button__ranking" onClick={() => nav("/")}>Tela principal</button> */}
             </div>
 
         </>
