@@ -36,7 +36,7 @@ const Scanner = ({ player }) => {
                 </>
             }
 
-            {playerAux.color === "" &&
+            {player.color === "" &&
                 <FirstCards target={targets.first_cards} player={player} />
             }
 
