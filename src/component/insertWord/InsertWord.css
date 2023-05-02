@@ -21,6 +21,7 @@
     border-radius: 15px;
     border: transparent;
     outline: none;
+    border: 2px solid transparent;
 }
 
 .container__principal__insword {
@@ -29,4 +30,28 @@
     height: 100vh;
     background-color: #C0854C;
     z-index: 1000;
+}
+
+.green {
+    width: 40vh;
+    height: 10vh;
+    box-sizing: border-box;
+    padding-left: 8px;
+    background: #FFFFFF;
+    border-radius: 15px;
+    border: transparent;
+    outline: none;
+    border: 2px solid #82E61E;
+}
+
+.red {
+    width: 40vh;
+    height: 10vh;
+    box-sizing: border-box;
+    padding-left: 8px;
+    background: #FFFFFF;
+    border-radius: 15px;
+    border: transparent;
+    outline: none;
+    border: 2px solid red;
 }

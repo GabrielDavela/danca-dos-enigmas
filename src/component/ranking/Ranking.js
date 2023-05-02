@@ -10,7 +10,7 @@ const Ranking = () => {
 
     const nav = useNavigate()
 
-    const { ranking, showRanking } = useContext(GameContext)
+    const { ranking } = useContext(GameContext)
     const [playerData, setPlayerData] = useState(null);
 
     useEffect(() => {
@@ -21,9 +21,9 @@ const Ranking = () => {
             sendResultRanking(updatedPlayerToRanking);
             setPlayerData(updatedPlayerToRanking);
         }
-        if (!showRanking) {
-            waitingPlayer();
-        }
+        // if (!showRanking) {
+        //     waitingPlayer();
+        // }
     }, []);
 
     useEffect(() => {
@@ -35,30 +35,29 @@ const Ranking = () => {
 
     return (
         <>
-            {!showRanking && playerData !== null &&
+            {/* {!showRanking && playerData !== null &&
                 <Feedback playerData={playerData} />
-            }
+            } */}
 
-            {showRanking &&
-                <div className="container__principal__ranking">
-                    <h1 className="title__ranking">RANKING</h1>
-                    {ranking.map((player, index) => (
-                        <>
-                            {player.name !== "" &&
-                                <div className="container__results__ranking" key={index}>
-                                    <ContainerRanking
-                                        placing={index + 1}
-                                        name={player.name}
-                                        points={player.punctuation}
-                                        time={player.time}
-                                    />
-                                </div>
-                            }
-                        </>
-                    ))}
-                    <button className="button__ranking" onClick={() => nav("/rooms")}>Tela principal</button>
-                </div>
-            }
+            <div className="container__principal__ranking">
+                <h1 className="title__ranking">RANKING</h1>
+                {ranking.map((player, index) => (
+                    <>
+                        {player.name !== "" &&
+                            <div className="container__results__ranking" key={index}>
+                                <ContainerRanking
+                                    placing={index + 1}
+                                    name={player.name}
+                                    points={player.punctuation}
+                                    time={player.time}
+                                />
+                            </div>
+                        }
+                    </>
+                ))}
+                <button className="button__ranking" onClick={() => nav("/rooms")}>Tela principal</button>
+            </div>
+
         </>
     )
 }

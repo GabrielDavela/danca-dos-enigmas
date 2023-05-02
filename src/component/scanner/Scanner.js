@@ -37,7 +37,8 @@ const Scanner = ({ player }) => {
             }
 
             {everyoneIsReady &&
-                <FirstCards target={targets.first_cards} player={player} />
+                // <FirstCards target={targets.first_cards} player={player} />
+                <GroupScanners01 target={targets.target_group01} />
             }
 
         </div>

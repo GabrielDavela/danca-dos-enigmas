@@ -39,7 +39,7 @@ const Rooms = () => {
                             !player.room &&
                             Object.keys(rooms).map((key) =>
                                 <div key={`room_${key}`}>
-                                    {rooms[key].name}
+                                    {/* {rooms[key].name} */}
                                     <button className="enter__room" onClick={() => joinRoom(key)}>Entrar na sala <img src={iconEnter} /></button>
                                 </div>
                             )

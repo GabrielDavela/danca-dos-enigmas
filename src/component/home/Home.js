@@ -6,6 +6,7 @@ import Tip from '../tip/Tip';
 import Scanner from "../scanner/Scanner";
 import Menu from "../menu/Menu";
 import Navbar from "../navbar/Navbar"
+import Ranking from "../ranking/Ranking"
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -27,17 +28,19 @@ const Home = () => {
 
     useEffect(() => {
         if ((hit.bool && hit.color === playerAux.color) || timer === "00:00") {
-            hit.bool = false
-
-            let objUser = getUser()
-            objUser.time = timer
-            objUser.punctuation = punctuation
-            if (timer === "00:00") {
-                objUser.punctuation = 0
-            }
-
-            setUser(playerAux.color, objUser)
-            nav("/ranking")
+            setTimeout(() => {
+                hit.bool = false
+                hit.color = ""
+                let objUser = getUser()
+                objUser.time = timer
+                objUser.punctuation = punctuation
+                if (timer === "00:00") {
+                    objUser.punctuation = 0
+                }
+    
+                setUser(playerAux.color, objUser)
+                nav("/ranking")
+            }, 1500)
         }
     })
 
@@ -75,7 +78,7 @@ const Home = () => {
 
     return (
         <div>
-            {!isOpenModal && !hit.bool &&
+            {!isOpenModal &&
                 <>
                     {!everyoneIsReady &&
                         <div>
