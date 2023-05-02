@@ -80,7 +80,7 @@ const Home = () => {
         <div>
             {!isOpenModal &&
                 <>
-                    {everyoneIsReady &&
+                    {!everyoneIsReady &&
                         <div>
                             <Navbar
                                 timer={timer}
@@ -103,7 +103,7 @@ const Home = () => {
                     <Scanner
                         player={playerAux}
                     />
-                    {everyoneIsReady &&
+                    {!everyoneIsReady &&
                         <>
                             <Menu
                                 onScannerClick={() => handleOpenScanner()}

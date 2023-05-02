@@ -39,8 +39,7 @@ const Rooms = () => {
                             !player.room &&
                             Object.keys(rooms).map((key) =>
                                 <div key={`room_${key}`}>
-                                    {/* {rooms[key].name} */}
-                                    <button className="enter__room" onClick={() => joinRoom(key)}>Entrar na sala <img src={iconEnter} /></button>
+                                    <button className="enter__room" onClick={() => joinRoom(key)} >Entrar na sala <img src={iconEnter} /></button>
                                 </div>
                             )
                         }
@@ -49,11 +48,8 @@ const Rooms = () => {
                         player.room && room &&
                         <div>
                             {
-                                rooms[player.room] && rooms[player.room] &&
-                                // Aqui vai ter uma validação para lerem a proposta do jogo, 
-                                // mas ela só vai aparecer quando os 4 jogadores estiverem na sala
+                                rooms[player.room] &&
                                 <div>
-                                    <span>{room.name}</span>
                                     <Button
                                         text={"Sair"}
                                         functionB={leaveRoom} />
