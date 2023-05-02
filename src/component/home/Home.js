@@ -6,7 +6,6 @@ import Tip from '../tip/Tip';
 import Scanner from "../scanner/Scanner";
 import Menu from "../menu/Menu";
 import Navbar from "../navbar/Navbar"
-import Ranking from "../ranking/Ranking"
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -23,8 +22,8 @@ const Home = () => {
     const scanning = document.querySelector(".scanning")
 
     useEffect(() => {
-        if (everyoneIsReady) timerGame(match)
-    }, [timerGame, isOpenModal])
+        timerGame(match)
+    }, [everyoneIsReady])
 
     useEffect(() => {
         if ((hit.bool && hit.color === playerAux.color) || timer === "00:00") {
@@ -37,7 +36,7 @@ const Home = () => {
                 if (timer === "00:00") {
                     objUser.punctuation = 0
                 }
-    
+
                 setUser(playerAux.color, objUser)
                 nav("/ranking")
             }, 1500)
@@ -80,16 +79,16 @@ const Home = () => {
         <div>
             {!isOpenModal &&
                 <>
-                    {everyoneIsReady &&
-                        <div>
-                            <Navbar
-                                timer={timer}
-                                group={playerAux.color}
-                                points={punctuation}
-                                playerColor={playerAux.color}
-                            />
-                        </div>
-                    }
+                    {/* {everyoneIsReady && */}
+                    <div>
+                        <Navbar
+                            timer={timer}
+                            group={playerAux.color}
+                            points={punctuation}
+                            playerColor={playerAux.color}
+                        />
+                    </div>
+                    {/* } */}
 
                     {insertWord &&
                         <InsertWord player={playerAux} />
@@ -103,15 +102,14 @@ const Home = () => {
                     <Scanner
                         player={playerAux}
                     />
-                    {everyoneIsReady &&
-                        <>
-                            <Menu
-                                onScannerClick={() => handleOpenScanner()}
-                                onTipClick={() => handleOpenTip()}
-                                onInsertWordClick={() => handleOpenInsertWord()}
-                            />
-                        </>
-                    }
+                    <>
+                        <Menu
+                            onScannerClick={() => handleOpenScanner()}
+                            onTipClick={() => handleOpenTip()}
+                            onInsertWordClick={() => handleOpenInsertWord()}
+                        />
+                    </>
+
                 </>
             }
 
