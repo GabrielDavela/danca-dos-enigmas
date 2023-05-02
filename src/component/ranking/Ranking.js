@@ -11,23 +11,34 @@ const Ranking = () => {
     const nav = useNavigate()
 
     const { ranking, showRanking } = useContext(GameContext)
-    const [playerData, setPlayerData] = useState({})
+    const [playerData, setPlayerData] = useState(null);
 
     useEffect(() => {
         const player = getUser();
-        setPlayerData(JSON.parse(localStorage.getItem(`${player.color}`)));
-        if (playerData) {
-            const updatedPlayerToRanking = playerData;
+        const storedPlayerData = JSON.parse(localStorage.getItem(`${player.color}`));
+        if (storedPlayerData) {
+            const updatedPlayerToRanking = storedPlayerData;
             sendResultRanking(updatedPlayerToRanking);
+            setPlayerData(updatedPlayerToRanking);
         }
-        waitingPlayer()
+        if (!showRanking) {
+            waitingPlayer();
+        }
     }, []);
+
+    useEffect(() => {
+        if (playerData) {
+            localStorage.setItem(`${playerData.color}`, JSON.stringify(playerData));
+        }
+    }, [playerData]);
+
 
     return (
         <>
-            {!showRanking &&
+            {!showRanking && playerData !== null &&
                 <Feedback playerData={playerData} />
             }
+
             {showRanking &&
                 <div className="container__principal__ranking">
                     <h1 className="title__ranking">RANKING</h1>

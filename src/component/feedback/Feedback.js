@@ -2,14 +2,18 @@
 import "./Feedback.css"
 import cancel from "../../assets/screens/cancel.svg"
 import winner from "../../assets/screens/check_circle.svg"
+import { useEffect } from "react"
 
 const Feedback = ({ playerData }) => {
+    
+    const isLoser = playerData.time === "00:00"
+
     return (
         <div className="container__modal__feedback">
             <div className="modal__feedback">
                 <div className="feedback">
                     {/* Ganhou */}
-                    {playerData.time !== "00:00" &&
+                    {!isLoser &&
                         <>
                             <p>Você acertou!!
                                 <br />Espere para ver sua colocação!</p>
@@ -19,16 +23,11 @@ const Feedback = ({ playerData }) => {
                         </>
                     }
 
-                    {playerData.time === "00:00" &&
+                    {isLoser &&
                         <>
                             {/* Perdeu por tempo */}
                             <p>Seu tempo acabou!
                                 Infelizmente você perdeu.</p>
-
-                            {/* Perdeu por tentativa
-                            {false &&
-                                <p>Sua quantidade de tentativas foi excedida!</p>
-                            } */}
 
                             <div className="container__image__feedback">
                                 <img src={cancel} />

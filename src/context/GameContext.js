@@ -202,6 +202,7 @@ const GameProvider = (props) => {
 
         socket.on("ShowRanking", (bool) => {
             dispatch({ type: 'SHOW_RANKING', payload: bool })
+            
         })
 
         // Vai fazer com que autoConnect se transforme em true

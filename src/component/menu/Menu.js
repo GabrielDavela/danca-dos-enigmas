@@ -64,12 +64,6 @@ const Menu = ({ onScannerClick, onTipClick, onInsertWordClick }) => {
                 onClick={() => componentClicked(2)}>
                 <img src={scanner.img} />
             </div>
-
-            <div className="container__clicked__menu"
-                style={{ backgroundColor: chat.background }}
-                onClick={() => componentClicked(3)}>
-                <img src={chat.img} />
-            </div>
         </div>
     )
 }

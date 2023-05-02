@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { GameContext, getUser, sendMessage, setUser, timerGame } from "../../context/GameContext";
-import Chat from "../chat/Chat";
+import { GameContext, getUser, setUser, timerGame } from "../../context/GameContext";
 import ChooseTeam from "../chooseteam/ChooseTeam";
 import InsertWord from '../insertWord/InsertWord';
 import Tip from '../tip/Tip';
@@ -11,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 const Home = () => {
 
-    const { match, messages, everyoneIsReady, timer, punctuation, hit, showTip } = useContext(GameContext)
+    const { match, everyoneIsReady, timer, punctuation, hit, showTip } = useContext(GameContext)
     const [tip, setTip] = useState(false)
     const [insertWord, setInsertWord] = useState(false)
     const nav = useNavigate()
@@ -29,13 +28,13 @@ const Home = () => {
     useEffect(() => {
         if ((hit.bool && hit.color === playerAux.color) || timer === "00:00") {
             hit.bool = false
-            
+
             let objUser = getUser()
             objUser.time = timer
-            if(timer === "00:00") {
+            objUser.punctuation = punctuation
+            if (timer === "00:00") {
                 objUser.punctuation = 0
             }
-            objUser.punctuation = punctuation
 
             setUser(playerAux.color, objUser)
             nav("/ranking")
@@ -93,12 +92,14 @@ const Home = () => {
                         <InsertWord player={playerAux} />
                     }
                     {tip &&
-                        <Tip player={playerAux} showTip={showTip} timer={timer} />
+                        <Tip
+                            player={playerAux}
+                            showTip={showTip}
+                            timer={timer} />
                     }
-                    <Scanner player={playerAux} />
-                    {/* {
-                        <Chat />
-                    } */}
+                    <Scanner
+                        player={playerAux}
+                    />
                     {!everyoneIsReady &&
                         <>
                             <Menu
