@@ -55,7 +55,7 @@ const Ranking = () => {
                         }
                     </>
                 ))}
-                <button className="button__ranking" onClick={() => nav("/rooms")}>Tela principal</button>
+                <button className="button__ranking" onClick={() => nav("/")}>Tela principal</button>
             </div>
 
         </>
