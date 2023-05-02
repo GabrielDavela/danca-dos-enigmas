@@ -16,7 +16,7 @@ const Scanner = ({ player }) => {
     const { everyoneIsReady } = useContext(GameContext)
 
     useEffect(() => {
-        readyPlayer()
+        readyPlayer(false)
     }, [])
 
     return (
