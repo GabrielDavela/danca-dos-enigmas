@@ -79,16 +79,16 @@ const Home = () => {
         <div>
             {!isOpenModal &&
                 <>
-                    {/* {everyoneIsReady && */}
-                    <div>
-                        <Navbar
-                            timer={timer}
-                            group={playerAux.color}
-                            points={punctuation}
-                            playerColor={playerAux.color}
-                        />
-                    </div>
-                    {/* } */}
+                    {everyoneIsReady &&
+                        <div>
+                            <Navbar
+                                timer={timer}
+                                group={playerAux.color}
+                                points={punctuation}
+                                playerColor={playerAux.color}
+                            />
+                        </div>
+                    }
 
                     {insertWord &&
                         <InsertWord player={playerAux} />
@@ -102,13 +102,15 @@ const Home = () => {
                     <Scanner
                         player={playerAux}
                     />
-                    <>
-                        <Menu
-                            onScannerClick={() => handleOpenScanner()}
-                            onTipClick={() => handleOpenTip()}
-                            onInsertWordClick={() => handleOpenInsertWord()}
-                        />
-                    </>
+                    {everyoneIsReady &&
+                        <>
+                            <Menu
+                                onScannerClick={() => handleOpenScanner()}
+                                onTipClick={() => handleOpenTip()}
+                                onInsertWordClick={() => handleOpenInsertWord()}
+                            />
+                        </>
+                    }
 
                 </>
             }
