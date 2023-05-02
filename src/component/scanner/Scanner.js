@@ -17,7 +17,7 @@ const Scanner = ({ player }) => {
 
     useEffect(() => {
         readyPlayer(false)
-    }, [])
+    })
 
     return (
         <div className='container__scanner'>
