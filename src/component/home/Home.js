@@ -25,9 +25,9 @@ const Home = () => {
         if(everyoneIsReady) timerGame(match)
     }, [everyoneIsReady])
 
-    useEffect(() => {
-        readyPlayer(false)
-    })
+    // useEffect(() => {
+    //     readyPlayer(false)
+    // })
 
     useEffect(() => {
         if ((hit.bool && hit.color === playerAux.color) || timer === "00:00") {
