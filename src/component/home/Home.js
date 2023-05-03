@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { GameContext, getUser, setUser, timerGame } from "../../context/GameContext";
+import { GameContext, getUser, readyPlayer, setUser, timerGame } from "../../context/GameContext";
 import ChooseTeam from "../chooseteam/ChooseTeam";
 import InsertWord from '../insertWord/InsertWord';
 import Tip from '../tip/Tip';
