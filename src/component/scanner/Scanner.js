@@ -29,10 +29,7 @@ const Scanner = ({ player, reload, everyoneIsReady }) => {
                     }
 
                     {player.color.toLowerCase() === "amarelo" &&
-                        <>
-                            {console.log("Entrei no amarelo")}
-                            <GroupScanners03 target={targets.target_group03} />
-                        </>
+                        <GroupScanners03 target={targets.target_group03} />
                     }
 
                     {player.color.toLowerCase() === "verde" &&

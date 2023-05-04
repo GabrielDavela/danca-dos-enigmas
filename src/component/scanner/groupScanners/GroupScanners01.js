@@ -3,7 +3,6 @@ import { group01 } from '../../../assets/group-01/group01'
 
 const GroupScanners01 = ({ target }) => {
 
-    // document.addEventListener("targetFound", () => alert("Encontrei algo do vermelho"));
 
     return (
         <a-scene
