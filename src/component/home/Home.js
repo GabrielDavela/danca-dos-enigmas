@@ -10,9 +10,10 @@ import { useNavigate } from "react-router-dom";
 
 const Home = () => {
 
-    const { match, everyoneIsReady, timer, punctuation, hit, showTip, reload } = useContext(GameContext)
+    const { match, everyoneIsReady, timer, punctuation, hit, showTip } = useContext(GameContext)
     const [tip, setTip] = useState(false)
     const [insertWord, setInsertWord] = useState(false)
+    const [reloading, setReloading] = useState(false)
     const nav = useNavigate()
 
     let playerAux = getUser()
@@ -22,7 +23,7 @@ const Home = () => {
     const scanning = document.querySelector(".scanning")
 
     useEffect(() => {
-        if(reload) {
+        if(reloading) {
             console.log("Entrei para dar reload")
             window.location.reload()
         }
@@ -83,6 +84,10 @@ const Home = () => {
         }
     };
 
+    const reload = () => {
+        setReloading(true)
+    }
+
     return (
         <div>
             {!isOpenModal &&
@@ -109,6 +114,7 @@ const Home = () => {
                     }
                     <Scanner
                         player={playerAux}
+                        reload={() => setReloading()}
                     />
                     {everyoneIsReady &&
                         <>

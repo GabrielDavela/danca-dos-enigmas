@@ -3,8 +3,8 @@ import { useEffect, useContext, useState } from "react";
 import { firstcards } from "../../../assets/first-cards/firstCards";
 import { GameContext, readyPlayer } from "../../../context/GameContext";
 
-const FirstCard = ({ target, player }) => {
-    const { readyplayers, reload } = useContext(GameContext);
+const FirstCard = ({ target, player, reload }) => {
+    const { readyplayers } = useContext(GameContext);
 
     const [disabled, setDisabled] = useState(false);
     const [showButton, setShowButton] = useState(false);
@@ -25,7 +25,7 @@ const FirstCard = ({ target, player }) => {
     const onReady = () => {
         setDisabled(true);
         readyPlayer(true);
-        reload = true
+        reload()
     };
 
     return (

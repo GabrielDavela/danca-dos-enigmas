@@ -120,8 +120,7 @@ const initialState = {
     punctuation: 2000,
     ranking: [],
     showTip: false,
-    showRanking: false,
-    reload: false
+    showRanking: false
 }
 
 const GameProvider = (props) => {
