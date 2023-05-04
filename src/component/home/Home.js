@@ -22,7 +22,8 @@ const Home = () => {
     const scanning = document.querySelector(".scanning")
 
     useEffect(() => {
-        if(everyoneIsReady && !isOpenModal && reload) {
+        if(reload) {
+            console.log("Entrei para dar reload")
             window.location.reload()
         }
         if(everyoneIsReady) timerGame(match)
