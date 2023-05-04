@@ -15,6 +15,8 @@ const Scanner = ({ player, reload }) => {
 
     const { everyoneIsReady } = useContext(GameContext)
 
+    console.log(everyoneIsReady)
+
     return (
         <div className='container__scanner'>
             {everyoneIsReady &&

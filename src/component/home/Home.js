@@ -23,11 +23,11 @@ const Home = () => {
     const scanning = document.querySelector(".scanning")
 
     useEffect(() => {
+        if(everyoneIsReady) timerGame(match)
         if(reloading) {
             console.log("Entrei para dar reload")
             window.location.reload()
         }
-        if(everyoneIsReady) timerGame(match)
     }, [everyoneIsReady])
 
     useEffect(() => {
