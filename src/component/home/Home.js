@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 const Home = () => {
 
-    const { match, everyoneIsReady, timer, punctuation, hit, showTip } = useContext(GameContext)
+    const { match, everyoneIsReady, timer, punctuation, hit, showTip, reload } = useContext(GameContext)
     const [tip, setTip] = useState(false)
     const [insertWord, setInsertWord] = useState(false)
     const nav = useNavigate()
@@ -22,6 +22,9 @@ const Home = () => {
     const scanning = document.querySelector(".scanning")
 
     useEffect(() => {
+        if(everyoneIsReady && !isOpenModal && reload) {
+            window.location.reload()
+        }
         if(everyoneIsReady) timerGame(match)
     }, [everyoneIsReady])
 

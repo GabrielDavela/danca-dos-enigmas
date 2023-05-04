@@ -4,7 +4,7 @@ import { firstcards } from "../../../assets/first-cards/firstCards";
 import { GameContext, readyPlayer } from "../../../context/GameContext";
 
 const FirstCard = ({ target, player }) => {
-    const { readyplayers } = useContext(GameContext);
+    const { readyplayers, reload } = useContext(GameContext);
 
     const [disabled, setDisabled] = useState(false);
     const [showButton, setShowButton] = useState(false);
@@ -25,6 +25,7 @@ const FirstCard = ({ target, player }) => {
     const onReady = () => {
         setDisabled(true);
         readyPlayer(true);
+        reload = true
     };
 
     return (

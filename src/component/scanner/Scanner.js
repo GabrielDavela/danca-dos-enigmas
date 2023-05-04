@@ -15,10 +15,6 @@ const Scanner = ({ player }) => {
 
     const { everyoneIsReady } = useContext(GameContext)
 
-    useEffect(() => {
-        readyPlayer(false)
-    })
-
     return (
         <div className='container__scanner'>
             {everyoneIsReady &&
@@ -42,7 +38,9 @@ const Scanner = ({ player }) => {
             }
 
             {!everyoneIsReady &&
-                <FirstCards target={targets.first_cards} player={player} />
+                <>
+                    <FirstCards target={targets.first_cards} player={player} />
+                </>
             }
 
         </div>
