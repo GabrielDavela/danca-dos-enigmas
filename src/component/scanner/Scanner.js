@@ -15,7 +15,6 @@ const Scanner = ({ player, reload, everyoneIsReady }) => {
 
     // const { everyoneIsReady } = useContext(GameContext)
 
-    console.log(player)
 
     return (
         <div className='container__scanner'>
@@ -30,7 +29,10 @@ const Scanner = ({ player, reload, everyoneIsReady }) => {
                     }
 
                     {player.color.toLowerCase() === "amarelo" &&
-                        <GroupScanners03 target={targets.target_group03} />
+                        <>
+                            {console.log("Entrei no amarelo")}
+                            <GroupScanners03 target={targets.target_group03} />
+                        </>
                     }
 
                     {player.color.toLowerCase() === "verde" &&
