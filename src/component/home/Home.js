@@ -114,7 +114,7 @@ const Home = () => {
                     }
                     <Scanner
                         player={playerAux}
-                        reload={() => setReloading()}
+                        reload={() => reload()}
                     />
                     {everyoneIsReady &&
                         <>
