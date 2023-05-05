@@ -82,7 +82,7 @@ const Home = () => {
             loader.style.display = "none"
             scanning.style.display = "none"
         }
-    };
+    }
 
     const reload = () => {
         setReloading(true)
@@ -126,7 +126,6 @@ const Home = () => {
                             />
                         </>
                     }
-
                 </>
             }
 
