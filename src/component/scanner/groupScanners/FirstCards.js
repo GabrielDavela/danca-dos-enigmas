@@ -28,19 +28,19 @@ const FirstCard = ({ target, player, reload }) => {
         reload()
     };
 
-    const sceneRef = useRef(null);
+    // const sceneRef = useRef(null);
 
-    useEffect(() => {
-        const sceneEl = sceneRef.current;
-        return () => {
-            sceneEl.innerHTML = '';
-        };
-    }, []);
+    // useEffect(() => {
+    //     const sceneEl = sceneRef.current;
+    //     return () => {
+    //         sceneEl.innerHTML = '';
+    //     };
+    // }, []);
 
     return (
         <>
             <a-scene
-                ref={sceneRef}
+                // ref={sceneRef}
                 mindar-image={`imageTargetSrc: ${target};`}
                 color-space="sRGB"
                 renderer="colorManagement: false, physicallyCorrectLights"

@@ -29,6 +29,7 @@ const Home = () => {
     useEffect(() => {
         if(everyoneIsReady) timerGame(match)
         if(reloading) {
+            console.log("Entrei para dar reload")
             window.location.reload()
         }
     }, [everyoneIsReady])
