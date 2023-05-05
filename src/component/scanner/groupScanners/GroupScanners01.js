@@ -1,5 +1,5 @@
 
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { group01 } from '../../../assets/group-01/group01'
 
 const GroupScanners01 = ({ target }) => {
