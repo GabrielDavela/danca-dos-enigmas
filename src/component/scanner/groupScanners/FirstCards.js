@@ -1,5 +1,5 @@
 
-import { useEffect, useContext, useState } from "react";
+import { useEffect, useContext, useState, useRef } from "react";
 import { firstcards } from "../../../assets/first-cards/firstCards";
 import { GameContext, readyPlayer } from "../../../context/GameContext";
 
@@ -28,9 +28,19 @@ const FirstCard = ({ target, player, reload }) => {
         reload()
     };
 
+    const sceneRef = useRef(null);
+
+    useEffect(() => {
+        const sceneEl = sceneRef.current;
+        return () => {
+            sceneEl.innerHTML = '';
+        };
+    }, []);
+
     return (
         <>
             <a-scene
+                ref={sceneRef}
                 mindar-image={`imageTargetSrc: ${target};`}
                 color-space="sRGB"
                 renderer="colorManagement: false, physicallyCorrectLights"
@@ -96,9 +106,9 @@ const FirstCard = ({ target, player, reload }) => {
                 )}
                 {true &&
                     <button className='button__scanner'
-                        onClick={onReady} 
+                        onClick={onReady}
                         disabled={disabled}
-                        >Pronto<span>{readyplayers}/4</span>
+                    >Pronto<span>{readyplayers}/4</span>
                     </button>
                 }
             </a-scene>

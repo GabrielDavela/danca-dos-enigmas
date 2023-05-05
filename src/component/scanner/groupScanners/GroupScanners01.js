@@ -1,18 +1,27 @@
 
+import { useRef } from 'react';
 import { group01 } from '../../../assets/group-01/group01'
 
 const GroupScanners01 = ({ target }) => {
 
+    const sceneRef = useRef(null);
+
+    useEffect(() => {
+        const sceneEl = sceneRef.current;
+        return () => {
+            sceneEl.innerHTML = '';
+        };
+    }, []);
 
     return (
         <a-scene
+            ref={sceneRef}
             mindar-image={`imageTargetSrc: ${target};`}
             color-space="sRGB"
             renderer="colorManagement: true, physicallyCorrectLights"
             vr-mode-ui="enabled: false"
             device-orientation-permission-ui="enabled: false"
             id="target-cards-gp01"
-            embedded="true"
         >
             <a-assets>
                 <img id='group_01_document_1' src={group01.group_01_document_1} />
