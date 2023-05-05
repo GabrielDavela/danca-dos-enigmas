@@ -62,6 +62,7 @@ const GroupScanners03 = ({ target }) => {
         interaction="enabled"
         device-orientation-permission-ui="enabled: false"
         id="target-cards-gp03"
+        embedded="true"
       >
         <a-assets>
           {audios.map((audio, index) => (

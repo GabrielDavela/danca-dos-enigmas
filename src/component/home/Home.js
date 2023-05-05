@@ -23,16 +23,15 @@ const Home = () => {
     const scanning = document.querySelector(".scanning")
 
     useEffect(() => {
+        readyPlayer(false)
+    })
+
+    useEffect(() => {
         if(everyoneIsReady) timerGame(match)
         if(reloading) {
-            console.log("Entrei para dar reload")
             window.location.reload()
         }
     }, [everyoneIsReady])
-
-    useEffect(() => {
-        readyPlayer(false)
-    })
 
     useEffect(() => {
         if ((hit.bool && hit.color === playerAux.color) || timer === "00:00") {
