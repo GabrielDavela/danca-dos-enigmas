@@ -28,10 +28,12 @@ const Home = () => {
 
     useEffect(() => {
         if(everyoneIsReady) timerGame(match)
-        // if(reloading) {
-        //     console.log("Entrei para dar reload")
-        //     window.location.reload()
-        // }
+        setTimeout(() => {
+            if(reloading) {
+                console.log("Entrei para dar reload")
+                window.location.reload()
+            }
+        }, 500)
     }, [everyoneIsReady])
 
     useEffect(() => {
