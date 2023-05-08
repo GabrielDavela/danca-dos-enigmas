@@ -27,12 +27,12 @@ const Home = () => {
     })
 
     useEffect(() => {
-        if(everyoneIsReady) timerGame(match)
-        setTimeout(() => {
-            if(reloading) {
-                window.location.reload(true)
-            }
-        }, 500)
+        // if(everyoneIsReady) timerGame(match)
+        // setTimeout(() => {
+        //     if(reloading) {
+        //         window.location.reload(true)
+        //     }
+        // }, 500)
     }, [everyoneIsReady])
 
     useEffect(() => {

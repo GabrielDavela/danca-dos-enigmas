@@ -1,21 +1,10 @@
 
-import { useEffect, useRef } from 'react';
 import { group02 } from '../../../assets/group-02/group02'
 
 const GroupScanners02 = ({ target }) => {
 
-    const sceneRef = useRef(null);
-
-    useEffect(() => {
-        const sceneEl = sceneRef.current;
-        return () => {
-            sceneEl.innerHTML = '';
-        };
-    }, []);
-
     return (
         <a-scene
-            ref={sceneRef}
             mindar-image={`imageTargetSrc: ${target};`}
             color-space="sRGB"
             renderer="colorManagement: true, physicallyCorrectLights"

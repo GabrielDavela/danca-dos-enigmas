@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { group03 } from '../../../assets/group-03/group03'
 
 const GroupScanners03 = ({ target }) => {
@@ -52,19 +52,9 @@ const GroupScanners03 = ({ target }) => {
     setAudioPlaying(audio);
   };
 
-  const sceneRef = useRef(null);
-
-  useEffect(() => {
-    const sceneEl = sceneRef.current;
-    return () => {
-      sceneEl.innerHTML = '';
-    };
-  }, []);
-
   return (
     <>
       <a-scene
-        ref={sceneRef}
         mindar-image={`imageTargetSrc: ${target};`}
         color-space="sRGB"
         renderer="colorManagement: true, physicallyCorrectLights"
