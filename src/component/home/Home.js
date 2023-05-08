@@ -30,7 +30,6 @@ const Home = () => {
         if(everyoneIsReady) timerGame(match)
         setTimeout(() => {
             if(reloading) {
-                console.log("Entrei para dar reload")
                 window.location.reload(true)
             }
         }, 500)
