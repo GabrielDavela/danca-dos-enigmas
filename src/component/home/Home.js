@@ -31,7 +31,7 @@ const Home = () => {
         setTimeout(() => {
             if(reloading) {
                 console.log("Entrei para dar reload")
-                window.location.reload()
+                window.location.reload(true)
             }
         }, 500)
     }, [everyoneIsReady])
