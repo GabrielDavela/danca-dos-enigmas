@@ -7,6 +7,12 @@
     justify-content: center;
 }
 
+.image__firstCards {
+    height: 75vh;
+    width: min(25rem, 90%);
+    margin-bottom: 3.5rem;
+}
+
 .button__scanner{
     width: 8rem;
     height: 3rem;
