@@ -13,7 +13,6 @@ const Home = () => {
     const { match, everyoneIsReady, timer, punctuation, hit, showTip } = useContext(GameContext)
     const [tip, setTip] = useState(false)
     const [insertWord, setInsertWord] = useState(false)
-    const [reloading, setReloading] = useState(false)
     const nav = useNavigate()
 
     let playerAux = getUser()
@@ -28,11 +27,6 @@ const Home = () => {
 
     useEffect(() => {
         if(everyoneIsReady) timerGame(match)
-        setTimeout(() => {
-            if(reloading) {
-                window.location.reload(true)
-            }
-        }, 500)
     }, [everyoneIsReady])
 
     useEffect(() => {
@@ -85,10 +79,6 @@ const Home = () => {
         }
     }
 
-    const reload = () => {
-        setReloading(true)
-    }
-
     return (
         <div>
             {!isOpenModal &&
@@ -117,7 +107,6 @@ const Home = () => {
 
                     <Scanner
                         player={playerAux}
-                        reload={() => reload()}
                         everyoneIsReady={everyoneIsReady}
                     />
                     

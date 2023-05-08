@@ -1,14 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Ranking.css";
 import ContainerRanking from "./containerRanking/ContainerRanking";
-import Feedback from "../feedback/Feedback";
-import { getUser, sendResultRanking, waitingPlayer } from "../../context/GameContext";
+import { getUser, sendResultRanking } from "../../context/GameContext";
 import { GameContext } from "../../context/GameContext";
-import { useNavigate } from "react-router-dom";
 
 const Ranking = () => {
-
-    const nav = useNavigate()
 
     const { ranking } = useContext(GameContext)
     const [playerData, setPlayerData] = useState(null);

@@ -10,7 +10,7 @@ import GroupScanners03 from './groupScanners/GroupScanners03'
 import GroupScanners04 from './groupScanners/GroupScanners04'
 import FirstCards from './groupScanners/FirstCards'
 
-const Scanner = ({ player, reload, everyoneIsReady }) => {
+const Scanner = ({ player, everyoneIsReady }) => {
 
     return (
         <div className='container__scanner'>
@@ -36,7 +36,7 @@ const Scanner = ({ player, reload, everyoneIsReady }) => {
 
             {!everyoneIsReady &&
                 <>
-                    <FirstCards target={targets.first_cards} player={player} reload={() => reload()} />
+                    <FirstCards target={targets.first_cards} player={player} />
                 </>
             }
 
