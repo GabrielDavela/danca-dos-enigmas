@@ -27,12 +27,12 @@ const Home = () => {
     })
 
     useEffect(() => {
-        // if(everyoneIsReady) timerGame(match)
-        // setTimeout(() => {
-        //     if(reloading) {
-        //         window.location.reload(true)
-        //     }
-        // }, 500)
+        if(everyoneIsReady) timerGame(match)
+        setTimeout(() => {
+            if(reloading) {
+                window.location.reload(true)
+            }
+        }, 500)
     }, [everyoneIsReady])
 
     useEffect(() => {
@@ -107,17 +107,20 @@ const Home = () => {
                     {insertWord &&
                         <InsertWord player={playerAux} />
                     }
+
                     {tip &&
                         <Tip
                             player={playerAux}
                             showTip={showTip}
                             timer={timer} />
                     }
+
                     <Scanner
                         player={playerAux}
                         reload={() => reload()}
                         everyoneIsReady={everyoneIsReady}
                     />
+                    
                     {everyoneIsReady &&
                         <>
                             <Menu
