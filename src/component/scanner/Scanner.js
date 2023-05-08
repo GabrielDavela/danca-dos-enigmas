@@ -1,6 +1,4 @@
 import React from 'react'
-import { useContext } from 'react'
-import { GameContext, readyPlayer } from '../../context/GameContext'
 import "./Scanner.css"
 
 import { targets } from '../../assets/target'
