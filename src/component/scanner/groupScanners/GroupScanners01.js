@@ -32,7 +32,7 @@ const GroupScanners01 = ({ target }) => {
                 <img id='alfabeto' src={group01.alfabeto} />
             </a-assets>
 
-            <a-camera position="0 0 0" look-controls="enabled: false" fov={80}></a-camera>
+            <a-camera position="0 0 0" look-controls="enabled: false" fov="80"></a-camera>
 
             <a-entity mindar-image-target="targetIndex: 0">
                 <a-plane src="#group_01_document_1" position="0 0 0" height="2.3" width="1.6" rotation="0 0 0"></a-plane>

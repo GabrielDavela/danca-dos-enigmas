@@ -45,7 +45,7 @@ const FirstCard = ({ target, player, reload }) => {
                     <img id="first-cards-group_04" src={firstcards.carta_grupo04} />
                 </a-assets>
 
-                <a-camera position="0 0 0" look-controls="enabled: false" fov={80}></a-camera>
+                <a-camera position="0 0 0" look-controls="enabled: false" fov="80"></a-camera>
 
                 {player.color.toLowerCase() === "vermelho" && (
                     <a-entity mindar-image-target="targetIndex: 0">
