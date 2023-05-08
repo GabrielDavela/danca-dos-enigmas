@@ -1,26 +1,12 @@
 
-import { useEffect, useContext, useState, useRef } from "react";
+import { useContext, useState } from "react";
 import { firstcards } from "../../../assets/first-cards/firstCards";
 import { GameContext, readyPlayer } from "../../../context/GameContext";
 
-const FirstCard = ({ target, player }) => {
+const FirstCard = ({ player }) => {
     const { readyplayers } = useContext(GameContext);
 
     const [disabled, setDisabled] = useState(false);
-    const [showButton, setShowButton] = useState(false);
-
-    // useEffect(() => {
-    //     const targetFoundHandler = () => setShowButton(true);
-    //     const targetLostHandler = () => setShowButton(false);
-
-    //     document.addEventListener("targetFound", targetFoundHandler);
-    //     document.addEventListener("targetLost", targetLostHandler);
-
-    //     return () => {
-    //         document.removeEventListener("targetFound", targetFoundHandler);
-    //         document.removeEventListener("targetLost", targetLostHandler);
-    //     };
-    // }, []);
 
     const onReady = () => {
         setDisabled(true);

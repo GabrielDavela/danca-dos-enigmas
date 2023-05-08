@@ -1,5 +1,4 @@
 
-import { useEffect } from "react"
 import "./ChooseTeam.css"
 
 const ChooseTeam = ({ player, handleCloseModal }) => {
@@ -9,14 +8,7 @@ const ChooseTeam = ({ player, handleCloseModal }) => {
         localStorage.setItem("user", JSON.stringify(player))
         handleCloseModal()
     }
-
-    // useEffect(() => {
-    //     console.log(player)
-    //     if (player.color !== "") {
-    //         handleCloseModal()
-    //     }
-    // }, [])
-
+    
     return (
         <>
             <div className="container__modal-chooseteam">
