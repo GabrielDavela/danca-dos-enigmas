@@ -11,7 +11,6 @@ const GroupScanners04 = ({ target }) => {
             vr-mode-ui="enabled: false"
             device-orientation-permission-ui="enabled: false"
             id="target-cards-gp03"
-            embedded="true"
         >
             <a-assets>
                 <img id='group_04_document_1' src={group04.group_04_document_1} />
